@@ -1,0 +1,90 @@
+{
+    "key": "group_erh_testimonial",
+    "title": "Testimonial Details",
+    "fields": [
+        {
+            "key": "field_erh_testimonial_role",
+            "label": "Role",
+            "name": "role",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "e.g. \"Homeowner\".",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "33", "class": "", "id": "" },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "Homeowner",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_erh_testimonial_rating",
+            "label": "Rating",
+            "name": "rating",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "Out of 5.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "33", "class": "", "id": "" },
+            "default_value": 5,
+            "min": 1,
+            "max": 5,
+            "step": 1,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_erh_testimonial_highlight",
+            "label": "Highlighted card",
+            "name": "highlight",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Styles this card with a solid navy background.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "34", "class": "", "id": "" },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Yes",
+            "ui_off_text": "No"
+        },
+        {
+            "key": "field_erh_testimonial_quote",
+            "label": "Quote",
+            "name": "quote",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 3,
+            "placeholder": "",
+            "new_lines": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "testimonial"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Role, quote, rating and highlight styling for a client testimonial.",
+    "show_in_rest": 0
+}

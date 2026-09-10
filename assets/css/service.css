@@ -1,0 +1,516 @@
+/**
+ * Elite Remodel Hub - Service detail page (single-service.php)
+ * Hero, Overview + sidebar, What's Included, Our Process, Gallery,
+ * Related services.
+ *
+ * The Related Services cards reuse .erh-service-card and the Get Started
+ * CTA reuses .erh-cta, both from home.css, so neither is restyled here.
+ */
+
+/* ==========================================================================
+   1. Hero
+   ========================================================================== */
+
+.erh-service-hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(3.5rem, 2rem + 6vw, 7rem) clamp(2.5rem, 1.5rem + 3vw, 4rem);
+  color: var(--erh-white);
+}
+
+.erh-service-hero__bg {
+  position: absolute;
+  inset: 0;
+  background-position: center 45%;
+  background-size: cover;
+}
+
+.erh-service-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, var(--erh-navy-darker) 0%, var(--erh-navy) 60%, var(--erh-navy-darker) 100%);
+  opacity: 0.78;
+}
+
+.erh-service-hero__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.erh-service-hero__crumbs {
+  margin-bottom: var(--erh-space-6);
+  font-size: var(--erh-fs-xs);
+  color: var(--erh-on-dark-40);
+}
+
+.erh-service-hero__crumbs a {
+  color: var(--erh-on-dark-70);
+}
+
+.erh-service-hero__crumbs a:hover {
+  color: var(--erh-gold);
+}
+
+.erh-service-hero__crumbs span[aria-hidden] {
+  margin-inline: var(--erh-space-2);
+}
+
+.erh-service-hero__crumbs span[aria-current] {
+  color: var(--erh-gold);
+}
+
+.erh-service-hero__title {
+  max-width: 780px;
+  color: var(--erh-white);
+  font-size: clamp(2rem, 1.2rem + 3.4vw, 3.75rem);
+  margin-bottom: var(--erh-space-4);
+}
+
+.erh-service-hero__text {
+  max-width: 620px;
+  margin: 0 0 var(--erh-space-8);
+  color: var(--erh-on-dark-70);
+  font-size: var(--erh-fs-lead);
+}
+
+.erh-service-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--erh-space-4);
+}
+
+.erh-service-hero__actions .erh-btn--outline svg {
+  margin-right: var(--erh-space-2);
+}
+
+/* ==========================================================================
+   2. Overview + sidebar
+   ========================================================================== */
+
+.erh-service-overview__grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: clamp(2rem, 1rem + 4vw, 4.5rem);
+  align-items: start;
+}
+
+.erh-service-sidebar {
+  position: sticky;
+  top: calc(var(--erh-header-height) + var(--erh-space-6));
+  display: flex;
+  flex-direction: column;
+  gap: var(--erh-space-6);
+}
+
+.erh-service-facts {
+  padding: var(--erh-space-6);
+  border-radius: var(--erh-radius-lg);
+  background: var(--erh-section-alt-bg);
+}
+
+.erh-service-facts__title {
+  font-size: 1.125rem;
+  margin-bottom: var(--erh-space-5);
+}
+
+.erh-service-facts__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--erh-space-4);
+}
+
+.erh-service-facts__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--erh-space-3);
+}
+
+.erh-service-facts__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--erh-radius-circle);
+  background: var(--erh-gold-10);
+  color: var(--erh-gold-dark);
+}
+
+.erh-service-facts__label {
+  display: block;
+  color: var(--erh-grey-500);
+  font-size: var(--erh-fs-xs);
+}
+
+.erh-service-facts__value {
+  display: block;
+  color: var(--erh-ink);
+  font-weight: var(--erh-fw-semibold);
+}
+
+.erh-service-sidebar-cta {
+  padding: var(--erh-space-6);
+  border-radius: var(--erh-radius-lg);
+  background: var(--erh-navy);
+  color: var(--erh-white);
+}
+
+.erh-service-sidebar-cta__title {
+  color: var(--erh-white);
+  font-size: 1.125rem;
+  margin-bottom: var(--erh-space-2);
+}
+
+.erh-service-sidebar-cta__text {
+  margin: 0 0 var(--erh-space-5);
+  color: var(--erh-on-dark-70);
+  font-size: var(--erh-fs-sm);
+}
+
+.erh-service-sidebar-cta .erh-btn {
+  margin-bottom: var(--erh-space-4);
+  background-color: var(--erh-gold);
+}
+
+.erh-service-sidebar-cta__link {
+  display: flex;
+  align-items: center;
+  gap: var(--erh-space-2);
+  margin-top: var(--erh-space-2);
+  color: var(--erh-on-dark-70);
+  font-size: var(--erh-fs-sm);
+}
+
+.erh-service-sidebar-cta__link:hover {
+  color: var(--erh-gold);
+}
+
+@media (max-width: 900px) {
+  .erh-service-overview__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .erh-service-sidebar {
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .erh-service-facts,
+  .erh-service-sidebar-cta {
+    flex: 1 1 280px;
+  }
+}
+
+@media (max-width: 560px) {
+  .erh-service-sidebar {
+    flex-direction: column;
+  }
+}
+
+/* ==========================================================================
+   3. What's Included
+   ========================================================================== */
+
+.erh-service-features {
+  background: var(--erh-section-alt-bg);
+}
+
+.erh-service-features__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--erh-space-5);
+}
+
+.erh-service-feature-card {
+  padding: var(--erh-space-6);
+  border-radius: var(--erh-radius-md);
+  background: var(--erh-white);
+}
+
+.erh-service-feature-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: var(--erh-space-4);
+  border-radius: var(--erh-radius-circle);
+  background: var(--erh-gold-10);
+  color: var(--erh-gold-dark);
+}
+
+.erh-service-feature-card__title {
+  font-size: 1.125rem;
+  margin-bottom: var(--erh-space-2);
+  color: var(--erh-ink);
+}
+
+.erh-service-feature-card__text {
+  margin: 0;
+  color: var(--erh-grey-500);
+  font-size: var(--erh-fs-sm);
+  line-height: var(--erh-lh-snug);
+}
+
+@media (max-width: 900px) {
+  .erh-service-features__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .erh-service-features__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   4. Our Process
+   ========================================================================== */
+
+.erh-service-process__list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--erh-space-6);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.erh-service-process-step {
+  position: relative;
+  padding-top: var(--erh-space-6);
+  border-top: var(--erh-border-accent);
+}
+
+.erh-service-process-step__number {
+  display: block;
+  margin-bottom: var(--erh-space-3);
+  color: var(--erh-gold);
+  font-size: 1.75rem;
+  font-weight: var(--erh-fw-bold);
+  line-height: 1;
+}
+
+.erh-service-process-step__title {
+  font-size: 1.125rem;
+  margin-bottom: var(--erh-space-2);
+}
+
+.erh-service-process-step__text {
+  margin: 0;
+  color: var(--erh-grey-500);
+  font-size: var(--erh-fs-sm);
+  line-height: var(--erh-lh-snug);
+}
+
+@media (max-width: 900px) {
+  .erh-service-process__list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--erh-space-8) var(--erh-space-6);
+  }
+}
+
+@media (max-width: 560px) {
+  .erh-service-process__list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   5. Project gallery
+   ========================================================================== */
+
+.erh-service-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 200px;
+  gap: var(--erh-space-4);
+}
+
+.erh-service-gallery__item {
+  border-radius: var(--erh-radius-md);
+  overflow: hidden;
+}
+
+.erh-service-gallery__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--erh-transition-slow);
+}
+
+.erh-service-gallery__item:hover img {
+  transform: scale(1.06);
+}
+
+.erh-service-gallery__item:first-child {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+@media (max-width: 900px) {
+  .erh-service-gallery__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .erh-service-gallery__item:first-child {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+}
+
+@media (max-width: 560px) {
+  .erh-service-gallery__grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 220px;
+  }
+
+  .erh-service-gallery__item:first-child {
+    grid-column: span 1;
+  }
+}
+
+/* ==========================================================================
+   6. Explore Other Services
+   ========================================================================== */
+
+.erh-service-related {
+  background: var(--erh-section-alt-bg);
+}
+
+.erh-service-related__grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.erh-service-related__more {
+  margin: var(--erh-space-10) 0 0;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .erh-service-related__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .erh-service-related__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   7. Cost Calculator
+   ========================================================================== */
+
+.erh-calculator__panel {
+  padding: var(--erh-space-8);
+  border: var(--erh-border);
+  border-radius: var(--erh-radius-lg);
+  background: var(--erh-white);
+  box-shadow: var(--erh-shadow-sm);
+}
+
+.erh-calculator__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--erh-space-2);
+}
+
+.erh-calculator__field label {
+  color: var(--erh-navy);
+  font-size: var(--erh-fs-sm);
+  font-weight: var(--erh-fw-semibold);
+}
+
+.erh-calculator__field input,
+.erh-calculator__field select {
+  width: 100%;
+  padding: var(--erh-space-3) var(--erh-space-4);
+  border: var(--erh-border);
+  border-radius: var(--erh-radius-md);
+  background: var(--erh-white);
+  color: var(--erh-ink);
+  font-family: inherit;
+  font-size: var(--erh-fs-sm);
+}
+
+.erh-calculator__field input:focus,
+.erh-calculator__field select:focus {
+  outline: 2px solid var(--erh-gold);
+  outline-offset: 1px;
+}
+
+.erh-calculator__field--size {
+  max-width: 260px;
+  margin-bottom: var(--erh-space-6);
+}
+
+.erh-calculator__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--erh-space-5);
+}
+
+.erh-calculator__note {
+  margin: 0;
+  min-height: 1.2em;
+  color: var(--erh-grey-500);
+  font-size: var(--erh-fs-xs);
+  line-height: var(--erh-lh-snug);
+}
+
+.erh-calculator__result {
+  display: flex;
+  flex-direction: column;
+  gap: var(--erh-space-2);
+  margin: var(--erh-space-8) 0;
+  padding: var(--erh-space-6);
+  border-radius: var(--erh-radius-md);
+  background: var(--erh-section-alt-bg);
+  text-align: center;
+}
+
+.erh-calculator__result-label {
+  color: var(--erh-navy);
+  font-size: var(--erh-fs-sm);
+  font-weight: var(--erh-fw-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.erh-calculator__result-value {
+  color: var(--erh-navy);
+  font-size: var(--erh-fs-h2);
+  font-weight: var(--erh-fw-bold, 700);
+}
+
+.erh-calculator__disclaimer {
+  margin: 0;
+  color: var(--erh-grey-500);
+  font-size: var(--erh-fs-xs);
+  line-height: var(--erh-lh-loose);
+}
+
+@media (max-width: 900px) {
+  .erh-calculator__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .erh-calculator__panel {
+    padding: var(--erh-space-6);
+  }
+
+  .erh-calculator__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .erh-calculator__result-value {
+    font-size: var(--erh-fs-h3);
+  }
+}

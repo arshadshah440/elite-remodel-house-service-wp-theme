@@ -1,0 +1,152 @@
+/**
+ * Elite Remodel Hub - Contact page sections
+ * Info & Form, Map.
+ *
+ * The page banner is shared (pages.css: .erh-page-banner). Socials reuse
+ * .erh-socials from footer.css unchanged.
+ */
+
+/* ==========================================================================
+   1. Info & Form
+   ========================================================================== */
+
+.erh-contact__grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: clamp(2rem, 1rem + 4vw, 4rem);
+  align-items: start;
+}
+
+.erh-contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--erh-space-6);
+  padding: var(--erh-space-8);
+  border-radius: var(--erh-radius-lg);
+  background: var(--erh-navy);
+  color: var(--erh-on-dark-70);
+}
+
+.erh-contact-info__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--erh-space-4);
+}
+
+.erh-contact-info__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  border-radius: var(--erh-radius-circle);
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--erh-gold);
+}
+
+.erh-contact-info__label {
+  margin-bottom: 2px;
+  font-size: var(--erh-fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--erh-on-dark-40);
+}
+
+.erh-contact-info__item a,
+.erh-contact-info__item span {
+  color: var(--erh-white);
+  font-size: var(--erh-fs-sm);
+  line-height: var(--erh-lh-snug);
+}
+
+.erh-contact-info__item a:hover {
+  color: var(--erh-gold);
+}
+
+.erh-contact-info__socials {
+  margin-top: var(--erh-space-2);
+  padding-top: var(--erh-space-6);
+  border-top: 1px solid var(--erh-hairline);
+}
+
+.erh-contact-form-wrap {
+  padding: var(--erh-space-8);
+  border: var(--erh-border);
+  border-radius: var(--erh-radius-lg);
+}
+
+.erh-contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--erh-space-5);
+}
+
+.erh-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--erh-space-5);
+}
+
+.erh-form-field label {
+  display: block;
+  margin-bottom: var(--erh-space-2);
+  font-size: var(--erh-fs-sm);
+  font-weight: var(--erh-fw-medium);
+  color: var(--erh-ink);
+}
+
+/* Honeypot - hidden from sighted users; the field's wrapper is also
+   aria-hidden and the input has tabindex="-1" so it never reaches
+   screen-reader or keyboard users either. */
+.erh-form-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.erh-form-notice {
+  margin: 0 0 var(--erh-space-5);
+  padding: var(--erh-space-4) var(--erh-space-5);
+  border-radius: var(--erh-radius-md);
+  font-size: var(--erh-fs-sm);
+}
+
+.erh-form-notice--success {
+  background: rgba(34, 139, 87, 0.1);
+  color: #1c6b45;
+}
+
+.erh-form-notice--error {
+  background: rgba(200, 60, 60, 0.1);
+  color: #a02c2c;
+}
+
+@media (max-width: 900px) {
+  .erh-contact__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .erh-form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   2. Map
+   ========================================================================== */
+
+.erh-contact-map {
+  line-height: 0;
+}
+
+.erh-contact-map iframe {
+  display: block;
+  width: 100%;
+  height: clamp(320px, 40vw, 460px);
+  border: 0;
+}

@@ -1,0 +1,32 @@
+/**
+ * Elite Remodel Hub - Service Listing page template
+ *
+ * The paginated services grid shown on the Service Listing page template.
+ * Cards reuse the .erh-service-card component from home.css (same overlay
+ * photo card as the homepage's "Our Service" teaser) so this file only sets
+ * the grid's column layout. The banner reuses the shared .erh-page-banner
+ * styles (assets/css/pages.css) and the Why Choose Us / Testimonials / CTA
+ * sections reuse home.css as well.
+ */
+
+.erh-service-listing {
+  background: var(--erh-body-bg);
+}
+
+.erh-service-listing__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--erh-space-8);
+}
+
+@media (max-width: 900px) {
+  .erh-service-listing__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .erh-service-listing__grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,385 @@
+/**
+ * Elite Remodel Hub - Location page (page-location.php)
+ * Hero, Overview + quote form, Stats, Local Insights, Gallery, Service Areas.
+ *
+ * The Services teaser reuses .erh-service-card and the closing CTA reuses
+ * .erh-cta, both from home.css; Why Choose Us and Testimonials reuse their
+ * own sections unchanged. The quote form reuses .erh-contact-form and its
+ * field styles from contact.css (enqueued alongside this file) so the two
+ * forms on the site stay visually identical.
+ */
+
+/* ==========================================================================
+   1. Hero
+   ========================================================================== */
+
+.erh-location-hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(3.5rem, 2rem + 6vw, 7rem) clamp(2.5rem, 1.5rem + 3vw, 4rem);
+  color: var(--erh-white);
+}
+
+.erh-location-hero__bg {
+  position: absolute;
+  inset: 0;
+  background-position: center 45%;
+  background-size: cover;
+}
+
+.erh-location-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, var(--erh-navy-darker) 0%, var(--erh-navy) 60%, var(--erh-navy-darker) 100%);
+  opacity: 0.78;
+}
+
+.erh-location-hero__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.erh-location-hero__crumbs {
+  margin-bottom: var(--erh-space-6);
+  font-size: var(--erh-fs-xs);
+  color: var(--erh-on-dark-40);
+}
+
+.erh-location-hero__crumbs a {
+  color: var(--erh-on-dark-70);
+}
+
+.erh-location-hero__crumbs a:hover {
+  color: var(--erh-gold);
+}
+
+.erh-location-hero__crumbs span[aria-hidden] {
+  margin-inline: var(--erh-space-2);
+}
+
+.erh-location-hero__crumbs span[aria-current] {
+  color: var(--erh-gold);
+}
+
+.erh-location-hero__title {
+  max-width: 780px;
+  color: var(--erh-white);
+  font-size: clamp(2rem, 1.2rem + 3.4vw, 3.75rem);
+  margin-bottom: var(--erh-space-4);
+}
+
+.erh-location-hero__text {
+  max-width: 620px;
+  margin: 0 0 var(--erh-space-8);
+  color: var(--erh-on-dark-70);
+  font-size: var(--erh-fs-lead);
+}
+
+.erh-location-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--erh-space-4);
+  margin-bottom: var(--erh-space-8);
+}
+
+.erh-location-hero__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--erh-space-3) var(--erh-space-6);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.erh-location-hero__badge {
+  display: flex;
+  align-items: center;
+  gap: var(--erh-space-2);
+  color: var(--erh-on-dark-70);
+  font-size: var(--erh-fs-sm);
+  font-weight: var(--erh-fw-medium);
+}
+
+.erh-location-hero__badge svg {
+  flex: 0 0 auto;
+  color: var(--erh-gold);
+}
+
+/* ==========================================================================
+   2. Overview + quote form
+   ========================================================================== */
+
+.erh-location-overview__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 1rem + 4vw, 4.5rem);
+  align-items: start;
+}
+
+.erh-location-overview__text {
+  max-width: 480px;
+  margin-bottom: var(--erh-space-5);
+  color: var(--erh-grey-500);
+  font-size: var(--erh-fs-sm);
+}
+
+.erh-location-overview__points {
+  display: flex;
+  flex-direction: column;
+  gap: var(--erh-space-3);
+  margin: var(--erh-space-3) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.erh-location-overview__points li {
+  display: flex;
+  align-items: center;
+  gap: var(--erh-space-3);
+  color: var(--erh-ink);
+  font-size: var(--erh-fs-sm);
+  font-weight: var(--erh-fw-medium);
+}
+
+.erh-location-overview__points svg {
+  flex: 0 0 auto;
+  color: var(--erh-gold-dark);
+}
+
+.erh-location-form__card {
+  padding: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+  border: var(--erh-border);
+  border-radius: var(--erh-radius-lg);
+  box-shadow: var(--erh-shadow-md);
+}
+
+.erh-location-form__head {
+  max-width: none;
+  margin: 0 0 var(--erh-space-6);
+  text-align: left;
+}
+
+@media (max-width: 900px) {
+  .erh-location-overview__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   3. Stats bar
+   ========================================================================== */
+
+.erh-location-stats {
+  padding-block: clamp(2rem, 1.2rem + 3vw, 3.25rem);
+  background: var(--erh-navy);
+}
+
+.erh-location-stats__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--erh-space-6);
+}
+
+.erh-stat {
+  text-align: center;
+}
+
+.erh-stat__value {
+  font-size: clamp(2rem, 1.4rem + 2.2vw, 3rem);
+  font-weight: var(--erh-fw-bold);
+  color: var(--erh-gold);
+  line-height: 1;
+  margin-bottom: var(--erh-space-2);
+}
+
+.erh-stat__label {
+  color: var(--erh-on-dark-70);
+  font-size: var(--erh-fs-sm);
+}
+
+@media (max-width: 700px) {
+  .erh-location-stats__grid {
+    grid-template-columns: repeat(1, 1fr);
+    gap: var(--erh-space-6);
+  }
+}
+
+/* ==========================================================================
+   4. Local insights
+   ========================================================================== */
+
+.erh-location-insights {
+  background: var(--erh-section-alt-bg);
+}
+
+.erh-location-insights__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--erh-space-5);
+}
+
+.erh-location-insight-card {
+  padding: var(--erh-space-6);
+  border-radius: var(--erh-radius-md);
+  background: var(--erh-white);
+}
+
+.erh-location-insight-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: var(--erh-space-4);
+  border-radius: var(--erh-radius-circle);
+  background: var(--erh-gold-10);
+  color: var(--erh-gold-dark);
+}
+
+.erh-location-insight-card__title {
+  font-size: 1.125rem;
+  margin-bottom: var(--erh-space-2);
+  color: var(--erh-ink);
+}
+
+.erh-location-insight-card__text {
+  margin: 0;
+  color: var(--erh-grey-500);
+  font-size: var(--erh-fs-sm);
+  line-height: var(--erh-lh-snug);
+}
+
+@media (max-width: 900px) {
+  .erh-location-insights__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .erh-location-insights__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   5. Project gallery
+   ========================================================================== */
+
+.erh-location-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--erh-space-5);
+}
+
+.erh-location-gallery__item {
+  margin: 0;
+  border-radius: var(--erh-radius-md);
+  overflow: hidden;
+}
+
+.erh-location-gallery__item img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform var(--erh-transition-slow);
+}
+
+.erh-location-gallery__item:hover img {
+  transform: scale(1.06);
+}
+
+.erh-location-gallery__item figcaption {
+  padding: var(--erh-space-3) 0 0;
+  color: var(--erh-grey-500);
+  font-size: var(--erh-fs-xs);
+}
+
+@media (max-width: 900px) {
+  .erh-location-gallery__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .erh-location-gallery__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   6. Service areas
+   ========================================================================== */
+
+.erh-location-areas__grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(2rem, 1rem + 4vw, 4rem);
+  align-items: start;
+}
+
+.erh-location-areas__text {
+  max-width: 480px;
+  margin: 0 0 var(--erh-space-6);
+  color: var(--erh-grey-500);
+  font-size: var(--erh-fs-sm);
+}
+
+.erh-location-areas__contact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--erh-space-3);
+}
+
+.erh-location-areas__contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--erh-space-3);
+  color: var(--erh-ink);
+  font-size: var(--erh-fs-sm);
+}
+
+.erh-location-areas__contact-item svg {
+  flex: 0 0 auto;
+  margin-top: 2px;
+  color: var(--erh-gold-dark);
+}
+
+.erh-location-areas__contact-item a {
+  color: inherit;
+}
+
+.erh-location-areas__contact-item a:hover {
+  color: var(--erh-gold-dark);
+}
+
+.erh-location-areas__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--erh-space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.erh-location-areas__pill {
+  display: flex;
+  align-items: center;
+  gap: var(--erh-space-2);
+  padding: var(--erh-space-3) var(--erh-space-5);
+  border-radius: var(--erh-radius-pill);
+  background: var(--erh-section-alt-bg);
+  color: var(--erh-ink);
+  font-size: var(--erh-fs-sm);
+  font-weight: var(--erh-fw-medium);
+}
+
+.erh-location-areas__pill svg {
+  color: var(--erh-gold-dark);
+}
+
+@media (max-width: 900px) {
+  .erh-location-areas__grid {
+    grid-template-columns: 1fr;
+  }
+}

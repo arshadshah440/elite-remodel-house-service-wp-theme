@@ -1,0 +1,50 @@
+{
+    "key": "group_erh_privacy",
+    "title": "Privacy Policy Sections",
+    "fields": [
+        { "key": "field_erh_privacy_tab_banner", "label": "Banner", "name": "", "type": "tab", "placement": "top", "endpoint": 0 },
+        { "key": "field_erh_privacy_banner_section_enable", "label": "Show this section", "name": "privacy-banner_enable", "type": "true_false", "default_value": 1, "ui": 1, "ui_on_text": "Show", "ui_off_text": "Hide" },
+        { "key": "field_erh_privacy_banner_eyebrow", "label": "Eyebrow", "name": "privacy_banner_eyebrow", "type": "text", "wrapper": { "width": "50" }, "placeholder": "Your Privacy Matters" },
+        { "key": "field_erh_privacy_banner_title_highlight", "label": "Highlighted words", "name": "privacy_banner_title_highlight", "type": "number", "wrapper": { "width": "50" }, "default_value": 1, "min": 0, "max": 6, "step": 1, "instructions": "Trailing words shown in gold." },
+        { "key": "field_erh_privacy_banner_title", "label": "Title", "name": "privacy_banner_title", "type": "text", "placeholder": "Privacy Policy" },
+        { "key": "field_erh_privacy_banner_text", "label": "Text", "name": "privacy_banner_text", "type": "textarea", "rows": 3 },
+        { "key": "field_erh_privacy_tab_policy", "label": "Policy Content", "name": "", "type": "tab", "placement": "top", "endpoint": 0 },
+        { "key": "field_erh_privacy_content_section_enable", "label": "Show this section", "name": "privacy-content_enable", "type": "true_false", "default_value": 1, "ui": 1, "ui_on_text": "Show", "ui_off_text": "Hide" },
+        { "key": "field_erh_privacy_last_updated", "label": "Last updated", "name": "privacy_last_updated", "type": "text", "wrapper": { "width": "50" }, "placeholder": "August 27, 2026" },
+        { "key": "field_erh_privacy_version", "label": "Version", "name": "privacy_version", "type": "text", "wrapper": { "width": "50" }, "placeholder": "1.0" },
+        { "key": "field_erh_privacy_intro", "label": "Introduction", "name": "privacy_intro", "type": "wysiwyg", "instructions": "Short policy summary shown before the numbered sections.", "tabs": "all", "toolbar": "basic", "media_upload": 0 },
+        {
+            "key": "field_erh_privacy_sections",
+            "label": "Policy sections",
+            "name": "privacy_sections",
+            "type": "repeater",
+            "instructions": "Add, remove and reorder the numbered policy sections.",
+            "layout": "block",
+            "min": 1,
+            "max": 30,
+            "collapsed": "field_erh_privacy_section_title",
+            "button_label": "Add policy section",
+            "sub_fields": [
+                { "key": "field_erh_privacy_section_title", "label": "Section title", "name": "title", "type": "text", "required": 1 },
+                { "key": "field_erh_privacy_section_body", "label": "Section content", "name": "body", "type": "wysiwyg", "required": 1, "tabs": "all", "toolbar": "basic", "media_upload": 0 }
+            ]
+        },
+        { "key": "field_erh_privacy_tab_request", "label": "Privacy Requests", "name": "", "type": "tab", "placement": "top", "endpoint": 0 },
+        { "key": "field_erh_privacy_request_eyebrow", "label": "Eyebrow", "name": "privacy_request_eyebrow", "type": "text", "placeholder": "Making a Request" },
+        { "key": "field_erh_privacy_request_title", "label": "Title", "name": "privacy_request_title", "type": "text", "placeholder": "Questions About Your Information?" },
+        { "key": "field_erh_privacy_request_text", "label": "Text", "name": "privacy_request_text", "type": "wysiwyg", "tabs": "all", "toolbar": "basic", "media_upload": 0 },
+        { "key": "field_erh_privacy_request_email", "label": "Privacy request email", "name": "privacy_request_email", "type": "email", "wrapper": { "width": "50" } },
+        { "key": "field_erh_privacy_request_address", "label": "Privacy request mailing address", "name": "privacy_request_address", "type": "textarea", "wrapper": { "width": "50" }, "rows": 3 },
+        { "key": "field_erh_privacy_state_notice", "label": "State privacy notice", "name": "privacy_state_notice", "type": "wysiwyg", "instructions": "Include the rights notice that applies to visitors in California, Oregon, Florida and Washington.", "tabs": "all", "toolbar": "basic", "media_upload": 0 }
+    ],
+    "location": [[{ "param": "page_template", "operator": "==", "value": "page-privacy-policy.php" }]],
+    "menu_order": 3,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Editable content for the Elite Remodel Hub Privacy Policy page.",
+    "show_in_rest": 0
+}

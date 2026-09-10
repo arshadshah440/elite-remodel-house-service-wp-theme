@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kitchen Transformation Guide</title>
+  <style>
+    /* Global Styles & Variables */
+    :root {
+      --primary: #2C3E50;       /* Deep slate Blue */
+      --accent: #D4A373;        /* Warm Wood/Terracotta Accent */
+      --accent-hover: #bc8a5f;
+      --bg-light: #FAFAFA;      /* Off-white background */
+      --card-bg: #FFFFFF;       /* White card background */
+      --text-main: #333333;     /* Dark grey text */
+      --text-muted: #666666;    /* Medium grey text */
+      --border-color: #E5E5E5;
+      --radius: 12px;
+      --shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text-main);
+      background-color: var(--bg-light);
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    /* Section Component Base */
+    .section-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 40px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-color);
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 50px;
+      height: 3px;
+      background-color: var(--accent);
+      border-radius: 2px;
+    }
+
+    p {
+      margin-bottom: 15px;
+      color: var(--text-main);
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Section 1: Two Column Layout */
+    .grid-2-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .callout-box {
+      background-color: #F4F1EA;
+      border-left: 4px solid var(--accent);
+      padding: 20px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: 0.95rem;
+    }
+
+    /* Section 2: Color & Finish Tag Grid */
+    .tags-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .tag {
+      background: #EAEAEA;
+      color: var(--primary);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .btn-link {
+      display: inline-block;
+      margin-top: 15px;
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .btn-link:hover {
+      color: var(--accent-hover);
+      text-decoration: underline;
+    }
+
+    /* Section 3: Criteria Grid */
+    .checklist-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .check-item {
+      background: var(--bg-light);
+      padding: 20px;
+      border-radius: 8px;
+      border-top: 3px solid var(--primary);
+    }
+
+    .check-item h4 {
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .check-item p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Section 4: Timeline / Steps */
+    .steps-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .step-card {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .step-number {
+      background-color: var(--primary);
+      color: #FFF;
+      font-weight: bold;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .step-content h4 {
+      margin-bottom: 5px;
+      color: var(--primary);
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .grid-2-col {
+        grid-template-columns: 1fr;
+      }
+
+      .section-card {
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- SECTION 1 -->
+    <section class="section-card">
+      <h2 class="section-title">Open-Concept Kitchen Transformations</h2>
+      <p>Some homeowners want to create a stronger connection between the kitchen and an adjoining dining or living area. An open-concept transformation may modify a wall, reposition cabinetry, introduce an island, or change circulation between rooms.</p>
+      
+      <div class="grid-2-col">
+        <div>
+          <p><strong>Planning Structural Changes:</strong> Wall removal requires more planning than a cosmetic update. Structural conditions can determine whether a wall can change and what support the project requires.</p>
+        </div>
+        <div class="callout-box">
+          <p><strong>Important Consideration:</strong> Electrical wiring, plumbing, HVAC components, and other building systems can significantly affect scope. Applicable permits and inspections depend on the project and local requirements.</p>
+        </div>
+      </div>
+      <p style="margin-top: 20px;"><em>The final design should improve the relationship between spaces without sacrificing practical kitchen storage and work areas.</em></p>
+    </section>
+
+
+    <!-- SECTION 2 -->
+    <section class="section-card">
+      <h2 class="section-title">Kitchen Color & Finish Transformations</h2>
+      <p>Not every before and after project requires a different layout. Cabinet finishes, countertops, backsplash, flooring, wall colors, hardware, and lighting can significantly change the visual character of a kitchen while major components remain in their existing locations.</p>
+      
+      <!-- Feature Tags representing elements -->
+      <div class="tags-container">
+        <span class="tag">Cabinet Finishes</span>
+        <span class="tag">Countertops</span>
+        <span class="tag">Backsplash</span>
+        <span class="tag">Flooring</span>
+        <span class="tag">Wall Colors</span>
+        <span class="tag">Hardware</span>
+        <span class="tag">Lighting</span>
+      </div>
+
+      <p>Color selection works best when homeowners evaluate materials together. Cabinet color affects countertop appearance, countertop patterns influence backsplash choices, and flooring creates another large visual surface. Hardware and lighting can introduce contrast or reinforce the selected design direction.</p>
+      
+      <a href="#" class="btn-link">Explore coordinated kitchen design inspiration &rarr;</a>
+    </section>
+
+
+    <!-- SECTION 3 -->
+    <section class="section-card">
+      <h2 class="section-title">What Makes a Successful Transformation?</h2>
+      <p>A successful remodel solves the problems identified in the original kitchen. Appearance matters, but function should remain part of the comparison.</p>
+      
+      <div class="checklist-grid">
+        <div class="check-item">
+          <h4>Storage & Function</h4>
+          <p>Provides appropriate storage for the household and practical work surfaces.</p>
+        </div>
+        <div class="check-item">
+          <h4>Layout & Flow</h4>
+          <p>Ensures suitable appliance placement and circulation that supports everyday use.</p>
+        </div>
+        <div class="check-item">
+          <h4>Lighting & Finish</h4>
+          <p>Delivers adequate lighting and material selections that fit expected maintenance.</p>
+        </div>
+      </div>
+
+      <p style="margin-top: 25px; font-size: 0.95rem; color: var(--text-muted);">
+        <strong>Note:</strong> Before and after photos can inspire, but another homeowner's finished kitchen should not become a template without considering differences in room dimensions, budget, structural conditions, and lifestyle.
+      </p>
+    </section>
+
+
+    <!-- SECTION 4 -->
+    <section class="section-card">
+      <h2 class="section-title">Planning Your Remodel</h2>
+      <p>Start by documenting the existing kitchen before selecting finishes.</p>
+      
+      <div class="steps-wrapper">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h4>Document & Photograph</h4>
+            <p>Photograph cabinet runs, appliances, work surfaces, storage areas, lighting, and major circulation paths. Identify the specific problems visible in those areas.</p>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h4>Separate Problems from Preferences</h4>
+            <p>Separate functional problems from appearance preferences. Limited storage requires a different solution from an outdated cabinet color. Poor circulation requires different planning from a worn countertop.</p>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h4>Define Priorities & Scope</h4>
+            <p>Define the project priorities and establish a realistic scope. Kitchen inspiration can guide design choices, but the final remodeling plan should respond to the actual home.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+</body>
+</html>

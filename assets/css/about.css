@@ -1,0 +1,244 @@
+/**
+ * Elite Remodel Hub - About page sections
+ * Story, Mission & Vision, Stats, Values, Team.
+ *
+ * The page banner is shared (pages.css: .erh-page-banner). The Get Started
+ * CTA section reuses .erh-cta from home.css directly, and the Story
+ * section reuses .erh-about__* from home.css for its photo collage - both
+ * stay unstyled here on purpose.
+ */
+
+/* ==========================================================================
+   1. Story
+   ========================================================================== */
+
+/* Mirrors the home page's About collage (text first, photos on the right)
+   by swapping the column ratio to match the swapped markup order - the
+   media/photo classes themselves are shared with home.css unchanged. */
+.erh-about-story__grid {
+  grid-template-columns: 0.92fr 1.08fr;
+}
+
+/* ==========================================================================
+   2. Mission & Vision
+   ========================================================================== */
+.erh-about-mv {
+  padding: 0px 0px 50px 0px;
+}
+.erh-mv__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--erh-space-6);
+}
+
+.erh-mv-card {
+  padding: var(--erh-space-8);
+  border-radius: var(--erh-radius-lg);
+}
+
+.erh-mv-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: var(--erh-space-5);
+  border-radius: var(--erh-radius-circle);
+}
+
+.erh-mv-card__title {
+  font-size: 1.5rem;
+  margin-bottom: var(--erh-space-3);
+}
+
+.erh-mv-card__text {
+  margin: 0;
+  font-size: var(--erh-fs-sm);
+  line-height: var(--erh-lh-loose);
+}
+
+.erh-mv-card--mission {
+  background: var(--erh-navy);
+}
+
+.erh-mv-card--mission .erh-mv-card__icon {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--erh-gold);
+}
+
+.erh-mv-card--mission .erh-mv-card__title {
+  color: var(--erh-white);
+}
+
+.erh-mv-card--mission .erh-mv-card__text {
+  color: var(--erh-on-dark-70);
+}
+
+.erh-mv-card--vision {
+  background: var(--erh-section-alt-bg);
+}
+
+.erh-mv-card--vision .erh-mv-card__icon {
+  background: var(--erh-gold-10);
+  color: var(--erh-gold-dark);
+}
+
+.erh-mv-card--vision .erh-mv-card__title {
+  color: var(--erh-ink);
+}
+
+.erh-mv-card--vision .erh-mv-card__text {
+  color: var(--erh-grey-500);
+}
+
+@media (max-width: 700px) {
+  .erh-mv__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   3. Stats
+   ========================================================================== */
+
+.erh-about-stats {
+  padding-block: clamp(2.5rem, 1.5rem + 4vw, 4rem);
+  background: var(--erh-navy);
+}
+
+.erh-stats__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--erh-space-6);
+  text-align: center;
+}
+
+.erh-stat__value {
+  font-size: clamp(2rem, 1.4rem + 2.2vw, 3rem);
+  font-weight: var(--erh-fw-bold);
+  color: var(--erh-gold);
+  line-height: 1;
+  margin-bottom: var(--erh-space-2);
+}
+
+.erh-stat__label {
+  color: var(--erh-on-dark-70);
+  font-size: var(--erh-fs-sm);
+}
+
+@media (max-width: 700px) {
+  .erh-stats__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--erh-space-8) var(--erh-space-6);
+  }
+}
+
+/* ==========================================================================
+   4. Values
+   ========================================================================== */
+
+.erh-values__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--erh-space-5);
+}
+
+.erh-value-card {
+  padding: var(--erh-space-6);
+  border: var(--erh-border);
+  border-radius: var(--erh-radius-md);
+}
+
+.erh-value-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: var(--erh-space-4);
+  border-radius: var(--erh-radius-circle);
+  background: var(--erh-gold-10);
+  color: var(--erh-gold-dark);
+}
+
+.erh-value-card__title {
+  font-size: 1.125rem;
+  margin-bottom: var(--erh-space-2);
+  color: var(--erh-ink);
+}
+
+.erh-value-card__text {
+  margin: 0;
+  color: var(--erh-grey-500);
+  font-size: var(--erh-fs-sm);
+  line-height: var(--erh-lh-snug);
+}
+
+@media (max-width: 900px) {
+  .erh-values__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .erh-values__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   5. Team
+   ========================================================================== */
+
+.erh-about-team {
+  background: var(--erh-section-alt-bg);
+  display: none;
+}
+
+.erh-team__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--erh-space-6);
+}
+
+.erh-team-card {
+  text-align: center;
+}
+
+.erh-team-card__photo {
+  aspect-ratio: 1 / 1;
+  margin-bottom: var(--erh-space-4);
+  border-radius: var(--erh-radius-lg);
+  overflow: hidden;
+  background: var(--erh-grey-100);
+}
+
+.erh-team-card__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.erh-team-card__name {
+  font-weight: var(--erh-fw-semibold);
+  color: var(--erh-ink);
+  margin-bottom: 2px;
+}
+
+.erh-team-card__role {
+  font-size: var(--erh-fs-xs);
+  color: var(--erh-grey-500);
+}
+
+@media (max-width: 900px) {
+  .erh-team__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .erh-team__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--erh-space-4);
+  }
+}

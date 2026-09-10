@@ -1,0 +1,336 @@
+/**
+ * Elite Remodel Hub - Blog listing (home.php) and single post (single.php)
+ *
+ * The banner reuses the shared .erh-page-banner styles (assets/css/pages.css)
+ * and the closing CTA reuses .erh-cta (home.css), so neither is restyled
+ * here. This file covers the posts grid + card, the single post header,
+ * post navigation, author bio card and the comment list/form.
+ */
+
+/* ==========================================================================
+   1. Blog listing card
+   ========================================================================== */
+
+.erh-blog-listing__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--erh-space-8);
+  margin-bottom: var(--erh-space-10);
+}
+
+@media (max-width: 900px) {
+  .erh-blog-listing__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .erh-blog-listing__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.erh-blog-listing-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.erh-blog-listing-card__thumb {
+  display: block;
+  aspect-ratio: 3 / 2;
+  margin-bottom: var(--erh-space-5);
+  border-radius: var(--erh-radius-lg);
+  overflow: hidden;
+}
+
+.erh-blog-listing-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--erh-transition-slow);
+}
+
+.erh-blog-listing-card__thumb:hover .erh-blog-listing-card__image {
+  transform: scale(1.05);
+}
+
+.erh-blog-listing-card__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--erh-space-2);
+  margin: 0 0 var(--erh-space-3);
+  color: var(--erh-grey-500);
+  font-size: var(--erh-fs-xs);
+}
+
+.erh-blog-listing-card__meta a {
+  color: var(--erh-gold-dark);
+  font-weight: var(--erh-fw-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.erh-blog-listing-card__meta a:hover {
+  color: var(--erh-navy);
+}
+
+.erh-blog-listing-card__title {
+  font-size: 1.25rem;
+  margin-bottom: var(--erh-space-3);
+}
+
+.erh-blog-listing-card__title a {
+  color: var(--erh-ink);
+}
+
+.erh-blog-listing-card__title a:hover {
+  color: var(--erh-gold-dark);
+}
+
+.erh-blog-listing-card__excerpt {
+  margin-bottom: var(--erh-space-4);
+  color: var(--erh-grey-500);
+  font-size: var(--erh-fs-sm);
+  line-height: var(--erh-lh-snug);
+}
+
+.erh-blog-listing-card__excerpt p {
+  margin: 0;
+}
+
+.erh-blog-listing-card .erh-btn-arrow {
+  margin-top: auto;
+}
+
+/* ==========================================================================
+   2. Single post hero
+   ========================================================================== */
+
+.erh-single-hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(3.5rem, 2rem + 6vw, 7rem) clamp(2.5rem, 1.5rem + 3vw, 4rem);
+  color: var(--erh-white);
+}
+
+.erh-single-hero__bg {
+  position: absolute;
+  inset: 0;
+  background-position: center 45%;
+  background-size: cover;
+}
+
+.erh-single-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, var(--erh-navy-darker) 0%, var(--erh-navy) 60%, var(--erh-navy-darker) 100%);
+  opacity: 0.78;
+}
+
+.erh-single-hero__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.erh-single-hero__crumbs {
+  margin-bottom: var(--erh-space-6);
+  font-size: var(--erh-fs-xs);
+  color: var(--erh-on-dark-40);
+}
+
+.erh-single-hero__crumbs a {
+  color: var(--erh-on-dark-70);
+}
+
+.erh-single-hero__crumbs a:hover {
+  color: var(--erh-gold);
+}
+
+.erh-single-hero__crumbs span[aria-hidden] {
+  margin-inline: var(--erh-space-2);
+}
+
+.erh-single-hero__crumbs span[aria-current] {
+  color: var(--erh-gold);
+}
+
+.erh-single-hero__title {
+  max-width: 780px;
+  color: var(--erh-white);
+  font-size: clamp(2rem, 1.2rem + 3.4vw, 3.75rem);
+  margin-bottom: var(--erh-space-6);
+}
+
+.erh-single-hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--erh-space-3);
+  color: var(--erh-on-dark-70);
+  font-size: var(--erh-fs-sm);
+}
+
+.erh-single-hero__author {
+  display: flex;
+  align-items: center;
+  gap: var(--erh-space-2);
+}
+
+.erh-single-hero__author img {
+  border-radius: var(--erh-radius-circle);
+}
+
+.erh-single-hero__meta span[aria-hidden] {
+  color: var(--erh-on-dark-40);
+}
+
+/* ==========================================================================
+   3. Single post content, post navigation
+   ========================================================================== */
+
+.erh-single-pages {
+  margin-top: var(--erh-space-8);
+}
+
+.erh-single-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--erh-space-6);
+  padding-top: var(--erh-space-8);
+  border-top: var(--erh-border);
+  font-size: var(--erh-fs-sm);
+}
+
+.erh-single-nav__next {
+  text-align: right;
+}
+
+.erh-single-nav a {
+  color: var(--erh-ink);
+  font-weight: var(--erh-fw-medium);
+}
+
+.erh-single-nav a:hover {
+  color: var(--erh-gold-dark);
+}
+
+@media (max-width: 560px) {
+  .erh-single-nav {
+    grid-template-columns: 1fr;
+  }
+
+  .erh-single-nav__next {
+    text-align: left;
+  }
+}
+
+/* ==========================================================================
+   4. Related posts
+   ========================================================================== */
+
+.erh-single-related {
+  background: var(--erh-section-alt-bg);
+}
+
+.erh-single-related__grid {
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   5. Comments
+   ========================================================================== */
+
+.erh-comments__title {
+  margin-bottom: var(--erh-space-8);
+  font-size: var(--erh-fs-h3);
+}
+
+.erh-comment-list,
+.erh-comment-list .children {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.erh-comment-list .children {
+  margin-top: var(--erh-space-6);
+  padding-left: var(--erh-space-8);
+}
+
+.erh-comment-list li.comment {
+  margin-bottom: var(--erh-space-8);
+}
+
+.erh-comments .comment-body {
+  display: flex;
+  gap: var(--erh-space-4);
+}
+
+.erh-comments .comment-body .avatar {
+  flex: 0 0 auto;
+  border-radius: var(--erh-radius-circle);
+}
+
+.erh-comments .comment-author.vcard {
+  font-weight: var(--erh-fw-semibold);
+  color: var(--erh-ink);
+}
+
+.erh-comments .comment-author .says {
+  display: none;
+}
+
+.erh-comments .comment-metadata {
+  margin-bottom: var(--erh-space-2);
+  color: var(--erh-grey-500);
+  font-size: var(--erh-fs-xs);
+}
+
+.erh-comments .comment-metadata a {
+  color: inherit;
+}
+
+.erh-comments .comment-content p {
+  margin: 0 0 var(--erh-space-2);
+  color: var(--erh-grey-500);
+  font-size: var(--erh-fs-sm);
+  line-height: var(--erh-lh-snug);
+}
+
+.erh-comments .comment-reply-link {
+  color: var(--erh-gold-dark);
+  font-size: var(--erh-fs-xs);
+  font-weight: var(--erh-fw-semibold);
+}
+
+.erh-comments .comment-reply-link:hover {
+  color: var(--erh-navy);
+}
+
+.erh-comments-closed {
+  color: var(--erh-grey-500);
+  font-size: var(--erh-fs-sm);
+}
+
+.erh-comments .comment-respond {
+  margin-top: var(--erh-space-10);
+}
+
+.erh-comments .comment-form p {
+  margin-bottom: var(--erh-space-5);
+}
+
+.erh-comments .comment-form label {
+  display: block;
+  margin-bottom: var(--erh-space-2);
+  color: var(--erh-ink);
+  font-size: var(--erh-fs-sm);
+  font-weight: var(--erh-fw-medium);
+}
+
+.erh-comments .comment-notes,
+.erh-comments .logged-in-as {
+  margin-bottom: var(--erh-space-5);
+  color: var(--erh-grey-500);
+  font-size: var(--erh-fs-sm);
+}

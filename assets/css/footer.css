@@ -1,0 +1,252 @@
+/**
+ * Elite Remodel Hub - Footer
+ * Brand column, quick links, contact, newsletter and the bottom bar.
+ */
+
+.erh-footer {
+	background: var(--erh-navy);
+	border-top: 9px solid var(--erh-gold);
+	color: var(--erh-on-dark-70);
+}
+
+.erh-footer__top {
+	display: grid;
+	gap: var(--erh-space-10);
+	grid-template-columns: 1.55fr 0.8fr 1fr 1.35fr;
+	padding-block: var(--erh-space-20) var(--erh-space-12);
+}
+
+.erh-footer__logo-link {
+	display: inline-block;
+	margin-bottom: var(--erh-space-5);
+}
+
+.erh-footer__logo {
+	width: auto;
+}
+
+.erh-footer__logo--fallback {
+	color: var(--erh-white);
+	font-size: 1.25rem;
+	font-weight: var(--erh-fw-black);
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}
+
+.erh-footer__about {
+	max-width: 250px;
+	margin-bottom: var(--erh-space-6);
+	color: var(--erh-on-dark-70);
+	font-size: var(--erh-fs-xs);
+	line-height: var(--erh-lh-loose);
+}
+
+.erh-socials {
+	display: flex;
+	align-items: center;
+	gap: var(--erh-space-3);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.erh-socials a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 30px;
+	height: 30px;
+	border: 1px solid rgba(255, 255, 255, 0.45);
+	border-radius: var(--erh-radius-sm);
+	color: var(--erh-white);
+	transition: background-color var(--erh-transition), color var(--erh-transition), border-color var(--erh-transition);
+}
+
+.erh-socials a:hover {
+	background: var(--erh-gold);
+	border-color: var(--erh-gold);
+	color: var(--erh-navy);
+}
+
+.erh-footer__heading {
+	margin-bottom: var(--erh-space-5);
+	color: var(--erh-white);
+	font-size: 0.9375rem;
+	font-weight: var(--erh-fw-semibold);
+}
+
+.erh-footer__menu {
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.erh-footer__menu a {
+	display: block;
+	margin-bottom: 12px;
+	color: var(--erh-on-dark-70);
+	font-size: var(--erh-fs-xs);
+}
+
+.erh-footer__menu a:hover {
+	color: var(--erh-gold);
+}
+
+.erh-footer__contact {
+	display: flex;
+	flex-direction: column;
+	gap: var(--erh-space-4);
+}
+
+.erh-footer__contact-item {
+	display: flex;
+	align-items: flex-start;
+	gap: var(--erh-space-3);
+	margin: 0;
+	color: var(--erh-on-dark-70);
+	font-size: var(--erh-fs-xs);
+	line-height: var(--erh-lh-snug);
+}
+
+.erh-footer__contact-item a {
+	color: var(--erh-on-dark-70);
+}
+
+.erh-footer__contact-item a:hover {
+	color: var(--erh-gold);
+}
+
+.erh-footer__contact-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 30px;
+	height: 30px;
+	flex: 0 0 30px;
+	border-radius: var(--erh-radius-circle);
+	background: rgba(255, 255, 255, 0.08);
+	color: var(--erh-gold);
+}
+
+.erh-newsletter form {
+	display: flex;
+	align-items: center;
+	border: 4px solid var(--erh-white);
+	border-radius: 28px;
+	background: var(--erh-white);
+	overflow: hidden;
+}
+
+.erh-newsletter__field {
+	display: flex;
+	align-items: center;
+	gap: var(--erh-space-2);
+	width: 100%;
+	padding: 0;
+	background: white;
+	border-radius: 22px;
+}
+
+.erh-newsletter__field input[type="email"] {
+	min-width: 0;
+	flex: 1;
+	border: 0;
+	background: transparent;
+	color: var(--erh-slate);
+	font-size: var(--erh-fs-xs);
+	padding: 8px 6px 8px 14px;
+}
+
+.erh-newsletter__field input[type="email"]:focus {
+	box-shadow: none;
+}
+
+.erh-newsletter__submit {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--erh-space-2);
+	flex: 0 0 auto;
+	height: 40px;
+	padding-inline: 18px;
+	border: 0;
+	border-radius: 22px;
+	background: var(--erh-gold);
+	color: var(--erh-white);
+	font-size: var(--erh-fs-xs);
+	font-weight: var(--erh-fw-bold);
+	transition: background-color var(--erh-transition);
+}
+
+.erh-newsletter__submit:hover {
+	background: var(--erh-navy-dark);
+}
+
+.erh-footer__bottom {
+	border-top: 1px solid var(--erh-hairline);
+}
+
+.erh-footer__bottom-inner {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--erh-space-3);
+	padding-block: var(--erh-space-6);
+}
+
+.erh-footer__copyright {
+	margin: 0;
+	color: var(--erh-on-dark-40);
+	font-size: var(--erh-fs-xs);
+}
+
+.erh-footer__legal {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--erh-space-5);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.erh-footer__legal a {
+	color: var(--erh-on-dark-40);
+	font-size: var(--erh-fs-xs);
+}
+
+.erh-footer__legal a:hover {
+	color: var(--erh-gold);
+}
+
+@media (max-width: 1024px) {
+	.erh-footer__top {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.erh-footer__brand {
+		grid-column: 1 / -1;
+	}
+}
+
+@media (max-width: 640px) {
+	.erh-footer {
+		border-top-width: 6px;
+	}
+
+	.erh-footer__top {
+		grid-template-columns: 1fr;
+	}
+
+	.erh-footer__bottom-inner {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.erh-newsletter form {
+		max-width: 360px;
+	}
+}

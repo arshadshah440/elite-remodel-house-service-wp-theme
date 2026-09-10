@@ -1,0 +1,106 @@
+/**
+ * Elite Remodel Hub - FAQ page.
+ */
+
+.erh-faq-content {
+	background: var(--erh-section-alt-bg);
+}
+
+.erh-faq-content__grid {
+	display: grid;
+	grid-template-columns: minmax(220px, 0.72fr) minmax(0, 1.28fr);
+	gap: var(--erh-space-16);
+	align-items: start;
+}
+
+.erh-faq-content__intro {
+	position: sticky;
+	top: var(--erh-space-8);
+}
+
+.erh-faq-list {
+	display: grid;
+	gap: var(--erh-space-3);
+}
+
+.erh-faq-item {
+	border: 1px solid var(--erh-grey-100);
+	border-radius: var(--erh-radius-md);
+	background: var(--erh-white);
+	box-shadow: var(--erh-shadow-sm);
+	overflow: hidden;
+}
+
+.erh-faq-item[open] {
+	border-color: var(--erh-gold);
+}
+
+.erh-faq-item__question {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--erh-space-5);
+	padding: var(--erh-space-5) var(--erh-space-6);
+	color: var(--erh-ink);
+	cursor: pointer;
+	font-size: var(--erh-fs-body);
+	font-weight: var(--erh-fw-semibold);
+	list-style: none;
+}
+
+.erh-faq-item__question::-webkit-details-marker {
+	display: none;
+}
+
+.erh-faq-item__question:focus-visible {
+	outline: 3px solid var(--erh-gold-20);
+	outline-offset: -3px;
+}
+
+.erh-faq-item__icon {
+	display: grid;
+	place-items: center;
+	width: 28px;
+	height: 28px;
+	flex: 0 0 28px;
+	border-radius: var(--erh-radius-circle);
+	background: var(--erh-gold-10);
+	color: var(--erh-gold-dark);
+	font-size: 1.25rem;
+	font-weight: var(--erh-fw-regular);
+	line-height: 1;
+}
+
+.erh-faq-item[open] .erh-faq-item__icon {
+	background: var(--erh-navy);
+	color: var(--erh-white);
+	transform: rotate(45deg);
+}
+
+.erh-faq-item__answer {
+	padding: 0 var(--erh-space-6) var(--erh-space-6);
+	color: var(--erh-grey-500);
+	font-size: var(--erh-fs-sm);
+	line-height: var(--erh-lh-loose);
+}
+
+.erh-faq-item__answer p {
+	margin: 0;
+}
+
+@media (max-width: 760px) {
+	.erh-faq-content__grid {
+		grid-template-columns: 1fr;
+		gap: var(--erh-space-8);
+	}
+
+	.erh-faq-content__intro {
+		position: static;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.erh-faq-item__icon {
+		transition: none;
+	}
+}

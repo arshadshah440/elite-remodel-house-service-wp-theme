@@ -1,0 +1,135 @@
+/**
+ * Elite Remodel Hub - Design Tokens
+ *
+ * Central source of truth for colors, type, spacing and other primitives.
+ * Every other stylesheet in this theme reads from these custom properties
+ * instead of hard-coding values, so a brand refresh only touches this file
+ * (or the color pickers under Theme Settings → Brand & Contact).
+ */
+
+:root {
+	/* ------------------------------------------------------------------
+	 * Brand colors
+	 * ---------------------------------------------------------------- */
+	--erh-navy: #153A68;            /* Primary navy - headings, buttons, dark sections */
+	--erh-navy-dark: #10325D;       /* hover / pressed state */
+	--erh-navy-darker: #0C2547;
+	--erh-navy-20: rgba(21, 58, 104, 0.2);
+
+	--erh-gold: #F1B73E;            /* Accent gold - eyebrows, highlighted words, CTAs */
+	--erh-gold-dark: #D99F2E;       /* hover state */
+	--erh-gold-10: rgba(241, 183, 62, 0.1);
+	--erh-gold-20: rgba(241, 183, 62, 0.2);
+
+	/* ------------------------------------------------------------------
+	 * Neutrals
+	 * ---------------------------------------------------------------- */
+	--erh-black: #000000;
+	--erh-ink: #25262D;              /* heading ink */
+	--erh-slate: #25262D;            /* input text  */
+	--erh-grey-500: #666A73;         /* body copy */
+	--erh-grey-300: #A9AEB8;
+	--erh-grey-100: #E7E8F0;
+	--erh-grey-50: #F7F6FF;          /* "lav" section wash */
+	--erh-white: #FFFFFF;
+
+	/* Alpha helpers used on dark (navy) surfaces */
+	--erh-on-dark: rgba(255, 255, 255, 1);
+	--erh-on-dark-70: rgba(255, 255, 255, 0.75);
+	--erh-on-dark-40: rgba(255, 255, 255, 0.45);
+	--erh-hairline: rgba(255, 255, 255, 0.14);
+
+	/* ------------------------------------------------------------------
+	 * Semantic aliases
+	 * ---------------------------------------------------------------- */
+	--erh-body-bg: var(--erh-white);
+	--erh-body-color: var(--erh-grey-500);
+	--erh-heading-color: var(--erh-ink);
+	--erh-accent: var(--erh-gold);
+	--erh-link: var(--erh-navy);
+	--erh-link-hover: var(--erh-gold);
+	--erh-focus-ring: var(--erh-gold);
+	--erh-section-alt-bg: var(--erh-grey-50); /* lavender wash behind hero / services / testimonials */
+
+	/* ------------------------------------------------------------------
+	 * Typography  (Inter)
+	 * ---------------------------------------------------------------- */
+	--erh-font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+		Roboto, "Helvetica Neue", Arial, sans-serif;
+	--erh-font-heading: var(--erh-font-sans);
+
+	--erh-fw-regular: 400;
+	--erh-fw-medium: 500;
+	--erh-fw-semibold: 600;
+	--erh-fw-bold: 700;
+	--erh-fw-black: 800;
+
+	/* Fluid type scale - min value at 360px, max at 1440px */
+	--erh-fs-display: clamp(2.25rem, 1.05rem + 5.2vw, 4.125rem); /* 36 -> 66 */
+	--erh-fs-h1: clamp(2rem, 1.1rem + 4vw, 4.5rem);              /* 32 -> 56 */
+	--erh-fs-h2: clamp(1.875rem, 1.25rem + 2.8vw, 4rem);      /* 30 -> 52 */
+	--erh-fs-h3: clamp(1.25rem, 1.05rem + 1vw, 1.5rem);          /* 20 -> 24 */
+	--erh-fs-h4: clamp(1.125rem, 1rem + 0.6vw, 1.25rem);         /* 18 -> 20 */
+	--erh-fs-lead: 1.125rem;
+	--erh-fs-body: 1rem;                                         /* 16 */
+	--erh-fs-sm: 0.875rem;                                       /* 14 - nav links, body copy */
+	--erh-fs-xs: 0.8125rem;                                      /* 13 - meta text */
+	--erh-fs-eyebrow: 0.8125rem;                                 /* 13 - section eyebrow */
+
+	--erh-lh-tight: 1;
+	--erh-lh-heading: 1.1;
+	--erh-lh-snug: 1.45;
+	--erh-lh-body: 1.6;
+	--erh-lh-loose: 1.75;
+
+	--erh-ls-heading: -0.02em;
+	--erh-ls-eyebrow: 0.08em;    /* wide-tracked uppercase eyebrow */
+
+	/* ------------------------------------------------------------------
+	 * Layout
+	 * ---------------------------------------------------------------- */
+	--erh-container: 1244px;
+	--erh-container-narrow: 800px;
+	--erh-gutter: clamp(1.25rem, 0.4rem + 3.6vw, 5rem); /* 20 -> 80 */
+	--erh-header-height: 92px;
+
+	/* ------------------------------------------------------------------
+	 * Spacing scale (4px base)
+	 * ---------------------------------------------------------------- */
+	--erh-space-1: 0.25rem;
+	--erh-space-2: 0.5rem;
+	--erh-space-3: 0.75rem;
+	--erh-space-4: 1rem;
+	--erh-space-5: 1.25rem;
+	--erh-space-6: 1.5rem;
+	--erh-space-8: 2rem;
+	--erh-space-10: 2.5rem;
+	--erh-space-12: 3rem;
+	--erh-space-16: 4rem;
+	--erh-space-20: 5rem;
+	--erh-space-24: 6rem;
+
+	/* ------------------------------------------------------------------
+	 * Radii, borders, shadows, motion
+	 * ---------------------------------------------------------------- */
+	--erh-radius-btn: 7px;
+	--erh-radius-sm: 6px;
+	--erh-radius-md: 14px;
+	--erh-radius-lg: 16px;
+	--erh-radius-xl: 20px;
+	--erh-radius-pill: 50px;
+	--erh-radius-circle: 999px;
+
+	--erh-border: 1px solid var(--erh-grey-100);
+	--erh-border-accent: 2px solid var(--erh-gold);
+
+	--erh-shadow-sm: 0 1px 2px rgba(37, 38, 45, 0.06);
+	--erh-shadow-md: 0 10px 26px rgba(37, 38, 45, 0.07);
+	--erh-shadow-lg: 0 20px 46px rgba(16, 50, 93, 0.14);
+
+	--erh-transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+	--erh-transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+
+	--erh-z-header: 100;
+	--erh-z-drawer: 200;
+}

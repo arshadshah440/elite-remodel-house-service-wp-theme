@@ -1,0 +1,52 @@
+/**
+ * Elite Remodel Hub - Shared custom-page-template components
+ *
+ * Used by more than one page template (About Us, Contact Us, ...), so it
+ * lives outside home.css/about.css to avoid duplication.
+ */
+
+/* ==========================================================================
+   Page banner - navy intro band with a breadcrumb, title and short text.
+   Sits directly under the header on every custom page template.
+   ========================================================================== */
+
+.erh-page-banner {
+  padding-block: clamp(2.5rem, 1.5rem + 4vw, 4rem);
+  background: var(--erh-navy);
+  color: var(--erh-on-dark-70);
+}
+
+.erh-page-banner__crumbs {
+  margin-bottom: var(--erh-space-4);
+  font-size: var(--erh-fs-xs);
+  color: var(--erh-on-dark-40);
+}
+
+.erh-page-banner__crumbs a {
+  color: var(--erh-on-dark-70);
+}
+
+.erh-page-banner__crumbs a:hover {
+  color: var(--erh-gold);
+}
+
+.erh-page-banner__crumbs span[aria-hidden] {
+  margin-inline: var(--erh-space-2);
+}
+
+.erh-page-banner__crumbs span[aria-current] {
+  color: var(--erh-gold);
+}
+
+.erh-page-banner .erh-heading {
+  max-width: 760px;
+  color: var(--erh-white);
+  margin-bottom: var(--erh-space-4);
+}
+
+.erh-page-banner__text {
+  max-width: 620px;
+  margin: 0;
+  color: var(--erh-on-dark-70);
+  font-size: var(--erh-fs-sm);
+}

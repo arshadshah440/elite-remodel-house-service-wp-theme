@@ -1,0 +1,1457 @@
+/**
+ * Elite Remodel Hub - Home page sections
+ * Hero, About, Why Choose Us, Services, Get Started CTA, Blog, Testimonials.
+ */
+
+/* ==========================================================================
+   1. Hero
+   ========================================================================== */
+
+.erh-hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(3rem, 1.6rem + 6vw, 6.5rem) 2rem;
+  background: var(--erh-section-alt-bg);
+}
+
+.erh-hero__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.erh-hero__content {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.erh-hero__content .erh-heading {
+  font-size: var(--erh-fs-display);
+  letter-spacing: -0.035em;
+  margin-bottom: var(--erh-space-5);
+}
+
+.erh-hero__text {
+  max-width: 700px;
+  margin: 0 auto var(--erh-space-8);
+  color: var(--erh-grey-500);
+  font-size: var(--erh-fs-sm);
+}
+
+/* --------------------------------------------------------------------------
+   Gallery slider (Owl Carousel) - 3 photos shown fully, with the next/
+   previous photo peeking in at each edge. Item widths, the peek amount
+   ("stagePadding") and spacing are all set in the Owl config in
+   assets/js/home.js - this file only styles the slide contents and dots.
+   -------------------------------------------------------------------------- */
+
+.erh-hero__gallery {
+  position: relative;
+  z-index: 1;
+  margin-top: clamp(2.5rem, 1.5rem + 4vw, 4.5rem);
+}
+
+.erh-hero-owl {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 28px,
+    #000 calc(100% - 28px),
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 28px,
+    #000 calc(100% - 28px),
+    transparent
+  );
+}
+
+.erh-hero__gallery-item {
+  height: clamp(220px, 24vw, 340px);
+  border-radius: var(--erh-radius-lg);
+  overflow: hidden;
+}
+
+.erh-hero__gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.erh-hero__gallery-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--erh-space-2);
+  margin-top: var(--erh-space-6);
+}
+.erh-hero__gallery-dots button {
+  border: none;
+}
+.erh-hero__gallery-dots .owl-dot span {
+  display: block;
+  width: 8px;
+  height: 8px;
+  margin: 0;
+  border-radius: var(--erh-radius-circle);
+  background: var(--erh-grey-100);
+  transition:
+    background-color var(--erh-transition),
+    transform var(--erh-transition);
+}
+
+.erh-hero__gallery-dots .owl-dot.active span {
+  background: var(--erh-navy);
+  transform: scale(1.35);
+}
+
+@media (max-width: 560px) {
+  .erh-hero__gallery-item {
+    height: clamp(200px, 58vw, 300px);
+  }
+}
+
+/* ==========================================================================
+   2. About
+   ========================================================================== */
+
+.erh-about__grid {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  align-items: center;
+  gap: clamp(2rem, 1rem + 4vw, 4.875rem);
+}
+
+.erh-about__media {
+  display: grid;
+  grid-template-columns: 1.08fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: var(--erh-space-5);
+  height: clamp(360px, 32vw, 600px);
+}
+
+.erh-about__media-main {
+  grid-row: 1 / 3;
+  border-radius: var(--erh-radius-lg);
+  overflow: hidden;
+}
+
+.erh-about__media-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.erh-about__media-stack {
+  display: contents;
+}
+
+.erh-about__media-small {
+  border-radius: var(--erh-radius-lg);
+  overflow: hidden;
+}
+
+.erh-about__media-small img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.erh-about__content .erh-heading {
+  font-size: clamp(1.875rem, 1rem + 3.5vw, 4rem);
+  letter-spacing: -0.025em;
+  margin-bottom: var(--erh-space-6);
+}
+
+.erh-about__copy {
+  max-width: 500px;
+  margin-bottom: var(--erh-space-8);
+  color: var(--erh-grey-500);
+  font-size: var(--erh-fs-sm);
+}
+
+@media (max-width: 900px) {
+  .erh-about__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .erh-about__media {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    height: auto;
+  }
+
+  .erh-about__media-main {
+    grid-row: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .erh-about__media-stack {
+    display: flex;
+    flex-direction: row;
+    gap: var(--erh-space-3);
+  }
+
+  .erh-about__media-small {
+    flex: 1;
+    aspect-ratio: 1 / 1;
+  }
+}
+
+/* ==========================================================================
+   3. Why Choose Us
+   ========================================================================== */
+
+.erh-why {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(3.5rem, 2rem + 6vw, 7rem);
+  background: var(--erh-navy);
+  color: var(--erh-on-dark-70);
+}
+
+.erh-why__bg {
+  position: absolute;
+  inset: 0;
+  background-position: center 44%;
+  background-size: cover;
+}
+
+.erh-why__overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--erh-navy);
+  opacity: 0.68;
+}
+
+.erh-why__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.erh-why__head .erh-heading {
+  font-size: clamp(1.875rem, 1.1rem + 3vw, 4rem);
+  line-height: 1.05;
+  color: var(--erh-white);
+  margin-bottom: var(--erh-space-6);
+}
+
+.erh-why__text {
+  color: var(--erh-on-dark-70);
+  font-size: var(--erh-fs-sm);
+}
+
+.erh-why__grid {
+  --erh-cols: var(--erh-cols-desktop, 3);
+
+  display: grid;
+  grid-template-columns: repeat(var(--erh-cols), minmax(0, 1fr));
+  gap: var(--erh-space-5);
+}
+
+.erh-why-card {
+  min-height: 180px;
+  padding: var(--erh-space-8) var(--erh-space-6);
+  border-radius: var(--erh-radius-md);
+  background: var(--erh-white);
+}
+
+.erh-why-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: var(--erh-space-4);
+  border-radius: var(--erh-radius-circle);
+  background: var(--erh-gold-10);
+  color: var(--erh-gold-dark);
+}
+
+.erh-why-card__title {
+  margin-bottom: var(--erh-space-3);
+  color: var(--erh-ink);
+  font-size: 1.25rem;
+}
+
+.erh-why-card__text {
+  margin: 0;
+  color: var(--erh-grey-500);
+  font-size: var(--erh-fs-sm);
+  line-height: var(--erh-lh-snug);
+}
+
+.erh-why-card--highlight {
+
+  background: var(--erh-navy-dark);
+}
+
+.erh-why-card--highlight .erh-why-card__icon {
+  flex: 0 0 44px;
+  margin-bottom: 0;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--erh-gold);
+}
+
+.erh-why-card--highlight .erh-why-card__title {
+  color: var(--erh-white);
+  margin: 12px 0px;
+}
+
+.erh-why-card--highlight .erh-why-card__text {
+  color: var(--erh-on-dark-70);
+}
+
+@media (max-width: 900px) {
+  .erh-why__inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .erh-why-card--highlight {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* ==========================================================================
+   4. Services
+   ========================================================================== */
+
+.erh-services {
+  background: var(--erh-section-alt-bg);
+}
+
+.erh-services__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--erh-space-8);
+}
+
+.erh-service-card {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--erh-radius-lg);
+  overflow: hidden;
+  color: var(--erh-white);
+  isolation: isolate;
+}
+
+.erh-service-card__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--erh-transition-slow);
+}
+
+.erh-service-card:hover .erh-service-card__image {
+  transform: scale(1.06);
+}
+
+.erh-service-card__overlay {
+  position: absolute;
+  inset: 40% 0 0;
+  background: linear-gradient(to bottom, transparent, rgba(9, 31, 58, 0.86));
+}
+
+.erh-service-card__body {
+  position: absolute;
+  z-index: 1;
+  left: var(--erh-space-8);
+  right: var(--erh-space-8);
+  bottom: var(--erh-space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--erh-space-2);
+}
+
+.erh-service-card__title {
+  font-size: 1.5rem;
+  font-weight: var(--erh-fw-semibold);
+}
+
+.erh-service-card__text {
+  max-width: 320px;
+  color: var(--erh-on-dark-70);
+  font-size: var(--erh-fs-xs);
+  line-height: var(--erh-lh-snug);
+}
+
+@media (max-width: 700px) {
+  .erh-services__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   5. Get Started CTA
+   ========================================================================== */
+
+.erh-cta {
+  position: relative;
+  overflow: hidden;
+  color: var(--erh-white);
+}
+
+.erh-cta__bg {
+  position: absolute;
+  inset: 0;
+  background-position: center 45%;
+  background-size: cover;
+}
+
+.erh-cta__overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--erh-navy-darker);
+  opacity: 0.73;
+}
+
+.erh-cta__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--erh-space-10);
+  flex-wrap: wrap;
+  padding-block: clamp(2.75rem, 1.5rem + 4.5vw, 4.75rem);
+}
+
+.erh-cta__content {
+  max-width: 620px;
+}
+
+.erh-cta__title {
+  color: var(--erh-white);
+  font-size: clamp(1.75rem, 1.1rem + 2.6vw, 3rem);
+  margin-bottom: var(--erh-space-4);
+}
+
+.erh-cta__text {
+  margin: 0;
+  color: var(--erh-on-dark-70);
+  font-size: var(--erh-fs-sm);
+  line-height: var(--erh-lh-loose);
+}
+
+.erh-cta .erh-btn {
+  min-width: 155px;
+}
+
+@media (max-width: 900px) {
+  .erh-cta__inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ==========================================================================
+   6. Blog
+   ========================================================================== */
+
+/* The featured card and the .erh-blog__side wrapper (holding every other
+   post) are the grid's only two direct children, so they naturally land
+   one per column - no explicit grid-column/grid-row placement needed. The
+   fixed height means .erh-blog__side always matches the featured photo's
+   height instead of being able to grow taller than it; inside it, each
+   compact card gets an equal flex share (flex: 1 1 0) of that height,
+   however many there are (blog_count is admin-configurable). */
+.erh-blog__grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--erh-space-8);
+  height: clamp(420px, 40vw, 580px);
+}
+
+.erh-blog-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+.erh-blog__side {
+  display: flex;
+  flex-direction: column;
+  gap: var(--erh-space-6);
+  height: 100%;
+}
+
+.erh-blog-card--compact {
+  flex: 1 1 0;
+  gap: var(--erh-space-4);
+  min-height: 0;
+}
+
+.erh-blog-card__thumb {
+  display: block;
+  flex: 1 1 0;
+  min-height: 0;
+  border-radius: var(--erh-radius-md);
+  overflow: hidden;
+}
+
+.erh-blog-card--featured .erh-blog-card__thumb {
+  margin-bottom: var(--erh-space-5);
+}
+
+.erh-blog-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--erh-transition-slow);
+}
+
+.erh-blog-card__thumb:hover .erh-blog-card__image {
+  transform: scale(1.05);
+}
+
+.erh-blog-card__body {
+  min-width: 0;
+}
+
+.erh-blog-card__meta {
+  margin: 0 0 var(--erh-space-2);
+  color: var(--erh-gold-dark);
+  font-size: var(--erh-fs-xs);
+  font-weight: var(--erh-fw-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.erh-blog-card--featured .erh-blog-card__title {
+  font-size: 1.3125rem;
+  margin-bottom: var(--erh-space-3);
+}
+
+.erh-blog-card--compact .erh-blog-card__title {
+  font-size: 1.25rem;
+  margin-bottom: var(--erh-space-2);
+}
+
+.erh-blog-card__title a {
+  color: var(--erh-ink);
+}
+
+.erh-blog-card__title a:hover {
+  color: var(--erh-gold-dark);
+}
+
+.erh-blog-card__excerpt {
+  color: var(--erh-grey-500);
+  font-size: var(--erh-fs-xs);
+  line-height: var(--erh-lh-snug);
+}
+
+.erh-blog-card--compact .erh-blog-card__excerpt {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (max-width: 900px) {
+  .erh-blog__grid {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .erh-blog-card,
+  .erh-blog__side {
+    height: auto;
+  }
+
+  .erh-blog-card--compact {
+    flex: none;
+  }
+
+  .erh-blog-card__thumb {
+    flex: none;
+    aspect-ratio: 16 / 10;
+  }
+}
+
+/* ==========================================================================
+   7. Testimonials
+   ========================================================================== */
+
+.erh-testimonials {
+  background: var(--erh-section-alt-bg);
+  overflow: hidden;
+}
+
+/* Full-width Owl Carousel slider - breaks out of .erh-container so the
+   slides run edge-to-edge. 3 cards shown fully, with glimpses of the next
+   2 cards peeking in on the right and the previous 2 on the left (and
+   fewer at narrower widths). Item widths, the peek amount ("stagePadding")
+   and spacing are all set in the Owl config in assets/js/home.js - this
+   file only styles the card contents and dots. */
+.erh-testimonials__slider {
+  width: 100%;
+  padding-block: var(--erh-space-2);
+}
+.erh-testimonials__slider .owl-item.active:nth-child(2) {
+  background: var(--erh-navy);
+  color: var(--erh-on-dark-70);
+  box-shadow: none;
+}
+.erh-testimonial-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--erh-space-3);
+  height: auto;
+  margin: 0;
+  padding: var(--erh-space-6);
+  border: 0;
+  border-radius: var(--erh-radius-md);
+  background: var(--erh-white);
+  box-shadow: var(--erh-shadow-sm);
+}
+
+.erh-testimonial-card__quote-icon {
+  display: block;
+  color: var(--erh-navy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2.5rem;
+  font-weight: var(--erh-fw-bold);
+  line-height: 1;
+}
+
+.erh-testimonial-card__text {
+  margin: 0;
+  flex: 1;
+  color: var(--erh-grey-500);
+  font-size: var(--erh-fs-sm);
+  line-height: var(--erh-lh-loose);
+  font-style: normal;
+}
+
+.erh-testimonial-card__person {
+  display: flex;
+  align-items: center;
+  gap: var(--erh-space-3);
+  margin-top: var(--erh-space-2);
+}
+
+.erh-testimonial-card__avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  overflow: hidden;
+  border-radius: var(--erh-radius-circle);
+  background: var(--erh-grey-50);
+  color: var(--erh-grey-300);
+}
+
+.erh-testimonial-card__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.erh-testimonial-card__meta {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+
+.erh-testimonial-card__name {
+  color: var(--erh-ink);
+  font-weight: var(--erh-fw-semibold);
+}
+
+.erh-testimonial-card__role {
+  color: var(--erh-grey-500);
+  font-size: var(--erh-fs-xs);
+  margin: 5px 0px;
+}
+
+.erh-testimonial-card--highlight {
+  background: var(--erh-navy);
+  color: var(--erh-on-dark-70);
+  box-shadow: none;
+}
+
+.erh-testimonial-card--highlight .erh-testimonial-card__text {
+  color: var(--erh-on-dark-70);
+}
+
+.erh-testimonial-card--highlight .erh-testimonial-card__name {
+  color: var(--erh-white);
+}
+
+.erh-testimonial-card--highlight .erh-testimonial-card__quote-icon {
+  color: var(--erh-white);
+}
+
+.erh-testimonials__dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--erh-space-2);
+  margin-top: var(--erh-space-8);
+}
+.erh-testimonials__dots button {
+  border: none;
+  background: transparent;
+}
+
+.erh-testimonials__dots .owl-dot span {
+  display: block;
+  width: 8px;
+  height: 8px;
+  margin: 0;
+  border-radius: var(--erh-radius-circle);
+  background: var(--erh-grey-100);
+  transition:
+    background-color var(--erh-transition),
+    transform var(--erh-transition);
+}
+
+.erh-testimonials__dots .owl-dot.active span {
+  background: var(--erh-navy);
+  transform: scale(1.35);
+}
+
+/* ==========================================================================
+   Kitchen remodeling home page sections
+   ==========================================================================
+   Everything below styles the sections added for the kitchen remodeling
+   home page: the hero coverage note, the services grid, the scope
+   checklist, planning, process, costs, contractor guidance, service areas,
+   design ideas and the FAQ. All values come from tokens.css.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Shared helpers
+   -------------------------------------------------------------------------- */
+
+.erh-kservices,
+.erh-planning,
+.erh-cost,
+.erh-locations,
+.erh-home-faq {
+	background: var(--erh-section-alt-bg);
+}
+
+.erh-panel {
+	padding: var(--erh-space-8);
+	border: var(--erh-border);
+	border-radius: var(--erh-radius-lg);
+	background: var(--erh-white);
+	box-shadow: var(--erh-shadow-sm);
+}
+
+/* --------------------------------------------------------------------------
+   Hero coverage note
+   -------------------------------------------------------------------------- */
+
+.erh-hero__note {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--erh-space-3);
+	margin-top: var(--erh-space-5);
+	padding: var(--erh-space-3) var(--erh-space-5);
+	border-radius: var(--erh-radius-pill);
+	background: var(--erh-gold-10);
+	color: var(--erh-ink);
+	font-size: var(--erh-fs-sm);
+	font-weight: var(--erh-fw-medium);
+}
+
+.erh-hero__note-icon {
+	display: inline-flex;
+	color: var(--erh-gold-dark);
+}
+
+.erh-hero__note + .erh-btn {
+	margin-top: var(--erh-space-6);
+}
+
+/* --------------------------------------------------------------------------
+   About - multiple paragraphs
+   -------------------------------------------------------------------------- */
+
+.erh-about__copy + .erh-about__copy {
+	margin-top: var(--erh-space-4);
+}
+
+/* --------------------------------------------------------------------------
+   Explore Our Kitchen Remodeling Services
+   -------------------------------------------------------------------------- */
+
+.erh-kservices__grid {
+	--erh-cols: var(--erh-cols-desktop, 3);
+
+	display: grid;
+	gap: var(--erh-space-6);
+	grid-template-columns: repeat(var(--erh-cols), minmax(0, 1fr));
+}
+
+.erh-kservice-card {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: var(--erh-space-3);
+	padding: var(--erh-space-8);
+	border: var(--erh-border);
+	border-radius: var(--erh-radius-lg);
+	background: var(--erh-white);
+	box-shadow: var(--erh-shadow-sm);
+	color: inherit;
+	text-decoration: none;
+	transition: border-color var(--erh-transition), box-shadow var(--erh-transition),
+		transform var(--erh-transition);
+}
+
+a.erh-kservice-card:hover,
+a.erh-kservice-card:focus-visible {
+	border-color: var(--erh-gold);
+	box-shadow: var(--erh-shadow-md);
+	transform: translateY(-3px);
+	color: inherit;
+}
+
+.erh-kservice-card__icon {
+	display: grid;
+	place-items: center;
+	width: 52px;
+	height: 52px;
+	border-radius: var(--erh-radius-md);
+	background: var(--erh-navy);
+	color: var(--erh-white);
+}
+
+a.erh-kservice-card:hover .erh-kservice-card__icon,
+a.erh-kservice-card:focus-visible .erh-kservice-card__icon {
+	background: var(--erh-gold);
+	color: var(--erh-navy);
+}
+
+.erh-kservice-card__title {
+	margin: 0;
+	font-size: var(--erh-fs-h3);
+}
+
+.erh-kservice-card__text {
+	margin: 0;
+	color: var(--erh-grey-500);
+	font-size: var(--erh-fs-sm);
+	line-height: var(--erh-lh-loose);
+}
+
+.erh-kservice-card__more {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--erh-space-2);
+	margin-top: auto;
+	padding-top: var(--erh-space-2);
+	color: var(--erh-navy);
+	font-size: var(--erh-fs-sm);
+	font-weight: var(--erh-fw-semibold);
+}
+
+a.erh-kservice-card:hover .erh-kservice-card__more,
+a.erh-kservice-card:focus-visible .erh-kservice-card__more {
+	color: var(--erh-gold-dark);
+}
+
+/* --------------------------------------------------------------------------
+   What Can a Kitchen Remodel Include?
+   -------------------------------------------------------------------------- */
+
+.erh-scope__list {
+	--erh-cols: var(--erh-cols-desktop, 4);
+
+	display: grid;
+	gap: var(--erh-space-3) var(--erh-space-6);
+	grid-template-columns: repeat(var(--erh-cols), minmax(0, 1fr));
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.erh-scope__item {
+	display: flex;
+	align-items: flex-start;
+	gap: var(--erh-space-3);
+	padding: var(--erh-space-3) var(--erh-space-4);
+	border: var(--erh-border);
+	border-radius: var(--erh-radius-md);
+	background: var(--erh-white);
+	color: var(--erh-ink);
+	font-size: var(--erh-fs-sm);
+	font-weight: var(--erh-fw-medium);
+}
+
+.erh-scope__tick {
+	display: grid;
+	place-items: center;
+	width: 22px;
+	height: 22px;
+	flex: 0 0 22px;
+	margin-top: 1px;
+	border-radius: var(--erh-radius-circle);
+	background: var(--erh-gold);
+	color: var(--erh-navy);
+}
+
+.erh-scope__notes {
+	max-width: 860px;
+	margin: var(--erh-space-10) auto 0;
+	padding: var(--erh-space-6) var(--erh-space-8);
+	border-left: var(--erh-border-accent);
+	background: var(--erh-grey-50);
+	border-radius: 0 var(--erh-radius-md) var(--erh-radius-md) 0;
+	color: var(--erh-grey-500);
+	font-size: var(--erh-fs-sm);
+	line-height: var(--erh-lh-loose);
+}
+
+.erh-scope__notes p + p {
+	margin-top: var(--erh-space-4);
+}
+
+/* --------------------------------------------------------------------------
+   Kitchen Remodeling That Starts With Better Planning
+   -------------------------------------------------------------------------- */
+
+.erh-planning__grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+	gap: var(--erh-space-16);
+	align-items: center;
+}
+
+.erh-planning__grid--centered {
+	grid-template-columns: minmax(0, 1fr);
+	justify-items: center;
+	text-align: center;
+}
+
+.erh-planning__grid--centered .erh-planning__intro {
+	max-width: 760px;
+}
+
+.erh-planning__lead {
+	color: var(--erh-ink);
+	font-size: var(--erh-fs-lead);
+	font-weight: var(--erh-fw-semibold);
+}
+
+.erh-planning__copy {
+	color: var(--erh-grey-500);
+	line-height: var(--erh-lh-loose);
+}
+
+.erh-planning__lead + .erh-planning__copy,
+.erh-planning__copy + .erh-planning__copy {
+	margin-top: var(--erh-space-4);
+}
+
+.erh-planning__list {
+	--erh-cols: var(--erh-cols-desktop, 1);
+
+	display: grid;
+	gap: var(--erh-space-4);
+	grid-template-columns: repeat(var(--erh-cols), minmax(0, 1fr));
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.erh-planning-card {
+	display: flex;
+	align-items: flex-start;
+	gap: var(--erh-space-4);
+	padding: var(--erh-space-5) var(--erh-space-6);
+	border: var(--erh-border);
+	border-radius: var(--erh-radius-md);
+	background: var(--erh-white);
+	box-shadow: var(--erh-shadow-sm);
+}
+
+.erh-planning-card__icon {
+	display: grid;
+	place-items: center;
+	width: 40px;
+	height: 40px;
+	flex: 0 0 40px;
+	border-radius: var(--erh-radius-circle);
+	background: var(--erh-gold-10);
+	color: var(--erh-gold-dark);
+}
+
+.erh-planning-card__text {
+	color: var(--erh-ink);
+	font-size: var(--erh-fs-sm);
+	line-height: var(--erh-lh-snug);
+}
+
+.erh-planning__image {
+	border-radius: var(--erh-radius-lg);
+	overflow: hidden;
+}
+
+.erh-planning__image img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* --------------------------------------------------------------------------
+   Our Kitchen Remodeling Process
+   -------------------------------------------------------------------------- */
+
+.erh-process__list {
+	--erh-cols: var(--erh-cols-desktop, 5);
+
+	display: grid;
+	gap: var(--erh-space-6);
+	grid-template-columns: repeat(var(--erh-cols), minmax(0, 1fr));
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	counter-reset: erh-process;
+}
+
+.erh-process-step {
+	position: relative;
+	padding: var(--erh-space-8) var(--erh-space-6) var(--erh-space-6);
+	border: var(--erh-border);
+	border-radius: var(--erh-radius-lg);
+	background: var(--erh-white);
+	box-shadow: var(--erh-shadow-sm);
+}
+
+.erh-process-step__number {
+	position: absolute;
+	top: calc(var(--erh-space-8) * -0.5);
+	left: var(--erh-space-6);
+	display: grid;
+	place-items: center;
+	min-width: 44px;
+	height: 44px;
+	padding-inline: var(--erh-space-2);
+	border-radius: var(--erh-radius-circle);
+	background: var(--erh-navy);
+	color: var(--erh-white);
+	font-size: var(--erh-fs-sm);
+	font-weight: var(--erh-fw-bold);
+	letter-spacing: 0.02em;
+}
+
+.erh-process-step__title {
+	margin: var(--erh-space-4) 0 var(--erh-space-2);
+	font-size: var(--erh-fs-h4);
+}
+
+.erh-process-step__text {
+	margin: 0;
+	color: var(--erh-grey-500);
+	font-size: var(--erh-fs-sm);
+	line-height: var(--erh-lh-loose);
+}
+
+/* --------------------------------------------------------------------------
+   Kitchen Remodeling Costs and Project Planning
+   -------------------------------------------------------------------------- */
+
+.erh-cost__grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+	gap: var(--erh-space-16);
+	align-items: center;
+}
+
+.erh-cost__copy {
+	color: var(--erh-grey-500);
+	line-height: var(--erh-lh-loose);
+}
+
+.erh-cost__copy + .erh-cost__copy {
+	margin-top: var(--erh-space-4);
+}
+
+.erh-cost__copy + .erh-btn {
+	margin-top: var(--erh-space-8);
+}
+
+.erh-cost__panel {
+	padding: var(--erh-space-8);
+	border-radius: var(--erh-radius-lg);
+	background: var(--erh-navy);
+	color: var(--erh-on-dark-70);
+	box-shadow: var(--erh-shadow-lg);
+}
+
+.erh-cost__panel-title {
+	margin: 0 0 var(--erh-space-5);
+	color: var(--erh-white);
+	font-size: var(--erh-fs-h4);
+}
+
+.erh-cost__factors {
+	display: grid;
+	gap: var(--erh-space-2);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-size: var(--erh-fs-sm);
+}
+
+.erh-cost__factors li {
+	padding-bottom: var(--erh-space-2);
+	border-bottom: 1px solid var(--erh-hairline);
+}
+
+.erh-cost__factors li:last-child {
+	padding-bottom: 0;
+	border-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Choosing the Right Kitchen Remodeling Contractor
+   -------------------------------------------------------------------------- */
+
+.erh-contractor__grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+	gap: var(--erh-space-12);
+	align-items: start;
+}
+
+.erh-contractor__copy {
+	color: var(--erh-grey-500);
+	line-height: var(--erh-lh-loose);
+}
+
+.erh-contractor__copy p + p {
+	margin-top: var(--erh-space-4);
+}
+
+.erh-contractor__panel {
+	padding: var(--erh-space-8);
+	border: var(--erh-border);
+	border-top: var(--erh-border-accent);
+	border-radius: var(--erh-radius-lg);
+	background: var(--erh-grey-50);
+}
+
+.erh-contractor__panel-title {
+	margin: 0 0 var(--erh-space-5);
+	font-size: var(--erh-fs-h4);
+}
+
+.erh-contractor__checklist {
+	display: grid;
+	gap: var(--erh-space-3);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.erh-contractor__checklist li {
+	display: flex;
+	align-items: flex-start;
+	gap: var(--erh-space-3);
+	color: var(--erh-ink);
+	font-size: var(--erh-fs-sm);
+	font-weight: var(--erh-fw-medium);
+}
+
+.erh-contractor__tick {
+	display: grid;
+	place-items: center;
+	width: 20px;
+	height: 20px;
+	flex: 0 0 20px;
+	margin-top: 2px;
+	border-radius: var(--erh-radius-circle);
+	background: var(--erh-navy);
+	color: var(--erh-white);
+}
+
+.erh-contractor__outro {
+	max-width: 860px;
+	margin-top: var(--erh-space-10);
+	color: var(--erh-grey-500);
+	line-height: var(--erh-lh-loose);
+}
+
+.erh-contractor__outro p + p {
+	margin-top: var(--erh-space-4);
+}
+
+/* --------------------------------------------------------------------------
+   Service areas
+   -------------------------------------------------------------------------- */
+
+.erh-locations__grid {
+	--erh-cols: var(--erh-cols-desktop, 4);
+
+	display: grid;
+	gap: var(--erh-space-6);
+	grid-template-columns: repeat(var(--erh-cols), minmax(0, 1fr));
+}
+
+.erh-location-card {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: var(--erh-space-3);
+	padding: var(--erh-space-8);
+	border: var(--erh-border);
+	border-radius: var(--erh-radius-lg);
+	background: var(--erh-white);
+	box-shadow: var(--erh-shadow-sm);
+	color: inherit;
+	text-decoration: none;
+	transition: border-color var(--erh-transition), box-shadow var(--erh-transition),
+		transform var(--erh-transition);
+}
+
+a.erh-location-card:hover,
+a.erh-location-card:focus-visible {
+	border-color: var(--erh-gold);
+	box-shadow: var(--erh-shadow-md);
+	transform: translateY(-3px);
+	color: inherit;
+}
+
+.erh-location-card__pin {
+	display: grid;
+	place-items: center;
+	width: 44px;
+	height: 44px;
+	border-radius: var(--erh-radius-circle);
+	background: var(--erh-gold-10);
+	color: var(--erh-gold-dark);
+}
+
+.erh-location-card__name {
+	margin: 0;
+	font-size: var(--erh-fs-h3);
+}
+
+.erh-location-card__text {
+	margin: 0;
+	color: var(--erh-grey-500);
+	font-size: var(--erh-fs-sm);
+	line-height: var(--erh-lh-loose);
+}
+
+.erh-location-card__more {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--erh-space-2);
+	margin-top: auto;
+	padding-top: var(--erh-space-2);
+	color: var(--erh-navy);
+	font-size: var(--erh-fs-sm);
+	font-weight: var(--erh-fw-semibold);
+}
+
+a.erh-location-card:hover .erh-location-card__more,
+a.erh-location-card:focus-visible .erh-location-card__more {
+	color: var(--erh-gold-dark);
+}
+
+/* --------------------------------------------------------------------------
+   Kitchen design ideas
+   -------------------------------------------------------------------------- */
+
+.erh-ideas__grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+	gap: var(--erh-space-16);
+	align-items: center;
+}
+
+.erh-ideas__copy {
+	color: var(--erh-grey-500);
+	line-height: var(--erh-lh-loose);
+}
+
+.erh-ideas__copy + .erh-ideas__copy {
+	margin-top: var(--erh-space-4);
+}
+
+.erh-ideas__copy + .erh-btn {
+	margin-top: var(--erh-space-8);
+}
+
+.erh-ideas__gallery {
+	--erh-cols: var(--erh-cols-desktop, 2);
+
+	display: grid;
+	grid-template-columns: repeat(var(--erh-cols), minmax(0, 1fr));
+	gap: var(--erh-space-4);
+}
+
+.erh-ideas__shot {
+	margin: 0;
+	overflow: hidden;
+	border-radius: var(--erh-radius-lg);
+	box-shadow: var(--erh-shadow-md);
+  background: var(--erh-gold);
+}
+
+.erh-ideas__shot img {
+	width: 100%;
+	aspect-ratio: 4 / 3;
+	object-fit: cover;
+	transition: transform var(--erh-transition-slow);
+}
+
+.erh-ideas__shot:hover img {
+	transform: scale(1.04);
+}
+
+.erh-ideas__gallery .erh-ideas__shot:nth-child(1),
+.erh-ideas__gallery .erh-ideas__shot:nth-child(4) {
+	margin-top: var(--erh-space-6);
+}
+
+/* --------------------------------------------------------------------------
+   Home page FAQ
+   -------------------------------------------------------------------------- */
+
+.erh-home-faq__grid {
+	display: grid;
+	grid-template-columns: minmax(220px, 0.72fr) minmax(0, 1.28fr);
+	gap: var(--erh-space-16);
+	align-items: start;
+}
+
+.erh-home-faq__intro {
+	position: sticky;
+	top: var(--erh-space-8);
+	margin: 0;
+	text-align: left;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+	.erh-planning__grid,
+	.erh-cost__grid,
+	.erh-ideas__grid,
+	.erh-home-faq__grid {
+		gap: var(--erh-space-10);
+	}
+}
+
+@media (max-width: 860px) {
+	.erh-planning__grid,
+	.erh-cost__grid,
+	.erh-contractor__grid,
+	.erh-ideas__grid,
+	.erh-home-faq__grid {
+		grid-template-columns: 1fr;
+		gap: var(--erh-space-8);
+	}
+
+	.erh-home-faq__intro {
+		position: static;
+		text-align: center;
+	}
+
+	.erh-scope__notes {
+		padding: var(--erh-space-5) var(--erh-space-6);
+	}
+}
+
+@media (max-width: 560px) {
+	.erh-kservice-card,
+	.erh-location-card,
+	.erh-cost__panel,
+	.erh-contractor__panel {
+		padding: var(--erh-space-6);
+	}
+
+	.erh-process-step {
+		padding: var(--erh-space-8) var(--erh-space-5) var(--erh-space-5);
+	}
+
+	.erh-ideas__gallery .erh-ideas__shot:nth-child(1),
+	.erh-ideas__gallery .erh-ideas__shot:nth-child(4) {
+		margin-top: 0;
+	}
+
+	.erh-hero__note {
+		align-items: flex-start;
+		border-radius: var(--erh-radius-md);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.erh-kservice-card,
+	.erh-location-card,
+	.erh-ideas__shot img {
+		transition: none;
+	}
+
+	a.erh-kservice-card:hover,
+	a.erh-location-card:hover,
+	.erh-ideas__shot:hover img {
+		transform: none;
+	}
+}
+
+/* --------------------------------------------------------------------------
+   Cards per row
+   --------------------------------------------------------------------------
+   Each card grid reads its column count from --erh-cols, seeded from the
+   --erh-cols-desktop value the section writes inline from its "Cards per
+   row" field. Because these rules set --erh-cols itself (rather than
+   grid-template-columns), they still override the inline choice at narrow
+   widths, so a five-across grid steps down instead of squashing.
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+	.erh-kservices__grid,
+	.erh-locations__grid,
+	.erh-process__list,
+	.erh-why__grid {
+		--erh-cols: 2;
+	}
+
+	.erh-scope__list {
+		--erh-cols: 3;
+	}
+}
+
+@media (max-width: 760px) {
+	.erh-scope__list,
+	.erh-planning__list,
+	.erh-ideas__gallery {
+		--erh-cols: 2;
+	}
+}
+
+@media (max-width: 560px) {
+	.erh-kservices__grid,
+	.erh-locations__grid,
+	.erh-process__list,
+	.erh-why__grid,
+	.erh-scope__list,
+	.erh-planning__list,
+	.erh-ideas__gallery {
+		--erh-cols: 1;
+	}
+}

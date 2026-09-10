@@ -1,0 +1,31 @@
+/*
+Theme Name: Elite Remodel Hub
+Theme URI: https://eliteremodelhub.com/
+Author: Arshad
+Author URI: https://eliteremodelhub.com/
+Description: A clean, modern WordPress theme for home remodeling and renovation businesses. Built from the Elite Remodel Hub design, with a fully field-driven header, footer and home page powered by Secure Custom Fields (SCF/ACF) options pages.
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.8
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: elite-remodel-hub
+Tags: home-service, business, one-column, custom-menu, custom-logo, featured-images, threaded-comments, translation-ready, block-styles, wide-blocks
+
+Elite Remodel Hub is distributed under the terms of the GNU GPL v2 or later.
+
+--------------------------------------------------------------------------
+NOTE
+--------------------------------------------------------------------------
+This file exists to declare the theme to WordPress. All presentational CSS
+lives in /assets/css/ and is enqueued from inc/enqueue.php:
+
+  assets/css/tokens.css   - design tokens (colors, type, spacing)
+  assets/css/base.css     - reset, typography, WordPress core classes, utilities
+  assets/css/header.css   - site header / navigation
+  assets/css/footer.css   - site footer
+  assets/css/home.css     - home page template sections
+
+Do not add styles below this comment; edit the files above instead.
+*/
