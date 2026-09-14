@@ -1,0 +1,2763 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kitchen Remodeling Services | Elite Remodel Hub</title>
+<meta name="description" content="Plan your kitchen remodel with Elite Remodel Hub. Explore kitchen remodeling, cabinets, countertops, islands, and design services across four states.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/**
+ * Elite Remodel Hub - Design Tokens
+ *
+ * Central source of truth for colors, type, spacing and other primitives.
+ * Every other stylesheet in this theme reads from these custom properties
+ * instead of hard-coding values, so a brand refresh only touches this file
+ * (or the color pickers under Theme Settings → Brand & Contact).
+ */
+
+:root {
+	/* ------------------------------------------------------------------
+	 * Brand colors
+	 * ---------------------------------------------------------------- */
+	--erh-navy: #153A68;            /* Primary navy - headings, buttons, dark sections */
+	--erh-navy-dark: #10325D;       /* hover / pressed state */
+	--erh-navy-darker: #0C2547;
+	--erh-navy-20: rgba(21, 58, 104, 0.2);
+
+	--erh-gold: #F1B73E;            /* Accent gold - eyebrows, highlighted words, CTAs */
+	--erh-gold-dark: #D99F2E;       /* hover state */
+	--erh-gold-10: rgba(241, 183, 62, 0.1);
+	--erh-gold-20: rgba(241, 183, 62, 0.2);
+
+	/* ------------------------------------------------------------------
+	 * Neutrals
+	 * ---------------------------------------------------------------- */
+	--erh-black: #000000;
+	--erh-ink: #25262D;              /* heading ink */
+	--erh-slate: #25262D;            /* input text  */
+	--erh-grey-500: #666A73;         /* body copy */
+	--erh-grey-300: #A9AEB8;
+	--erh-grey-100: #E7E8F0;
+	--erh-grey-50: #F7F6FF;          /* "lav" section wash */
+	--erh-white: #FFFFFF;
+
+	/* Alpha helpers used on dark (navy) surfaces */
+	--erh-on-dark: rgba(255, 255, 255, 1);
+	--erh-on-dark-70: rgba(255, 255, 255, 0.75);
+	--erh-on-dark-40: rgba(255, 255, 255, 0.45);
+	--erh-hairline: rgba(255, 255, 255, 0.14);
+
+	/* ------------------------------------------------------------------
+	 * Semantic aliases
+	 * ---------------------------------------------------------------- */
+	--erh-body-bg: var(--erh-white);
+	--erh-body-color: var(--erh-grey-500);
+	--erh-heading-color: var(--erh-ink);
+	--erh-accent: var(--erh-gold);
+	--erh-link: var(--erh-navy);
+	--erh-link-hover: var(--erh-gold);
+	--erh-focus-ring: var(--erh-gold);
+	--erh-section-alt-bg: var(--erh-grey-50); /* lavender wash behind hero / services / testimonials */
+
+	/* ------------------------------------------------------------------
+	 * Typography  (Inter)
+	 * ---------------------------------------------------------------- */
+	--erh-font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+		Roboto, "Helvetica Neue", Arial, sans-serif;
+	--erh-font-heading: var(--erh-font-sans);
+
+	--erh-fw-regular: 400;
+	--erh-fw-medium: 500;
+	--erh-fw-semibold: 600;
+	--erh-fw-bold: 700;
+	--erh-fw-black: 800;
+
+	/* Fluid type scale - min value at 360px, max at 1440px */
+	--erh-fs-display: clamp(2.25rem, 1.05rem + 5.2vw, 4.125rem); /* 36 -> 66 */
+	--erh-fs-h1: clamp(2rem, 1.1rem + 4vw, 4.5rem);              /* 32 -> 56 */
+	--erh-fs-h2: clamp(1.875rem, 1.25rem + 2.8vw, 4rem);      /* 30 -> 52 */
+	--erh-fs-h3: clamp(1.25rem, 1.05rem + 1vw, 1.5rem);          /* 20 -> 24 */
+	--erh-fs-h4: clamp(1.125rem, 1rem + 0.6vw, 1.25rem);         /* 18 -> 20 */
+	--erh-fs-lead: 1.125rem;
+	--erh-fs-body: 1rem;                                         /* 16 */
+	--erh-fs-sm: 0.875rem;                                       /* 14 - nav links, body copy */
+	--erh-fs-xs: 0.8125rem;                                      /* 13 - meta text */
+	--erh-fs-eyebrow: 0.8125rem;                                 /* 13 - section eyebrow */
+
+	--erh-lh-tight: 1;
+	--erh-lh-heading: 1.1;
+	--erh-lh-snug: 1.45;
+	--erh-lh-body: 1.6;
+	--erh-lh-loose: 1.75;
+
+	--erh-ls-heading: -0.02em;
+	--erh-ls-eyebrow: 0.08em;    /* wide-tracked uppercase eyebrow */
+
+	/* ------------------------------------------------------------------
+	 * Layout
+	 * ---------------------------------------------------------------- */
+	--erh-container: 1244px;
+	--erh-container-narrow: 800px;
+	--erh-gutter: clamp(1.25rem, 0.4rem + 3.6vw, 5rem); /* 20 -> 80 */
+	--erh-header-height: 92px;
+
+	/* ------------------------------------------------------------------
+	 * Spacing scale (4px base)
+	 * ---------------------------------------------------------------- */
+	--erh-space-1: 0.25rem;
+	--erh-space-2: 0.5rem;
+	--erh-space-3: 0.75rem;
+	--erh-space-4: 1rem;
+	--erh-space-5: 1.25rem;
+	--erh-space-6: 1.5rem;
+	--erh-space-8: 2rem;
+	--erh-space-10: 2.5rem;
+	--erh-space-12: 3rem;
+	--erh-space-16: 4rem;
+	--erh-space-20: 5rem;
+	--erh-space-24: 6rem;
+
+	/* ------------------------------------------------------------------
+	 * Radii, borders, shadows, motion
+	 * ---------------------------------------------------------------- */
+	--erh-radius-btn: 7px;
+	--erh-radius-sm: 6px;
+	--erh-radius-md: 14px;
+	--erh-radius-lg: 16px;
+	--erh-radius-xl: 20px;
+	--erh-radius-pill: 50px;
+	--erh-radius-circle: 999px;
+
+	--erh-border: 1px solid var(--erh-grey-100);
+	--erh-border-accent: 2px solid var(--erh-gold);
+
+	--erh-shadow-sm: 0 1px 2px rgba(37, 38, 45, 0.06);
+	--erh-shadow-md: 0 10px 26px rgba(37, 38, 45, 0.07);
+	--erh-shadow-lg: 0 20px 46px rgba(16, 50, 93, 0.14);
+
+	--erh-transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+	--erh-transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+
+	--erh-z-header: 100;
+	--erh-z-drawer: 200;
+}
+
+/**
+ * Elite Remodel Hub - Base
+ * Reset, element defaults, layout helpers and WordPress core classes.
+ */
+
+/* ==========================================================================
+   1. Reset
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	-webkit-text-size-adjust: 100%;
+	scroll-behavior: smooth;
+	scroll-padding-top: calc(var(--erh-header-height) + 1rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+}
+
+body {
+	margin: 0;
+	background-color: var(--erh-body-bg);
+	color: var(--erh-body-color);
+	font-family: var(--erh-font-sans);
+	font-size: var(--erh-fs-body);
+	font-weight: var(--erh-fw-regular);
+	line-height: var(--erh-lh-body);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	overflow-x: hidden;
+}
+
+body.erh-menu-open {
+	overflow: hidden;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+svg:not([fill]) {
+	fill: currentColor;
+}
+
+input,
+button,
+textarea,
+select {
+	font: inherit;
+	color: inherit;
+}
+
+button {
+	cursor: pointer;
+}
+
+hr {
+	border: 0;
+	border-top: 1px solid var(--erh-grey-100);
+	margin: var(--erh-space-10) 0;
+}
+
+/* ==========================================================================
+   2. Typography
+   ========================================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0 0 var(--erh-space-4);
+	color: var(--erh-heading-color);
+	font-family: var(--erh-font-heading);
+	font-weight: var(--erh-fw-semibold);
+	line-height: var(--erh-lh-heading);
+	letter-spacing: var(--erh-ls-heading);
+}
+
+h1 { font-size: var(--erh-fs-h1); }
+h2 { font-size: var(--erh-fs-h2); }
+h3 { font-size: var(--erh-fs-h3); }
+h4 { font-size: var(--erh-fs-h4); }
+
+p,
+ul,
+ol,
+dl,
+figure,
+blockquote,
+pre,
+table {
+	margin: 0 0 var(--erh-space-5);
+}
+
+p:last-child,
+ul:last-child,
+ol:last-child {
+	margin-bottom: 0;
+}
+
+a {
+	color: var(--erh-link);
+	text-decoration: none;
+	transition: color var(--erh-transition);
+}
+
+a:hover,
+a:focus {
+	color: var(--erh-link-hover);
+}
+
+strong,
+b {
+	font-weight: var(--erh-fw-semibold);
+}
+
+blockquote {
+	padding-left: var(--erh-space-5);
+	border-left: var(--erh-border-accent);
+	color: var(--erh-ink);
+	font-size: var(--erh-fs-lead);
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+th,
+td {
+	padding: var(--erh-space-3);
+	border-bottom: var(--erh-border);
+	text-align: left;
+}
+
+/* ==========================================================================
+   3. Accessibility
+   ========================================================================== */
+
+.screen-reader-text {
+	position: absolute !important;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	white-space: nowrap;
+	border: 0;
+}
+
+.screen-reader-text:focus {
+	top: 1rem;
+	left: 1rem;
+	z-index: 100000;
+	width: auto;
+	height: auto;
+	clip: auto;
+	clip-path: none;
+	padding: var(--erh-space-3) var(--erh-space-5);
+	border-radius: var(--erh-radius-pill);
+	background: var(--erh-navy);
+	color: var(--erh-white);
+	font-weight: var(--erh-fw-semibold);
+	text-decoration: none;
+}
+
+:focus-visible {
+	outline: 2px solid var(--erh-focus-ring);
+	outline-offset: 3px;
+}
+
+/* ==========================================================================
+   4. Layout helpers
+   ========================================================================== */
+
+.erh-container {
+	width: 100%;
+	max-width: calc(var(--erh-container) + var(--erh-gutter) * 2);
+	margin-inline: auto;
+	padding-inline: var(--erh-gutter);
+}
+
+.erh-container--narrow {
+	max-width: calc(var(--erh-container-narrow) + var(--erh-gutter) * 2);
+}
+
+.erh-section {
+	padding-block: clamp(2rem, 1rem + 3vw, 4rem);
+}
+
+.erh-site-main {
+	min-height: 40vh;
+}
+
+.erh-section-head {
+	max-width: 640px;
+	margin: 0 auto var(--erh-space-12);
+	text-align: center;
+}
+
+.erh-section-head__text {
+	color: var(--erh-grey-500);
+}
+
+/* Section eyebrow - tracked gold label */
+.erh-eyebrow {
+	display: inline-flex;
+	align-items: center;
+	margin: 0 0 var(--erh-space-3);
+	color: var(--erh-gold);
+	font-size: var(--erh-fs-eyebrow);
+	font-weight: var(--erh-fw-semibold);
+	letter-spacing: var(--erh-ls-eyebrow);
+	line-height: 1.4;
+	text-transform: uppercase;
+}
+
+.erh-heading__accent {
+	color: var(--erh-gold);
+}
+
+/* ==========================================================================
+   5. Buttons
+   ========================================================================== */
+
+.erh-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--erh-space-2);
+	min-height: 48px;
+	padding: 0 24px;
+	border: 2px solid transparent;
+	border-radius: var(--erh-radius-btn);
+	background-color: var(--erh-navy);
+	color: var(--erh-white);
+	font-size: var(--erh-fs-sm);
+	font-weight: var(--erh-fw-bold);
+	line-height: 1;
+	text-align: center;
+	text-decoration: none;
+	white-space: nowrap;
+	transition: background-color var(--erh-transition), color var(--erh-transition),
+		border-color var(--erh-transition), transform var(--erh-transition);
+}
+
+.erh-btn:hover,
+.erh-btn:focus {
+	background-color: var(--erh-navy-dark);
+	color: var(--erh-white);
+	transform: translateY(-1px);
+}
+
+.erh-btn--navy {
+	background-color: var(--erh-navy);
+}
+
+.erh-btn--gold {
+	background-color: var(--erh-gold);
+	color: var(--erh-navy);
+}
+
+.erh-btn--gold:hover,
+.erh-btn--gold:focus {
+	background-color: var(--erh-gold-dark);
+	color: var(--erh-navy);
+}
+
+.erh-btn--white {
+	background-color: var(--erh-white);
+	color: var(--erh-navy);
+}
+
+.erh-btn--white:hover,
+.erh-btn--white:focus {
+	background-color: var(--erh-grey-50);
+	color: var(--erh-navy);
+}
+
+.erh-btn--outline {
+	border-color: rgba(255, 255, 255, 0.6);
+	background-color: transparent;
+	color: var(--erh-white);
+}
+
+.erh-btn--outline:hover,
+.erh-btn--outline:focus {
+	border-color: var(--erh-white);
+	background-color: var(--erh-white);
+	color: var(--erh-navy);
+}
+
+.erh-btn--lg {
+	padding: 16px 34px;
+	font-size: var(--erh-fs-body);
+}
+
+.erh-btn--block {
+	display: flex;
+	width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   Pill button with a trailing circular arrow
+   -------------------------------------------------------------------------- */
+
+.erh-btn-arrow {
+	--erh-arrow-color: var(--erh-navy);
+	--erh-arrow-contrast: var(--erh-white);
+
+	display: inline-flex;
+	align-items: center;
+	gap: var(--erh-space-2);
+	text-decoration: none;
+}
+
+.erh-btn-arrow__label {
+	color: var(--erh-arrow-color);
+	font-size: var(--erh-fs-sm);
+	font-weight: var(--erh-fw-semibold);
+	line-height: 1;
+	white-space: nowrap;
+}
+
+.erh-btn-arrow__icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+	flex: 0 0 32px;
+	border: 1px solid var(--erh-arrow-color);
+	border-radius: var(--erh-radius-circle);
+	background: transparent;
+	color: var(--erh-arrow-color);
+	transition: background-color var(--erh-transition), color var(--erh-transition),
+		transform var(--erh-transition);
+}
+
+.erh-btn-arrow__icon svg {
+	width: 16px;
+	height: 16px;
+}
+
+.erh-btn-arrow:hover .erh-btn-arrow__icon,
+.erh-btn-arrow:focus-visible .erh-btn-arrow__icon {
+	background: var(--erh-arrow-color);
+	color: var(--erh-arrow-contrast);
+	transform: translateX(2px);
+}
+
+.erh-btn-arrow--white {
+	--erh-arrow-color: var(--erh-white);
+	--erh-arrow-contrast: var(--erh-navy);
+}
+
+.erh-btn-arrow--white .erh-btn-arrow__label {
+	color: var(--erh-white);
+}
+
+/* ==========================================================================
+   6. Forms
+   ========================================================================== */
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="number"],
+textarea,
+select {
+	width: 100%;
+	padding: 13px 18px;
+	border: var(--erh-border);
+	border-radius: var(--erh-radius-md);
+	background: var(--erh-white);
+	color: var(--erh-slate);
+	transition: border-color var(--erh-transition), box-shadow var(--erh-transition);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+	border-color: var(--erh-gold);
+	box-shadow: 0 0 0 3px var(--erh-gold-10);
+	outline: none;
+}
+
+::placeholder {
+	color: var(--erh-grey-300);
+	opacity: 1;
+}
+
+/* ==========================================================================
+   7. WordPress core classes
+   ========================================================================== */
+
+.alignleft {
+	float: left;
+	margin: 0 var(--erh-space-6) var(--erh-space-4) 0;
+}
+
+.alignright {
+	float: right;
+	margin: 0 0 var(--erh-space-4) var(--erh-space-6);
+}
+
+.aligncenter {
+	display: block;
+	margin-inline: auto;
+}
+
+.alignwide {
+	max-width: min(1200px, 100%);
+	margin-inline: auto;
+}
+
+.alignfull {
+	width: 100vw;
+	max-width: 100vw;
+	margin-left: calc(50% - 50vw);
+	margin-right: calc(50% - 50vw);
+}
+
+.wp-caption {
+	max-width: 100%;
+}
+
+.wp-caption-text,
+.wp-block-image figcaption {
+	margin-top: var(--erh-space-2);
+	color: var(--erh-grey-500);
+	font-size: var(--erh-fs-sm);
+	text-align: center;
+}
+
+.sticky,
+.bypostauthor {
+	display: block;
+}
+
+.erh-pagination {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--erh-space-2);
+	justify-content: center;
+	margin-top: var(--erh-space-12);
+}
+
+.erh-pagination .page-numbers {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 40px;
+	height: 40px;
+	padding-inline: var(--erh-space-3);
+	border-radius: var(--erh-radius-circle);
+	background: var(--erh-grey-50);
+	color: var(--erh-grey-500);
+	font-weight: var(--erh-fw-medium);
+}
+
+.erh-pagination .page-numbers.current,
+.erh-pagination .page-numbers:hover {
+	background: var(--erh-navy);
+	color: var(--erh-white);
+}
+
+/* ==========================================================================
+   8. Entry / archive defaults
+   ========================================================================== */
+
+.erh-entry {
+	margin-bottom: var(--erh-space-12);
+}
+
+.erh-entry__title {
+	font-size: var(--erh-fs-h3);
+}
+
+.erh-entry__title a {
+	color: inherit;
+}
+
+.erh-entry__title a:hover {
+	color: var(--erh-gold);
+}
+
+.erh-entry__meta {
+	margin-bottom: var(--erh-space-3);
+	color: var(--erh-grey-500);
+	font-size: var(--erh-fs-sm);
+}
+
+.erh-entry__thumb img {
+	width: 100%;
+	border-radius: var(--erh-radius-lg);
+	object-fit: cover;
+}
+
+.erh-grid {
+	display: grid;
+	gap: var(--erh-space-8);
+	grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+}
+
+.erh-page-header {
+	margin-bottom: var(--erh-space-10);
+}
+
+.erh-page-header__title {
+	font-size: var(--erh-fs-h2);
+}
+
+.erh-entry-content > * + * {
+	margin-top: var(--erh-space-5);
+}
+
+.erh-entry-content h2,
+.erh-entry-content h3,
+.erh-entry-content h4 {
+	margin-top: var(--erh-space-10);
+}
+
+.erh-empty-hint {
+	padding: var(--erh-space-6);
+	border-radius: var(--erh-radius-md);
+	background: var(--erh-grey-50);
+	color: var(--erh-grey-500);
+	font-size: var(--erh-fs-sm);
+	text-align: center;
+}
+
+.erh-comments {
+	margin-top: var(--erh-space-16);
+	padding-top: var(--erh-space-10);
+	border-top: var(--erh-border);
+}
+
+/* ==========================================================================
+   9. Stars
+   ========================================================================== */
+
+.erh-stars {
+	display: inline-flex;
+	gap: 2px;
+}
+
+.erh-stars__star {
+	color: var(--erh-grey-100);
+}
+
+.erh-stars__star.is-on {
+	color: var(--erh-gold);
+}
+
+/**
+ * Elite Remodel Hub - Home page sections
+ * Hero, About, Why Choose Us, Services, Get Started CTA, Blog, Testimonials.
+ */
+
+/* ==========================================================================
+   1. Hero
+   ========================================================================== */
+
+.erh-hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(3rem, 1.6rem + 6vw, 6.5rem) 2rem;
+  background: var(--erh-section-alt-bg);
+}
+
+.erh-hero__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.erh-hero__content {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.erh-hero__content .erh-heading {
+  font-size: var(--erh-fs-display);
+  letter-spacing: -0.035em;
+  margin-bottom: var(--erh-space-5);
+}
+
+.erh-hero__text {
+  max-width: 700px;
+  margin: 0 auto var(--erh-space-8);
+  color: var(--erh-grey-500);
+  font-size: var(--erh-fs-sm);
+}
+
+/* --------------------------------------------------------------------------
+   Gallery slider (Owl Carousel) - 3 photos shown fully, with the next/
+   previous photo peeking in at each edge. Item widths, the peek amount
+   ("stagePadding") and spacing are all set in the Owl config in
+   assets/js/home.js - this file only styles the slide contents and dots.
+   -------------------------------------------------------------------------- */
+
+.erh-hero__gallery {
+  position: relative;
+  z-index: 1;
+  margin-top: clamp(2.5rem, 1.5rem + 4vw, 4.5rem);
+}
+
+.erh-hero-owl {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 28px,
+    #000 calc(100% - 28px),
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 28px,
+    #000 calc(100% - 28px),
+    transparent
+  );
+}
+
+.erh-hero__gallery-item {
+  height: clamp(220px, 24vw, 340px);
+  border-radius: var(--erh-radius-lg);
+  overflow: hidden;
+}
+
+.erh-hero__gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.erh-hero__gallery-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--erh-space-2);
+  margin-top: var(--erh-space-6);
+}
+.erh-hero__gallery-dots button {
+  border: none;
+}
+.erh-hero__gallery-dots .owl-dot span {
+  display: block;
+  width: 8px;
+  height: 8px;
+  margin: 0;
+  border-radius: var(--erh-radius-circle);
+  background: var(--erh-grey-100);
+  transition:
+    background-color var(--erh-transition),
+    transform var(--erh-transition);
+}
+
+.erh-hero__gallery-dots .owl-dot.active span {
+  background: var(--erh-navy);
+  transform: scale(1.35);
+}
+
+@media (max-width: 560px) {
+  .erh-hero__gallery-item {
+    height: clamp(200px, 58vw, 300px);
+  }
+}
+
+/* ==========================================================================
+   2. About
+   ========================================================================== */
+
+.erh-about__grid {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  align-items: center;
+  gap: clamp(2rem, 1rem + 4vw, 4.875rem);
+}
+
+.erh-about__media {
+  display: grid;
+  grid-template-columns: 1.08fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: var(--erh-space-5);
+  height: clamp(360px, 32vw, 600px);
+}
+
+.erh-about__media-main {
+  grid-row: 1 / 3;
+  border-radius: var(--erh-radius-lg);
+  overflow: hidden;
+}
+
+.erh-about__media-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.erh-about__media-stack {
+  display: contents;
+}
+
+.erh-about__media-small {
+  border-radius: var(--erh-radius-lg);
+  overflow: hidden;
+}
+
+.erh-about__media-small img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.erh-about__content .erh-heading {
+  font-size: clamp(1.875rem, 1rem + 3.5vw, 4rem);
+  letter-spacing: -0.025em;
+  margin-bottom: var(--erh-space-6);
+}
+
+.erh-about__copy {
+  max-width: 500px;
+  margin-bottom: var(--erh-space-8);
+  color: var(--erh-grey-500);
+  font-size: var(--erh-fs-sm);
+}
+
+@media (max-width: 900px) {
+  .erh-about__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .erh-about__media {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    height: auto;
+  }
+
+  .erh-about__media-main {
+    grid-row: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .erh-about__media-stack {
+    display: flex;
+    flex-direction: row;
+    gap: var(--erh-space-3);
+  }
+
+  .erh-about__media-small {
+    flex: 1;
+    aspect-ratio: 1 / 1;
+  }
+}
+
+/* ==========================================================================
+   3. Why Choose Us
+   ========================================================================== */
+
+.erh-why {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(3.5rem, 2rem + 6vw, 7rem);
+  background: var(--erh-navy);
+  color: var(--erh-on-dark-70);
+}
+
+.erh-why__bg {
+  position: absolute;
+  inset: 0;
+  background-position: center 44%;
+  background-size: cover;
+}
+
+.erh-why__overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--erh-navy);
+  opacity: 0.68;
+}
+
+.erh-why__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.erh-why__head .erh-heading {
+  font-size: clamp(1.875rem, 1.1rem + 3vw, 4rem);
+  line-height: 1.05;
+  color: var(--erh-white);
+  margin-bottom: var(--erh-space-6);
+}
+
+.erh-why__text {
+  color: var(--erh-on-dark-70);
+  font-size: var(--erh-fs-sm);
+}
+
+.erh-why__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--erh-space-5);
+}
+
+.erh-why-card {
+  min-height: 180px;
+  padding: var(--erh-space-8) var(--erh-space-6);
+  border-radius: var(--erh-radius-md);
+  background: var(--erh-white);
+}
+
+.erh-why-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: var(--erh-space-4);
+  border-radius: var(--erh-radius-circle);
+  background: var(--erh-gold-10);
+  color: var(--erh-gold-dark);
+}
+
+.erh-why-card__title {
+  margin-bottom: var(--erh-space-3);
+  color: var(--erh-ink);
+  font-size: 1.25rem;
+}
+
+.erh-why-card__text {
+  margin: 0;
+  color: var(--erh-grey-500);
+  font-size: var(--erh-fs-sm);
+  line-height: var(--erh-lh-snug);
+}
+
+.erh-why-card--highlight {
+
+  background: var(--erh-navy-dark);
+}
+
+.erh-why-card--highlight .erh-why-card__icon {
+  flex: 0 0 44px;
+  margin-bottom: 0;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--erh-gold);
+}
+
+.erh-why-card--highlight .erh-why-card__title {
+  color: var(--erh-white);
+  margin: 12px 0px;
+}
+
+.erh-why-card--highlight .erh-why-card__text {
+  color: var(--erh-on-dark-70);
+}
+
+@media (max-width: 900px) {
+  .erh-why__inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .erh-why__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .erh-why-card--highlight {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* ==========================================================================
+   4. Services
+   ========================================================================== */
+
+.erh-services {
+  background: var(--erh-section-alt-bg);
+}
+
+.erh-services__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--erh-space-8);
+}
+
+.erh-service-card {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--erh-radius-lg);
+  overflow: hidden;
+  color: var(--erh-white);
+  isolation: isolate;
+}
+
+.erh-service-card__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--erh-transition-slow);
+}
+
+.erh-service-card:hover .erh-service-card__image {
+  transform: scale(1.06);
+}
+
+.erh-service-card__overlay {
+  position: absolute;
+  inset: 40% 0 0;
+  background: linear-gradient(to bottom, transparent, rgba(9, 31, 58, 0.86));
+}
+
+.erh-service-card__body {
+  position: absolute;
+  z-index: 1;
+  left: var(--erh-space-8);
+  right: var(--erh-space-8);
+  bottom: var(--erh-space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--erh-space-2);
+}
+
+.erh-service-card__title {
+  font-size: 1.5rem;
+  font-weight: var(--erh-fw-semibold);
+}
+
+.erh-service-card__text {
+  max-width: 320px;
+  color: var(--erh-on-dark-70);
+  font-size: var(--erh-fs-xs);
+  line-height: var(--erh-lh-snug);
+}
+
+@media (max-width: 700px) {
+  .erh-services__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   5. Get Started CTA
+   ========================================================================== */
+
+.erh-cta {
+  position: relative;
+  overflow: hidden;
+  color: var(--erh-white);
+}
+
+.erh-cta__bg {
+  position: absolute;
+  inset: 0;
+  background-position: center 45%;
+  background-size: cover;
+}
+
+.erh-cta__overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--erh-navy-darker);
+  opacity: 0.73;
+}
+
+.erh-cta__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--erh-space-10);
+  flex-wrap: wrap;
+  padding-block: clamp(2.75rem, 1.5rem + 4.5vw, 4.75rem);
+}
+
+.erh-cta__content {
+  max-width: 620px;
+}
+
+.erh-cta__title {
+  color: var(--erh-white);
+  font-size: clamp(1.75rem, 1.1rem + 2.6vw, 3rem);
+  margin-bottom: var(--erh-space-4);
+}
+
+.erh-cta__text {
+  margin: 0;
+  color: var(--erh-on-dark-70);
+  font-size: var(--erh-fs-sm);
+  line-height: var(--erh-lh-loose);
+}
+
+.erh-cta .erh-btn {
+  min-width: 155px;
+}
+
+@media (max-width: 900px) {
+  .erh-cta__inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ==========================================================================
+   6. Blog
+   ========================================================================== */
+
+/* The featured card and the .erh-blog__side wrapper (holding every other
+   post) are the grid's only two direct children, so they naturally land
+   one per column - no explicit grid-column/grid-row placement needed. The
+   fixed height means .erh-blog__side always matches the featured photo's
+   height instead of being able to grow taller than it; inside it, each
+   compact card gets an equal flex share (flex: 1 1 0) of that height,
+   however many there are (blog_count is admin-configurable). */
+.erh-blog__grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--erh-space-8);
+  height: clamp(420px, 40vw, 580px);
+}
+
+.erh-blog-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+.erh-blog__side {
+  display: flex;
+  flex-direction: column;
+  gap: var(--erh-space-6);
+  height: 100%;
+}
+
+.erh-blog-card--compact {
+  flex: 1 1 0;
+  gap: var(--erh-space-4);
+  min-height: 0;
+}
+
+.erh-blog-card__thumb {
+  display: block;
+  flex: 1 1 0;
+  min-height: 0;
+  border-radius: var(--erh-radius-md);
+  overflow: hidden;
+}
+
+.erh-blog-card--featured .erh-blog-card__thumb {
+  margin-bottom: var(--erh-space-5);
+}
+
+.erh-blog-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--erh-transition-slow);
+}
+
+.erh-blog-card__thumb:hover .erh-blog-card__image {
+  transform: scale(1.05);
+}
+
+.erh-blog-card__body {
+  min-width: 0;
+}
+
+.erh-blog-card__meta {
+  margin: 0 0 var(--erh-space-2);
+  color: var(--erh-gold-dark);
+  font-size: var(--erh-fs-xs);
+  font-weight: var(--erh-fw-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.erh-blog-card--featured .erh-blog-card__title {
+  font-size: 1.3125rem;
+  margin-bottom: var(--erh-space-3);
+}
+
+.erh-blog-card--compact .erh-blog-card__title {
+  font-size: 1.25rem;
+  margin-bottom: var(--erh-space-2);
+}
+
+.erh-blog-card__title a {
+  color: var(--erh-ink);
+}
+
+.erh-blog-card__title a:hover {
+  color: var(--erh-gold-dark);
+}
+
+.erh-blog-card__excerpt {
+  color: var(--erh-grey-500);
+  font-size: var(--erh-fs-xs);
+  line-height: var(--erh-lh-snug);
+}
+
+.erh-blog-card--compact .erh-blog-card__excerpt {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (max-width: 900px) {
+  .erh-blog__grid {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .erh-blog-card,
+  .erh-blog__side {
+    height: auto;
+  }
+
+  .erh-blog-card--compact {
+    flex: none;
+  }
+
+  .erh-blog-card__thumb {
+    flex: none;
+    aspect-ratio: 16 / 10;
+  }
+}
+
+/* ==========================================================================
+   7. Testimonials
+   ========================================================================== */
+
+.erh-testimonials {
+  background: var(--erh-section-alt-bg);
+  overflow: hidden;
+}
+
+/* Full-width Owl Carousel slider - breaks out of .erh-container so the
+   slides run edge-to-edge. 3 cards shown fully, with glimpses of the next
+   2 cards peeking in on the right and the previous 2 on the left (and
+   fewer at narrower widths). Item widths, the peek amount ("stagePadding")
+   and spacing are all set in the Owl config in assets/js/home.js - this
+   file only styles the card contents and dots. */
+.erh-testimonials__slider {
+  width: 100%;
+  padding-block: var(--erh-space-2);
+}
+.erh-testimonials__slider .owl-item.active:nth-child(2) {
+  background: var(--erh-navy);
+  color: var(--erh-on-dark-70);
+  box-shadow: none;
+}
+.erh-testimonial-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--erh-space-3);
+  height: auto;
+  margin: 0;
+  padding: var(--erh-space-6);
+  border: 0;
+  border-radius: var(--erh-radius-md);
+  background: var(--erh-white);
+  box-shadow: var(--erh-shadow-sm);
+}
+
+.erh-testimonial-card__quote-icon {
+  display: block;
+  color: var(--erh-navy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2.5rem;
+  font-weight: var(--erh-fw-bold);
+  line-height: 1;
+}
+
+.erh-testimonial-card__text {
+  margin: 0;
+  flex: 1;
+  color: var(--erh-grey-500);
+  font-size: var(--erh-fs-sm);
+  line-height: var(--erh-lh-loose);
+  font-style: normal;
+}
+
+.erh-testimonial-card__person {
+  display: flex;
+  align-items: center;
+  gap: var(--erh-space-3);
+  margin-top: var(--erh-space-2);
+}
+
+.erh-testimonial-card__avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  overflow: hidden;
+  border-radius: var(--erh-radius-circle);
+  background: var(--erh-grey-50);
+  color: var(--erh-grey-300);
+}
+
+.erh-testimonial-card__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.erh-testimonial-card__meta {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+
+.erh-testimonial-card__name {
+  color: var(--erh-ink);
+  font-weight: var(--erh-fw-semibold);
+}
+
+.erh-testimonial-card__role {
+  color: var(--erh-grey-500);
+  font-size: var(--erh-fs-xs);
+  margin: 5px 0px;
+}
+
+.erh-testimonial-card--highlight {
+  background: var(--erh-navy);
+  color: var(--erh-on-dark-70);
+  box-shadow: none;
+}
+
+.erh-testimonial-card--highlight .erh-testimonial-card__text {
+  color: var(--erh-on-dark-70);
+}
+
+.erh-testimonial-card--highlight .erh-testimonial-card__name {
+  color: var(--erh-white);
+}
+
+.erh-testimonial-card--highlight .erh-testimonial-card__quote-icon {
+  color: var(--erh-white);
+}
+
+.erh-testimonials__dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--erh-space-2);
+  margin-top: var(--erh-space-8);
+}
+.erh-testimonials__dots button {
+  border: none;
+  background: transparent;
+}
+
+.erh-testimonials__dots .owl-dot span {
+  display: block;
+  width: 8px;
+  height: 8px;
+  margin: 0;
+  border-radius: var(--erh-radius-circle);
+  background: var(--erh-grey-100);
+  transition:
+    background-color var(--erh-transition),
+    transform var(--erh-transition);
+}
+
+.erh-testimonials__dots .owl-dot.active span {
+  background: var(--erh-navy);
+  transform: scale(1.35);
+}
+
+/* ==========================================================================
+   Kitchen remodeling home page sections
+   ==========================================================================
+   Everything below styles the sections added for the kitchen remodeling
+   home page: the hero coverage note, the services grid, the scope
+   checklist, planning, process, costs, contractor guidance, service areas,
+   design ideas and the FAQ. All values come from tokens.css.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Shared helpers
+   -------------------------------------------------------------------------- */
+
+.erh-kservices,
+.erh-planning,
+.erh-cost,
+.erh-locations,
+.erh-home-faq {
+	background: var(--erh-section-alt-bg);
+}
+
+.erh-panel {
+	padding: var(--erh-space-8);
+	border: var(--erh-border);
+	border-radius: var(--erh-radius-lg);
+	background: var(--erh-white);
+	box-shadow: var(--erh-shadow-sm);
+}
+
+/* --------------------------------------------------------------------------
+   Hero coverage note
+   -------------------------------------------------------------------------- */
+
+.erh-hero__note {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--erh-space-3);
+	margin-top: var(--erh-space-5);
+	padding: var(--erh-space-3) var(--erh-space-5);
+	border-radius: var(--erh-radius-pill);
+	background: var(--erh-gold-10);
+	color: var(--erh-ink);
+	font-size: var(--erh-fs-sm);
+	font-weight: var(--erh-fw-medium);
+}
+
+.erh-hero__note-icon {
+	display: inline-flex;
+	color: var(--erh-gold-dark);
+}
+
+.erh-hero__note + .erh-btn {
+	margin-top: var(--erh-space-6);
+}
+
+/* --------------------------------------------------------------------------
+   About - multiple paragraphs
+   -------------------------------------------------------------------------- */
+
+.erh-about__copy + .erh-about__copy {
+	margin-top: var(--erh-space-4);
+}
+
+/* --------------------------------------------------------------------------
+   Explore Our Kitchen Remodeling Services
+   -------------------------------------------------------------------------- */
+
+.erh-kservices__grid {
+	display: grid;
+	gap: var(--erh-space-6);
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.erh-kservice-card {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: var(--erh-space-3);
+	padding: var(--erh-space-8);
+	border: var(--erh-border);
+	border-radius: var(--erh-radius-lg);
+	background: var(--erh-white);
+	box-shadow: var(--erh-shadow-sm);
+	color: inherit;
+	text-decoration: none;
+	transition: border-color var(--erh-transition), box-shadow var(--erh-transition),
+		transform var(--erh-transition);
+}
+
+a.erh-kservice-card:hover,
+a.erh-kservice-card:focus-visible {
+	border-color: var(--erh-gold);
+	box-shadow: var(--erh-shadow-md);
+	transform: translateY(-3px);
+	color: inherit;
+}
+
+.erh-kservice-card__icon {
+	display: grid;
+	place-items: center;
+	width: 52px;
+	height: 52px;
+	border-radius: var(--erh-radius-md);
+	background: var(--erh-navy);
+	color: var(--erh-white);
+}
+
+a.erh-kservice-card:hover .erh-kservice-card__icon,
+a.erh-kservice-card:focus-visible .erh-kservice-card__icon {
+	background: var(--erh-gold);
+	color: var(--erh-navy);
+}
+
+.erh-kservice-card__title {
+	margin: 0;
+	font-size: var(--erh-fs-h3);
+}
+
+.erh-kservice-card__text {
+	margin: 0;
+	color: var(--erh-grey-500);
+	font-size: var(--erh-fs-sm);
+	line-height: var(--erh-lh-loose);
+}
+
+.erh-kservice-card__more {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--erh-space-2);
+	margin-top: auto;
+	padding-top: var(--erh-space-2);
+	color: var(--erh-navy);
+	font-size: var(--erh-fs-sm);
+	font-weight: var(--erh-fw-semibold);
+}
+
+a.erh-kservice-card:hover .erh-kservice-card__more,
+a.erh-kservice-card:focus-visible .erh-kservice-card__more {
+	color: var(--erh-gold-dark);
+}
+
+/* --------------------------------------------------------------------------
+   What Can a Kitchen Remodel Include?
+   -------------------------------------------------------------------------- */
+
+.erh-scope__list {
+	display: grid;
+	gap: var(--erh-space-3) var(--erh-space-6);
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.erh-scope__item {
+	display: flex;
+	align-items: flex-start;
+	gap: var(--erh-space-3);
+	padding: var(--erh-space-3) var(--erh-space-4);
+	border: var(--erh-border);
+	border-radius: var(--erh-radius-md);
+	background: var(--erh-white);
+	color: var(--erh-ink);
+	font-size: var(--erh-fs-sm);
+	font-weight: var(--erh-fw-medium);
+}
+
+.erh-scope__tick {
+	display: grid;
+	place-items: center;
+	width: 22px;
+	height: 22px;
+	flex: 0 0 22px;
+	margin-top: 1px;
+	border-radius: var(--erh-radius-circle);
+	background: var(--erh-gold);
+	color: var(--erh-navy);
+}
+
+.erh-scope__notes {
+	max-width: 860px;
+	margin: var(--erh-space-10) auto 0;
+	padding: var(--erh-space-6) var(--erh-space-8);
+	border-left: var(--erh-border-accent);
+	background: var(--erh-grey-50);
+	border-radius: 0 var(--erh-radius-md) var(--erh-radius-md) 0;
+	color: var(--erh-grey-500);
+	font-size: var(--erh-fs-sm);
+	line-height: var(--erh-lh-loose);
+}
+
+.erh-scope__notes p + p {
+	margin-top: var(--erh-space-4);
+}
+
+/* --------------------------------------------------------------------------
+   Kitchen Remodeling That Starts With Better Planning
+   -------------------------------------------------------------------------- */
+
+.erh-planning__grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+	gap: var(--erh-space-16);
+	align-items: start;
+}
+
+.erh-planning__lead {
+	color: var(--erh-ink);
+	font-size: var(--erh-fs-lead);
+	font-weight: var(--erh-fw-semibold);
+}
+
+.erh-planning__copy {
+	color: var(--erh-grey-500);
+	line-height: var(--erh-lh-loose);
+}
+
+.erh-planning__lead + .erh-planning__copy,
+.erh-planning__copy + .erh-planning__copy {
+	margin-top: var(--erh-space-4);
+}
+
+.erh-planning__list {
+	display: grid;
+	gap: var(--erh-space-4);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.erh-planning-card {
+	display: flex;
+	align-items: flex-start;
+	gap: var(--erh-space-4);
+	padding: var(--erh-space-5) var(--erh-space-6);
+	border: var(--erh-border);
+	border-radius: var(--erh-radius-md);
+	background: var(--erh-white);
+	box-shadow: var(--erh-shadow-sm);
+}
+
+.erh-planning-card__icon {
+	display: grid;
+	place-items: center;
+	width: 40px;
+	height: 40px;
+	flex: 0 0 40px;
+	border-radius: var(--erh-radius-circle);
+	background: var(--erh-gold-10);
+	color: var(--erh-gold-dark);
+}
+
+.erh-planning-card__text {
+	color: var(--erh-ink);
+	font-size: var(--erh-fs-sm);
+	line-height: var(--erh-lh-snug);
+}
+
+/* --------------------------------------------------------------------------
+   Our Kitchen Remodeling Process
+   -------------------------------------------------------------------------- */
+
+.erh-process__list {
+	display: grid;
+	gap: var(--erh-space-6);
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	counter-reset: erh-process;
+}
+
+.erh-process-step {
+	position: relative;
+	padding: var(--erh-space-8) var(--erh-space-6) var(--erh-space-6);
+	border: var(--erh-border);
+	border-radius: var(--erh-radius-lg);
+	background: var(--erh-white);
+	box-shadow: var(--erh-shadow-sm);
+}
+
+.erh-process-step__number {
+	position: absolute;
+	top: calc(var(--erh-space-8) * -0.5);
+	left: var(--erh-space-6);
+	display: grid;
+	place-items: center;
+	min-width: 44px;
+	height: 44px;
+	padding-inline: var(--erh-space-2);
+	border-radius: var(--erh-radius-circle);
+	background: var(--erh-navy);
+	color: var(--erh-white);
+	font-size: var(--erh-fs-sm);
+	font-weight: var(--erh-fw-bold);
+	letter-spacing: 0.02em;
+}
+
+.erh-process-step__title {
+	margin: var(--erh-space-4) 0 var(--erh-space-2);
+	font-size: var(--erh-fs-h4);
+}
+
+.erh-process-step__text {
+	margin: 0;
+	color: var(--erh-grey-500);
+	font-size: var(--erh-fs-sm);
+	line-height: var(--erh-lh-loose);
+}
+
+/* --------------------------------------------------------------------------
+   Kitchen Remodeling Costs and Project Planning
+   -------------------------------------------------------------------------- */
+
+.erh-cost__grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+	gap: var(--erh-space-16);
+	align-items: start;
+}
+
+.erh-cost__copy {
+	color: var(--erh-grey-500);
+	line-height: var(--erh-lh-loose);
+}
+
+.erh-cost__copy + .erh-cost__copy {
+	margin-top: var(--erh-space-4);
+}
+
+.erh-cost__copy + .erh-btn {
+	margin-top: var(--erh-space-8);
+}
+
+.erh-cost__panel {
+	padding: var(--erh-space-8);
+	border-radius: var(--erh-radius-lg);
+	background: var(--erh-navy);
+	color: var(--erh-on-dark-70);
+	box-shadow: var(--erh-shadow-lg);
+}
+
+.erh-cost__panel-title {
+	margin: 0 0 var(--erh-space-5);
+	color: var(--erh-white);
+	font-size: var(--erh-fs-h4);
+}
+
+.erh-cost__factors {
+	display: grid;
+	gap: var(--erh-space-2);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-size: var(--erh-fs-sm);
+}
+
+.erh-cost__factors li {
+	padding-bottom: var(--erh-space-2);
+	border-bottom: 1px solid var(--erh-hairline);
+}
+
+.erh-cost__factors li:last-child {
+	padding-bottom: 0;
+	border-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Choosing the Right Kitchen Remodeling Contractor
+   -------------------------------------------------------------------------- */
+
+.erh-contractor__grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+	gap: var(--erh-space-12);
+	align-items: start;
+}
+
+.erh-contractor__copy {
+	color: var(--erh-grey-500);
+	line-height: var(--erh-lh-loose);
+}
+
+.erh-contractor__copy p + p {
+	margin-top: var(--erh-space-4);
+}
+
+.erh-contractor__panel {
+	padding: var(--erh-space-8);
+	border: var(--erh-border);
+	border-top: var(--erh-border-accent);
+	border-radius: var(--erh-radius-lg);
+	background: var(--erh-grey-50);
+}
+
+.erh-contractor__panel-title {
+	margin: 0 0 var(--erh-space-5);
+	font-size: var(--erh-fs-h4);
+}
+
+.erh-contractor__checklist {
+	display: grid;
+	gap: var(--erh-space-3);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.erh-contractor__checklist li {
+	display: flex;
+	align-items: flex-start;
+	gap: var(--erh-space-3);
+	color: var(--erh-ink);
+	font-size: var(--erh-fs-sm);
+	font-weight: var(--erh-fw-medium);
+}
+
+.erh-contractor__tick {
+	display: grid;
+	place-items: center;
+	width: 20px;
+	height: 20px;
+	flex: 0 0 20px;
+	margin-top: 2px;
+	border-radius: var(--erh-radius-circle);
+	background: var(--erh-navy);
+	color: var(--erh-white);
+}
+
+.erh-contractor__outro {
+	max-width: 860px;
+	margin-top: var(--erh-space-10);
+	color: var(--erh-grey-500);
+	line-height: var(--erh-lh-loose);
+}
+
+.erh-contractor__outro p + p {
+	margin-top: var(--erh-space-4);
+}
+
+/* --------------------------------------------------------------------------
+   Service areas
+   -------------------------------------------------------------------------- */
+
+.erh-locations__grid {
+	display: grid;
+	gap: var(--erh-space-6);
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.erh-location-card {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: var(--erh-space-3);
+	padding: var(--erh-space-8);
+	border: var(--erh-border);
+	border-radius: var(--erh-radius-lg);
+	background: var(--erh-white);
+	box-shadow: var(--erh-shadow-sm);
+	color: inherit;
+	text-decoration: none;
+	transition: border-color var(--erh-transition), box-shadow var(--erh-transition),
+		transform var(--erh-transition);
+}
+
+a.erh-location-card:hover,
+a.erh-location-card:focus-visible {
+	border-color: var(--erh-gold);
+	box-shadow: var(--erh-shadow-md);
+	transform: translateY(-3px);
+	color: inherit;
+}
+
+.erh-location-card__pin {
+	display: grid;
+	place-items: center;
+	width: 44px;
+	height: 44px;
+	border-radius: var(--erh-radius-circle);
+	background: var(--erh-gold-10);
+	color: var(--erh-gold-dark);
+}
+
+.erh-location-card__name {
+	margin: 0;
+	font-size: var(--erh-fs-h3);
+}
+
+.erh-location-card__text {
+	margin: 0;
+	color: var(--erh-grey-500);
+	font-size: var(--erh-fs-sm);
+	line-height: var(--erh-lh-loose);
+}
+
+.erh-location-card__more {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--erh-space-2);
+	margin-top: auto;
+	padding-top: var(--erh-space-2);
+	color: var(--erh-navy);
+	font-size: var(--erh-fs-sm);
+	font-weight: var(--erh-fw-semibold);
+}
+
+a.erh-location-card:hover .erh-location-card__more,
+a.erh-location-card:focus-visible .erh-location-card__more {
+	color: var(--erh-gold-dark);
+}
+
+/* --------------------------------------------------------------------------
+   Kitchen design ideas
+   -------------------------------------------------------------------------- */
+
+.erh-ideas__grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+	gap: var(--erh-space-16);
+	align-items: center;
+}
+
+.erh-ideas__copy {
+	color: var(--erh-grey-500);
+	line-height: var(--erh-lh-loose);
+}
+
+.erh-ideas__copy + .erh-ideas__copy {
+	margin-top: var(--erh-space-4);
+}
+
+.erh-ideas__copy + .erh-btn {
+	margin-top: var(--erh-space-8);
+}
+
+.erh-ideas__gallery {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: var(--erh-space-4);
+}
+
+.erh-ideas__shot {
+	margin: 0;
+	overflow: hidden;
+	border-radius: var(--erh-radius-lg);
+	box-shadow: var(--erh-shadow-md);
+}
+
+.erh-ideas__shot img {
+	width: 100%;
+	aspect-ratio: 4 / 3;
+	object-fit: cover;
+	transition: transform var(--erh-transition-slow);
+}
+
+.erh-ideas__shot:hover img {
+	transform: scale(1.04);
+}
+
+.erh-ideas__gallery .erh-ideas__shot:nth-child(1),
+.erh-ideas__gallery .erh-ideas__shot:nth-child(4) {
+	margin-top: var(--erh-space-6);
+}
+
+/* --------------------------------------------------------------------------
+   Home page FAQ
+   -------------------------------------------------------------------------- */
+
+.erh-home-faq__grid {
+	display: grid;
+	grid-template-columns: minmax(220px, 0.72fr) minmax(0, 1.28fr);
+	gap: var(--erh-space-16);
+	align-items: start;
+}
+
+.erh-home-faq__intro {
+	position: sticky;
+	top: var(--erh-space-8);
+	margin: 0;
+	text-align: left;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+	.erh-planning__grid,
+	.erh-cost__grid,
+	.erh-ideas__grid,
+	.erh-home-faq__grid {
+		gap: var(--erh-space-10);
+	}
+}
+
+@media (max-width: 860px) {
+	.erh-planning__grid,
+	.erh-cost__grid,
+	.erh-contractor__grid,
+	.erh-ideas__grid,
+	.erh-home-faq__grid {
+		grid-template-columns: 1fr;
+		gap: var(--erh-space-8);
+	}
+
+	.erh-home-faq__intro {
+		position: static;
+		text-align: center;
+	}
+
+	.erh-scope__notes {
+		padding: var(--erh-space-5) var(--erh-space-6);
+	}
+}
+
+@media (max-width: 560px) {
+	.erh-kservice-card,
+	.erh-location-card,
+	.erh-cost__panel,
+	.erh-contractor__panel {
+		padding: var(--erh-space-6);
+	}
+
+	.erh-process-step {
+		padding: var(--erh-space-8) var(--erh-space-5) var(--erh-space-5);
+	}
+
+	.erh-ideas__gallery .erh-ideas__shot:nth-child(1),
+	.erh-ideas__gallery .erh-ideas__shot:nth-child(4) {
+		margin-top: 0;
+	}
+
+	.erh-hero__note {
+		align-items: flex-start;
+		border-radius: var(--erh-radius-md);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.erh-kservice-card,
+	.erh-location-card,
+	.erh-ideas__shot img {
+		transition: none;
+	}
+
+	a.erh-kservice-card:hover,
+	a.erh-location-card:hover,
+	.erh-ideas__shot:hover img {
+		transform: none;
+	}
+}
+
+/**
+ * Elite Remodel Hub - FAQ page.
+ */
+
+.erh-faq-content {
+	background: var(--erh-section-alt-bg);
+}
+
+.erh-faq-content__grid {
+	display: grid;
+	grid-template-columns: minmax(220px, 0.72fr) minmax(0, 1.28fr);
+	gap: var(--erh-space-16);
+	align-items: start;
+}
+
+.erh-faq-content__intro {
+	position: sticky;
+	top: var(--erh-space-8);
+}
+
+.erh-faq-list {
+	display: grid;
+	gap: var(--erh-space-3);
+}
+
+.erh-faq-item {
+	border: 1px solid var(--erh-grey-100);
+	border-radius: var(--erh-radius-md);
+	background: var(--erh-white);
+	box-shadow: var(--erh-shadow-sm);
+	overflow: hidden;
+}
+
+.erh-faq-item[open] {
+	border-color: var(--erh-gold);
+}
+
+.erh-faq-item__question {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--erh-space-5);
+	padding: var(--erh-space-5) var(--erh-space-6);
+	color: var(--erh-ink);
+	cursor: pointer;
+	font-size: var(--erh-fs-body);
+	font-weight: var(--erh-fw-semibold);
+	list-style: none;
+}
+
+.erh-faq-item__question::-webkit-details-marker {
+	display: none;
+}
+
+.erh-faq-item__question:focus-visible {
+	outline: 3px solid var(--erh-gold-20);
+	outline-offset: -3px;
+}
+
+.erh-faq-item__icon {
+	display: grid;
+	place-items: center;
+	width: 28px;
+	height: 28px;
+	flex: 0 0 28px;
+	border-radius: var(--erh-radius-circle);
+	background: var(--erh-gold-10);
+	color: var(--erh-gold-dark);
+	font-size: 1.25rem;
+	font-weight: var(--erh-fw-regular);
+	line-height: 1;
+}
+
+.erh-faq-item[open] .erh-faq-item__icon {
+	background: var(--erh-navy);
+	color: var(--erh-white);
+	transform: rotate(45deg);
+}
+
+.erh-faq-item__answer {
+	padding: 0 var(--erh-space-6) var(--erh-space-6);
+	color: var(--erh-grey-500);
+	font-size: var(--erh-fs-sm);
+	line-height: var(--erh-lh-loose);
+}
+
+.erh-faq-item__answer p {
+	margin: 0;
+}
+
+@media (max-width: 760px) {
+	.erh-faq-content__grid {
+		grid-template-columns: 1fr;
+		gap: var(--erh-space-8);
+	}
+
+	.erh-faq-content__intro {
+		position: static;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.erh-faq-item__icon {
+		transition: none;
+	}
+}
+.erh-preview-note{padding:14px 20px;background:#153A68;color:#fff;font:600 13px/1.5 Inter,system-ui,sans-serif;text-align:center}
+</style>
+</head>
+<body>
+<p class="erh-preview-note">Static preview of the rebuilt homepage &mdash; header, footer and real photography are supplied by WordPress.</p>
+<main class="erh-site-main erh-home">
+<section class="erh-hero" id="hero">
+
+	<div class="erh-container erh-hero__inner">
+
+		<div class="erh-hero__content">
+
+			<h1 class="erh-heading">Kitchen Remodeling Services Built <span class="erh-heading__accent">Around Your Home</span></h1>
+							<p class="erh-hero__text">Elite Remodel Hub helps homeowners plan and complete kitchen remodeling projects with better layouts, practical storage, updated surfaces, and carefully selected finishes.</p>
+			
+							<p class="erh-hero__text">From full kitchen remodeling to cabinet refacing, countertop installation, kitchen islands, and small kitchen upgrades, each project starts with the existing space and the homeowner’s remodeling goals.</p>
+			
+							<p class="erh-hero__note">
+					<span class="erh-hero__note-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" class="erh-icon erh-icon--map-pin" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/></svg></span>
+					<span>Kitchen remodeling services are available across California, Oregon, Florida, and Washington.</span>
+				</p>
+			
+							<a class="erh-btn erh-btn--navy erh-btn--lg" href="#contact">
+					Get a Free Kitchen Remodeling Estimate				</a>
+			
+		</div>
+
+	</div>
+
+					<div class="erh-hero__gallery" role="region" aria-roledescription="carousel" aria-label="Recent remodeling work">
+
+			<div class="owl-carousel erh-hero-owl" id="erh-hero-owl">
+														<div class="erh-hero__gallery-item" role="group" aria-roledescription="slide" aria-label="1 of 5">
+						<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNjAwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IiI+Cgk8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iI0YzRjZGQSIvPgoJPHN2ZyB4PSIzNDAiIHk9IjI0MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSIxMjAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjQTlCOEMyIiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj4KCQk8cGF0aCBkPSJNMTUgOGguMDEiLz4KCQk8cGF0aCBkPSJNNCA0bTAgM2EzIDMgMCAwIDEgMyAtM2gxMGEzIDMgMCAwIDEgMyAzdjEwYTMgMyAwIDAgMSAtMyAzaC0xMGEzIDMgMCAwIDEgLTMgLTN6Ii8+CgkJPHBhdGggZD0iTTQgMTVsNCAtNGEzIDUgMCAwIDEgMyAwbDUgNSIvPgoJCTxwYXRoIGQ9Ik0xNCAxNGwxIC0xYTMgNSAwIDAgMSAzIDBsMiAyIi8+Cgk8L3N2Zz4KPC9zdmc+Cg==" alt="" loading="eager" decoding="async">
+					</div>
+														<div class="erh-hero__gallery-item" role="group" aria-roledescription="slide" aria-label="2 of 5">
+						<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNjAwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IiI+Cgk8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iI0YzRjZGQSIvPgoJPHN2ZyB4PSIzNDAiIHk9IjI0MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSIxMjAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjQTlCOEMyIiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj4KCQk8cGF0aCBkPSJNMTUgOGguMDEiLz4KCQk8cGF0aCBkPSJNNCA0bTAgM2EzIDMgMCAwIDEgMyAtM2gxMGEzIDMgMCAwIDEgMyAzdjEwYTMgMyAwIDAgMSAtMyAzaC0xMGEzIDMgMCAwIDEgLTMgLTN6Ii8+CgkJPHBhdGggZD0iTTQgMTVsNCAtNGEzIDUgMCAwIDEgMyAwbDUgNSIvPgoJCTxwYXRoIGQ9Ik0xNCAxNGwxIC0xYTMgNSAwIDAgMSAzIDBsMiAyIi8+Cgk8L3N2Zz4KPC9zdmc+Cg==" alt="" loading="lazy" decoding="async">
+					</div>
+														<div class="erh-hero__gallery-item" role="group" aria-roledescription="slide" aria-label="3 of 5">
+						<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNjAwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IiI+Cgk8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iI0YzRjZGQSIvPgoJPHN2ZyB4PSIzNDAiIHk9IjI0MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSIxMjAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjQTlCOEMyIiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj4KCQk8cGF0aCBkPSJNMTUgOGguMDEiLz4KCQk8cGF0aCBkPSJNNCA0bTAgM2EzIDMgMCAwIDEgMyAtM2gxMGEzIDMgMCAwIDEgMyAzdjEwYTMgMyAwIDAgMSAtMyAzaC0xMGEzIDMgMCAwIDEgLTMgLTN6Ii8+CgkJPHBhdGggZD0iTTQgMTVsNCAtNGEzIDUgMCAwIDEgMyAwbDUgNSIvPgoJCTxwYXRoIGQ9Ik0xNCAxNGwxIC0xYTMgNSAwIDAgMSAzIDBsMiAyIi8+Cgk8L3N2Zz4KPC9zdmc+Cg==" alt="" loading="lazy" decoding="async">
+					</div>
+														<div class="erh-hero__gallery-item" role="group" aria-roledescription="slide" aria-label="4 of 5">
+						<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNjAwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IiI+Cgk8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iI0YzRjZGQSIvPgoJPHN2ZyB4PSIzNDAiIHk9IjI0MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSIxMjAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjQTlCOEMyIiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj4KCQk8cGF0aCBkPSJNMTUgOGguMDEiLz4KCQk8cGF0aCBkPSJNNCA0bTAgM2EzIDMgMCAwIDEgMyAtM2gxMGEzIDMgMCAwIDEgMyAzdjEwYTMgMyAwIDAgMSAtMyAzaC0xMGEzIDMgMCAwIDEgLTMgLTN6Ii8+CgkJPHBhdGggZD0iTTQgMTVsNCAtNGEzIDUgMCAwIDEgMyAwbDUgNSIvPgoJCTxwYXRoIGQ9Ik0xNCAxNGwxIC0xYTMgNSAwIDAgMSAzIDBsMiAyIi8+Cgk8L3N2Zz4KPC9zdmc+Cg==" alt="" loading="lazy" decoding="async">
+					</div>
+														<div class="erh-hero__gallery-item" role="group" aria-roledescription="slide" aria-label="5 of 5">
+						<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNjAwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IiI+Cgk8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iI0YzRjZGQSIvPgoJPHN2ZyB4PSIzNDAiIHk9IjI0MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSIxMjAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjQTlCOEMyIiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj4KCQk8cGF0aCBkPSJNMTUgOGguMDEiLz4KCQk8cGF0aCBkPSJNNCA0bTAgM2EzIDMgMCAwIDEgMyAtM2gxMGEzIDMgMCAwIDEgMyAzdjEwYTMgMyAwIDAgMSAtMyAzaC0xMGEzIDMgMCAwIDEgLTMgLTN6Ii8+CgkJPHBhdGggZD0iTTQgMTVsNCAtNGEzIDUgMCAwIDEgMyAwbDUgNSIvPgoJCTxwYXRoIGQ9Ik0xNCAxNGwxIC0xYTMgNSAwIDAgMSAzIDBsMiAyIi8+Cgk8L3N2Zz4KPC9zdmc+Cg==" alt="" loading="lazy" decoding="async">
+					</div>
+							</div>
+
+							<div class="erh-hero__gallery-dots" id="erh-hero-gallery-dots" aria-label="Gallery slides"></div>
+					</div>
+	
+</section>
+<section class="erh-about erh-section" id="about">
+	<div class="erh-container erh-about__grid">
+
+		<div class="erh-about__media">
+			<div class="erh-about__media-main">
+									<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNjAwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IiI+Cgk8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iI0YzRjZGQSIvPgoJPHN2ZyB4PSIzNDAiIHk9IjI0MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSIxMjAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjQTlCOEMyIiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj4KCQk8cGF0aCBkPSJNMTUgOGguMDEiLz4KCQk8cGF0aCBkPSJNNCA0bTAgM2EzIDMgMCAwIDEgMyAtM2gxMGEzIDMgMCAwIDEgMyAzdjEwYTMgMyAwIDAgMSAtMyAzaC0xMGEzIDMgMCAwIDEgLTMgLTN6Ii8+CgkJPHBhdGggZD0iTTQgMTVsNCAtNGEzIDUgMCAwIDEgMyAwbDUgNSIvPgoJCTxwYXRoIGQ9Ik0xNCAxNGwxIC0xYTMgNSAwIDAgMSAzIDBsMiAyIi8+Cgk8L3N2Zz4KPC9zdmc+Cg==" alt="" loading="lazy" decoding="async">
+							</div>
+			<div class="erh-about__media-stack">
+				<div class="erh-about__media-small">
+											<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNjAwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IiI+Cgk8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iI0YzRjZGQSIvPgoJPHN2ZyB4PSIzNDAiIHk9IjI0MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSIxMjAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjQTlCOEMyIiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj4KCQk8cGF0aCBkPSJNMTUgOGguMDEiLz4KCQk8cGF0aCBkPSJNNCA0bTAgM2EzIDMgMCAwIDEgMyAtM2gxMGEzIDMgMCAwIDEgMyAzdjEwYTMgMyAwIDAgMSAtMyAzaC0xMGEzIDMgMCAwIDEgLTMgLTN6Ii8+CgkJPHBhdGggZD0iTTQgMTVsNCAtNGEzIDUgMCAwIDEgMyAwbDUgNSIvPgoJCTxwYXRoIGQ9Ik0xNCAxNGwxIC0xYTMgNSAwIDAgMSAzIDBsMiAyIi8+Cgk8L3N2Zz4KPC9zdmc+Cg==" alt="" loading="lazy" decoding="async">
+									</div>
+				<div class="erh-about__media-small">
+											<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNjAwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IiI+Cgk8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iI0YzRjZGQSIvPgoJPHN2ZyB4PSIzNDAiIHk9IjI0MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSIxMjAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjQTlCOEMyIiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj4KCQk8cGF0aCBkPSJNMTUgOGguMDEiLz4KCQk8cGF0aCBkPSJNNCA0bTAgM2EzIDMgMCAwIDEgMyAtM2gxMGEzIDMgMCAwIDEgMyAzdjEwYTMgMyAwIDAgMSAtMyAzaC0xMGEzIDMgMCAwIDEgLTMgLTN6Ii8+CgkJPHBhdGggZD0iTTQgMTVsNCAtNGEzIDUgMCAwIDEgMyAwbDUgNSIvPgoJCTxwYXRoIGQ9Ik0xNCAxNGwxIC0xYTMgNSAwIDAgMSAzIDBsMiAyIi8+Cgk8L3N2Zz4KPC9zdmc+Cg==" alt="" loading="lazy" decoding="async">
+									</div>
+			</div>
+		</div>
+
+		<div class="erh-about__content">
+
+			<p class="erh-eyebrow">Kitchen Remodeling</p>
+			<h2 class="erh-heading">Complete Kitchen Remodeling <span class="erh-heading__accent">Solutions</span></h2>
+							<p class="erh-about__copy">A successful kitchen remodel improves more than appearance. The right remodeling plan can improve storage, preparation space, lighting, appliance placement, seating, and movement throughout the kitchen.</p>
+								<p class="erh-about__copy">Elite Remodel Hub helps homeowners explore remodeling solutions based on the kitchen’s existing condition, layout, available space, project scope, and budget.</p>
+								<p class="erh-about__copy">A targeted project may update cabinets and countertops while preserving the existing layout. A full kitchen remodel can coordinate cabinetry, countertops, flooring, lighting, plumbing, electrical work, appliances, storage, and layout changes as part of one project.</p>
+								<p class="erh-about__copy">The goal remains the same: create a kitchen that works better for the household using the space every day.</p>
+				
+							<a class="erh-btn erh-btn--navy" href="http://localhost/kitchen-remodeling/">
+					Explore Kitchen Remodeling				</a>
+			
+		</div>
+
+	</div>
+</section>
+<section class="erh-kservices erh-section" id="kitchen-services">
+	<div class="erh-container">
+
+		<div class="erh-section-head">
+			<p class="erh-eyebrow">Our Services</p>			<h2 class="erh-heading">Explore Our Kitchen <span class="erh-heading__accent">Remodeling Services</span></h2>										<p class="erh-section-head__text">Kitchen remodeling projects vary from focused upgrades to complete transformations. Elite Remodel Hub covers the major services homeowners may need throughout the remodeling process.</p>
+					</div>
+
+					<div class="erh-kservices__grid">
+									<a class="erh-kservice-card" href="http://localhost/kitchen-remodeling/">						<span class="erh-kservice-card__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="erh-icon erh-icon--hammer" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14.5 5.5l4 4l-9.9 9.9c-.965 .965 -2.828 .612 -4.16 -.72c-1.331 -1.33 -1.684 -3.195 -.72 -4.159z"/><path d="M12 8.5l4 -4c.965 -.965 2.828 -.612 4.16 .72c1.331 1.33 1.684 3.195 .72 4.159l-4 4"/></svg></span>
+						<h3 class="erh-kservice-card__title">Kitchen Remodeling</h3>
+													<p class="erh-kservice-card__text">Full kitchen remodeling can transform an outdated or inefficient kitchen through coordinated design and construction. Depending on project scope, remodeling can include demolition, cabinets, countertops, flooring, backsplash, lighting, plumbing fixtures, electrical updates, appliance placement, storage, painting, and layout modifications.</p>
+																			<span class="erh-kservice-card__more">
+								Kitchen remodeling								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" class="erh-icon erh-icon--arrow-right" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l14 0"/><path d="M13 18l6 -6"/><path d="M13 6l6 6"/></svg>							</span>
+											</a>									<a class="erh-kservice-card" href="http://localhost/kitchen-cabinet-refacing/">						<span class="erh-kservice-card__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="erh-icon erh-icon--paint-roller" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 3h12v6h-12z"/><path d="M7 9v9a2 2 0 0 0 4 0v-2a2 2 0 0 1 4 0v2"/><path d="M17 6h3v4h-3z"/></svg></span>
+						<h3 class="erh-kservice-card__title">Kitchen Cabinet Refacing</h3>
+													<p class="erh-kservice-card__text">Kitchen cabinet refacing updates existing cabinets without automatically replacing the entire cabinet system. New doors, drawer fronts, exterior finishes, and hardware can change the appearance of structurally suitable cabinets while preserving a functional existing layout.</p>
+																			<span class="erh-kservice-card__more">
+								Kitchen cabinet refacing								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" class="erh-icon erh-icon--arrow-right" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l14 0"/><path d="M13 18l6 -6"/><path d="M13 6l6 6"/></svg>							</span>
+											</a>									<a class="erh-kservice-card" href="http://localhost/countertop-installation/">						<span class="erh-kservice-card__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="erh-icon erh-icon--ruler" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 4h16v6h-16z"/><path d="M8 4v3"/><path d="M12 4v3"/><path d="M16 4v3"/><path d="M4 15h16v6h-16z"/><path d="M8 15v3"/></svg></span>
+						<h3 class="erh-kservice-card__title">Countertop Installation</h3>
+													<p class="erh-kservice-card__text">Countertops affect preparation space, maintenance requirements, and the overall kitchen design. Kitchen countertop installation can include quartz, granite, and other surface options selected according to durability, maintenance preferences, appearance, and budget.</p>
+																			<span class="erh-kservice-card__more">
+								Kitchen countertop installation								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" class="erh-icon erh-icon--arrow-right" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l14 0"/><path d="M13 18l6 -6"/><path d="M13 6l6 6"/></svg>							</span>
+											</a>									<a class="erh-kservice-card" href="http://localhost/kitchen-island-installation/">						<span class="erh-kservice-card__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="erh-icon erh-icon--home" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l-2 0l9 -9l9 9l-2 0"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"/><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"/></svg></span>
+						<h3 class="erh-kservice-card__title">Kitchen Island Installation</h3>
+													<p class="erh-kservice-card__text">A kitchen island can add preparation space, cabinets, drawers, seating, electrical access, or appliance space. Kitchen island installation starts with available floor space and appropriate clearance around surrounding cabinets, appliances, and walkways.</p>
+																			<span class="erh-kservice-card__more">
+								Kitchen island installation								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" class="erh-icon erh-icon--arrow-right" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l14 0"/><path d="M13 18l6 -6"/><path d="M13 6l6 6"/></svg>							</span>
+											</a>									<a class="erh-kservice-card" href="http://localhost/small-kitchen-remodeling/">						<span class="erh-kservice-card__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="erh-icon erh-icon--sparkles" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v4"/><path d="M12 17v4"/><path d="M3 12h4"/><path d="M17 12h4"/><path d="M6 6l2 2"/><path d="M16 6l-2 2"/><path d="M6 18l2 -2"/><path d="M16 18l-2 -2"/></svg></span>
+						<h3 class="erh-kservice-card__title">Small Kitchen Remodeling</h3>
+													<p class="erh-kservice-card__text">Limited square footage makes every design decision more important. Small kitchen remodeling can improve storage, counter space, lighting, appliance placement, and movement through better use of the existing footprint.</p>
+																			<span class="erh-kservice-card__more">
+								Small kitchen remodeling								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" class="erh-icon erh-icon--arrow-right" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l14 0"/><path d="M13 18l6 -6"/><path d="M13 6l6 6"/></svg>							</span>
+											</a>									<a class="erh-kservice-card" href="http://localhost/kitchen-design/">						<span class="erh-kservice-card__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="erh-icon erh-icon--target" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/><path d="M12 12m-5 0a5 5 0 1 0 10 0a5 5 0 1 0 -10 0"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/></svg></span>
+						<h3 class="erh-kservice-card__title">Kitchen Design</h3>
+													<p class="erh-kservice-card__text">A functional kitchen design connects cabinets, countertops, appliances, storage, lighting, seating, and work areas. Kitchen design planning helps establish those relationships before material selection and construction begin.</p>
+																			<span class="erh-kservice-card__more">
+								Kitchen design								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" class="erh-icon erh-icon--arrow-right" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l14 0"/><path d="M13 18l6 -6"/><path d="M13 6l6 6"/></svg>							</span>
+											</a>							</div>
+		
+	</div>
+</section>
+<section class="erh-scope erh-section" id="remodel-scope">
+	<div class="erh-container">
+
+		<div class="erh-section-head">
+			<p class="erh-eyebrow">Project Scope</p>			<h2 class="erh-heading">What Can a Kitchen Remodel Include?</h2>										<p class="erh-section-head__text">Kitchen remodeling can involve individual improvements or multiple components completed as one coordinated project. The project scope may include:</p>
+					</div>
+
+					<ul class="erh-scope__list">
+														<li class="erh-scope__item">
+						<span class="erh-scope__tick" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" class="erh-icon erh-icon--check" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l5 5l10 -10"/></svg></span>
+						<span>Kitchen cabinets and storage</span>
+					</li>
+														<li class="erh-scope__item">
+						<span class="erh-scope__tick" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" class="erh-icon erh-icon--check" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l5 5l10 -10"/></svg></span>
+						<span>Cabinet refacing</span>
+					</li>
+														<li class="erh-scope__item">
+						<span class="erh-scope__tick" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" class="erh-icon erh-icon--check" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l5 5l10 -10"/></svg></span>
+						<span>Quartz and granite countertops</span>
+					</li>
+														<li class="erh-scope__item">
+						<span class="erh-scope__tick" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" class="erh-icon erh-icon--check" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l5 5l10 -10"/></svg></span>
+						<span>Kitchen islands</span>
+					</li>
+														<li class="erh-scope__item">
+						<span class="erh-scope__tick" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" class="erh-icon erh-icon--check" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l5 5l10 -10"/></svg></span>
+						<span>Backsplash</span>
+					</li>
+														<li class="erh-scope__item">
+						<span class="erh-scope__tick" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" class="erh-icon erh-icon--check" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l5 5l10 -10"/></svg></span>
+						<span>Flooring</span>
+					</li>
+														<li class="erh-scope__item">
+						<span class="erh-scope__tick" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" class="erh-icon erh-icon--check" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l5 5l10 -10"/></svg></span>
+						<span>Sinks and plumbing fixtures</span>
+					</li>
+														<li class="erh-scope__item">
+						<span class="erh-scope__tick" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" class="erh-icon erh-icon--check" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l5 5l10 -10"/></svg></span>
+						<span>Lighting</span>
+					</li>
+														<li class="erh-scope__item">
+						<span class="erh-scope__tick" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" class="erh-icon erh-icon--check" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l5 5l10 -10"/></svg></span>
+						<span>Electrical updates</span>
+					</li>
+														<li class="erh-scope__item">
+						<span class="erh-scope__tick" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" class="erh-icon erh-icon--check" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l5 5l10 -10"/></svg></span>
+						<span>Appliance placement</span>
+					</li>
+														<li class="erh-scope__item">
+						<span class="erh-scope__tick" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" class="erh-icon erh-icon--check" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l5 5l10 -10"/></svg></span>
+						<span>Pantry storage</span>
+					</li>
+														<li class="erh-scope__item">
+						<span class="erh-scope__tick" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" class="erh-icon erh-icon--check" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l5 5l10 -10"/></svg></span>
+						<span>Painting and finishes</span>
+					</li>
+														<li class="erh-scope__item">
+						<span class="erh-scope__tick" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" class="erh-icon erh-icon--check" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l5 5l10 -10"/></svg></span>
+						<span>Galley kitchen layouts</span>
+					</li>
+														<li class="erh-scope__item">
+						<span class="erh-scope__tick" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" class="erh-icon erh-icon--check" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l5 5l10 -10"/></svg></span>
+						<span>L-shaped and U-shaped layouts</span>
+					</li>
+														<li class="erh-scope__item">
+						<span class="erh-scope__tick" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" class="erh-icon erh-icon--check" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l5 5l10 -10"/></svg></span>
+						<span>Open-concept layouts</span>
+					</li>
+							</ul>
+		
+					<div class="erh-scope__notes">
+									<p>Larger projects can also require plumbing relocation, electrical changes, ventilation work, wall modifications, or other structural changes.</p>
+													<p>A clearly defined scope helps homeowners coordinate design decisions, materials, construction requirements, budget, and scheduling before remodeling work begins.</p>
+							</div>
+		
+	</div>
+</section>
+<section class="erh-planning erh-section" id="planning">
+	<div class="erh-container erh-planning__grid">
+
+		<div class="erh-planning__intro">
+			<p class="erh-eyebrow">Planning First</p>			<h2 class="erh-heading">Kitchen Remodeling That Starts With <span class="erh-heading__accent">Better Planning</span></h2>
+										<p class="erh-planning__lead">New finishes cannot solve every kitchen problem.</p>
+			
+							<p class="erh-planning__copy">Remodeling creates an opportunity to identify these problems before choosing cabinets, countertops, colors, or fixtures. Kitchen planning considers how storage, food preparation, cooking, cleaning, appliances, seating, and walking paths interact within the available space.</p>
+								<p class="erh-planning__copy">Some kitchens can retain the existing footprint. Other kitchens benefit from a revised layout that changes cabinet placement, work surfaces, appliances, or connections with adjoining rooms.</p>
+						</div>
+
+					<ul class="erh-planning__list">
+														<li class="erh-planning-card">
+						<span class="erh-planning-card__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" class="erh-icon erh-icon--ruler" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 4h16v6h-16z"/><path d="M8 4v3"/><path d="M12 4v3"/><path d="M16 4v3"/><path d="M4 15h16v6h-16z"/><path d="M8 15v3"/></svg></span>
+						<span class="erh-planning-card__text">A kitchen with limited preparation space may need a different counter configuration.</span>
+					</li>
+														<li class="erh-planning-card">
+						<span class="erh-planning-card__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" class="erh-icon erh-icon--tool" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 10h3v-3l-3.5 -3.5a6 6 0 0 1 8 8l6 6a2 2 0 0 1 -3 3l-6 -6a6 6 0 0 1 -8 -8l3.5 3.5"/></svg></span>
+						<span class="erh-planning-card__text">Poorly positioned cabinets can create unused storage areas.</span>
+					</li>
+														<li class="erh-planning-card">
+						<span class="erh-planning-card__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" class="erh-icon erh-icon--home" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l-2 0l9 -9l9 9l-2 0"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"/><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"/></svg></span>
+						<span class="erh-planning-card__text">An oversized island can restrict movement.</span>
+					</li>
+														<li class="erh-planning-card">
+						<span class="erh-planning-card__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" class="erh-icon erh-icon--sparkles" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v4"/><path d="M12 17v4"/><path d="M3 12h4"/><path d="M17 12h4"/><path d="M6 6l2 2"/><path d="M16 6l-2 2"/><path d="M6 18l2 -2"/><path d="M16 18l-2 -2"/></svg></span>
+						<span class="erh-planning-card__text">Inadequate lighting can make cooking and cleaning areas harder to use.</span>
+					</li>
+							</ul>
+		
+	</div>
+</section>
+<section class="erh-process erh-section" id="process">
+	<div class="erh-container">
+
+		<div class="erh-section-head">
+			<p class="erh-eyebrow">How It Works</p>			<h2 class="erh-heading">Our Kitchen Remodeling <span class="erh-heading__accent">Process</span></h2>										<p class="erh-section-head__text">A defined process helps homeowners understand how a kitchen moves from an existing room to a completed remodel.</p>
+					</div>
+
+					<ol class="erh-process__list">
+									<li class="erh-process-step">
+						<span class="erh-process-step__number">01</span>
+						<h3 class="erh-process-step__title">Kitchen Assessment</h3>
+													<p class="erh-process-step__text">The first stage identifies the kitchen’s existing condition, layout limitations, storage needs, desired improvements, project priorities, and approximate budget.</p>
+											</li>
+									<li class="erh-process-step">
+						<span class="erh-process-step__number">02</span>
+						<h3 class="erh-process-step__title">Design and Project Scope</h3>
+													<p class="erh-process-step__text">Measurements and project requirements guide the remodeling plan. Cabinetry, countertops, appliances, storage, lighting, fixtures, finishes, and applicable layout changes form the project scope.</p>
+											</li>
+									<li class="erh-process-step">
+						<span class="erh-process-step__number">03</span>
+						<h3 class="erh-process-step__title">Estimate and Material Selection</h3>
+													<p class="erh-process-step__text">The defined scope provides the basis for estimating project costs. Material selections and construction requirements help establish what the remodeling project will involve.</p>
+											</li>
+									<li class="erh-process-step">
+						<span class="erh-process-step__number">04</span>
+						<h3 class="erh-process-step__title">Remodeling and Installation</h3>
+													<p class="erh-process-step__text">Construction follows the approved project scope. Work can include demolition, plumbing, electrical work, flooring, cabinetry, countertops, backsplash, fixtures, appliances, painting, and finish installation.</p>
+											</li>
+									<li class="erh-process-step">
+						<span class="erh-process-step__number">05</span>
+						<h3 class="erh-process-step__title">Final Walkthrough</h3>
+													<p class="erh-process-step__text">The final walkthrough compares completed work with the agreed scope and identifies any remaining project items before closeout.</p>
+											</li>
+							</ol>
+		
+	</div>
+</section>
+<section class="erh-cost erh-section" id="cost">
+	<div class="erh-container erh-cost__grid">
+
+		<div class="erh-cost__content">
+			<p class="erh-eyebrow">Budget</p>			<h2 class="erh-heading">Kitchen Remodeling Costs and <span class="erh-heading__accent">Project Planning</span></h2>
+							<p class="erh-cost__copy">Kitchen remodeling does not have one standard price.</p>
+								<p class="erh-cost__copy">Kitchen size, cabinet selection, countertop material, flooring, appliances, labor, layout changes, plumbing, electrical work, structural modifications, and finish selections can all affect project costs.</p>
+								<p class="erh-cost__copy">A project that keeps the existing layout and updates cabinets or surfaces usually involves a different scope from a complete renovation that relocates plumbing, modifies walls, replaces cabinetry, and changes electrical systems.</p>
+								<p class="erh-cost__copy">Homeowners should define the desired project scope before comparing estimates. Comparable scopes make contractor proposals easier to evaluate and reduce confusion over what each estimate includes.</p>
+				
+							<a class="erh-btn erh-btn--navy" href="http://localhost/kitchen-remodeling/cost/">
+					Review the kitchen remodel cost guide				</a>
+					</div>
+
+					<aside class="erh-cost__panel">
+				<h3 class="erh-cost__panel-title">What Affects the Cost</h3>
+				<ul class="erh-cost__factors">
+																	<li>Kitchen size</li>
+																	<li>Cabinet selection</li>
+																	<li>Countertop material</li>
+																	<li>Flooring</li>
+																	<li>Appliances</li>
+																	<li>Labor</li>
+																	<li>Layout changes</li>
+																	<li>Plumbing</li>
+																	<li>Electrical work</li>
+																	<li>Structural modifications</li>
+																	<li>Finish selections</li>
+									</ul>
+			</aside>
+		
+	</div>
+</section>
+<section class="erh-contractor erh-section" id="choosing-a-contractor">
+	<div class="erh-container">
+
+		<div class="erh-section-head">
+			<p class="erh-eyebrow">Hiring</p>			<h2 class="erh-heading">Choosing the Right Kitchen Remodeling <span class="erh-heading__accent">Contractor</span></h2>		</div>
+
+		<div class="erh-contractor__grid">
+
+			<div class="erh-contractor__copy">
+									<p>A kitchen remodel can involve cabinetry, countertops, plumbing, electrical systems, flooring, appliances, and finish work. Contractor selection can directly affect how those parts of the project come together.</p>
+										<p>Homeowners should verify applicable contractor licensing and insurance and review relevant kitchen remodeling experience before signing an agreement.</p>
+								</div>
+
+							<div class="erh-contractor__panel">
+					<h3 class="erh-contractor__panel-title">A written proposal should identify</h3>
+					<ul class="erh-contractor__checklist">
+																				<li>
+								<span class="erh-contractor__tick" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" class="erh-icon erh-icon--check" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l5 5l10 -10"/></svg></span>
+								<span>The project scope</span>
+							</li>
+																				<li>
+								<span class="erh-contractor__tick" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" class="erh-icon erh-icon--check" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l5 5l10 -10"/></svg></span>
+								<span>Specified materials</span>
+							</li>
+																				<li>
+								<span class="erh-contractor__tick" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" class="erh-icon erh-icon--check" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l5 5l10 -10"/></svg></span>
+								<span>Payment terms</span>
+							</li>
+																				<li>
+								<span class="erh-contractor__tick" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" class="erh-icon erh-icon--check" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l5 5l10 -10"/></svg></span>
+								<span>Permit responsibilities</span>
+							</li>
+																				<li>
+								<span class="erh-contractor__tick" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" class="erh-icon erh-icon--check" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l5 5l10 -10"/></svg></span>
+								<span>Warranty terms</span>
+							</li>
+																				<li>
+								<span class="erh-contractor__tick" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" class="erh-icon erh-icon--check" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l5 5l10 -10"/></svg></span>
+								<span>Estimated schedule</span>
+							</li>
+																				<li>
+								<span class="erh-contractor__tick" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" class="erh-icon erh-icon--check" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l5 5l10 -10"/></svg></span>
+								<span>Change-order procedures</span>
+							</li>
+											</ul>
+				</div>
+			
+		</div>
+
+					<div class="erh-contractor__outro">
+									<p>Homeowners should also compare examples of completed kitchen projects with the type and scale of renovation being planned.</p>
+										<p>Price matters, but a lower estimate does not automatically represent better value when two proposals contain different materials or scopes of work.</p>
+								</div>
+		
+	</div>
+</section>
+<section class="erh-locations erh-section" id="service-areas">
+	<div class="erh-container">
+
+		<div class="erh-section-head">
+			<p class="erh-eyebrow">Service Areas</p>			<h2 class="erh-heading">Kitchen Remodeling in California, Oregon, Florida, and Washington</h2>										<p class="erh-section-head__text">Elite Remodel Hub provides access to kitchen remodeling services across four states. Location-specific pages help homeowners explore services available within each market.</p>
+					</div>
+
+					<div class="erh-locations__grid">
+									<a class="erh-location-card" href="http://localhost/california/">						<span class="erh-location-card__pin" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" class="erh-icon erh-icon--map-pin" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/></svg></span>
+						<h3 class="erh-location-card__name">California</h3>
+													<p class="erh-location-card__text">Kitchen remodeling services in California cover full renovations, cabinet refacing, countertops, kitchen islands, and small kitchen remodeling projects.</p>
+																			<span class="erh-location-card__more">
+								Kitchen remodeling in California								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" class="erh-icon erh-icon--arrow-right" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l14 0"/><path d="M13 18l6 -6"/><path d="M13 6l6 6"/></svg>							</span>
+											</a>									<a class="erh-location-card" href="http://localhost/oregon/">						<span class="erh-location-card__pin" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" class="erh-icon erh-icon--map-pin" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/></svg></span>
+						<h3 class="erh-location-card__name">Oregon</h3>
+													<p class="erh-location-card__text">Kitchen remodeling services in Oregon support projects ranging from focused cabinet and countertop improvements to complete kitchen renovations.</p>
+																			<span class="erh-location-card__more">
+								Kitchen remodeling in Oregon								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" class="erh-icon erh-icon--arrow-right" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l14 0"/><path d="M13 18l6 -6"/><path d="M13 6l6 6"/></svg>							</span>
+											</a>									<a class="erh-location-card" href="http://localhost/florida/">						<span class="erh-location-card__pin" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" class="erh-icon erh-icon--map-pin" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/></svg></span>
+						<h3 class="erh-location-card__name">Florida</h3>
+													<p class="erh-location-card__text">Kitchen remodeling services in Florida include full kitchen renovations, cabinet updates, countertops, kitchen islands, and small kitchen transformations.</p>
+																			<span class="erh-location-card__more">
+								Kitchen remodeling in Florida								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" class="erh-icon erh-icon--arrow-right" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l14 0"/><path d="M13 18l6 -6"/><path d="M13 6l6 6"/></svg>							</span>
+											</a>									<a class="erh-location-card" href="http://localhost/washington/">						<span class="erh-location-card__pin" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" class="erh-icon erh-icon--map-pin" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/></svg></span>
+						<h3 class="erh-location-card__name">Washington</h3>
+													<p class="erh-location-card__text">Kitchen remodeling services in Washington help homeowners plan projects around existing kitchen conditions, available space, project requirements, and remodeling goals.</p>
+																			<span class="erh-location-card__more">
+								Kitchen remodeling in Washington								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" class="erh-icon erh-icon--arrow-right" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l14 0"/><path d="M13 18l6 -6"/><path d="M13 6l6 6"/></svg>							</span>
+											</a>							</div>
+		
+	</div>
+</section>
+<section class="erh-why" id="why-choose-us">
+
+			<div class="erh-why__bg" style="background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNjAwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IiI+Cgk8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iI0YzRjZGQSIvPgoJPHN2ZyB4PSIzNDAiIHk9IjI0MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSIxMjAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjQTlCOEMyIiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj4KCQk8cGF0aCBkPSJNMTUgOGguMDEiLz4KCQk8cGF0aCBkPSJNNCA0bTAgM2EzIDMgMCAwIDEgMyAtM2gxMGEzIDMgMCAwIDEgMyAzdjEwYTMgMyAwIDAgMSAtMyAzaC0xMGEzIDMgMCAwIDEgLTMgLTN6Ii8+CgkJPHBhdGggZD0iTTQgMTVsNCAtNGEzIDUgMCAwIDEgMyAwbDUgNSIvPgoJCTxwYXRoIGQ9Ik0xNCAxNGwxIC0xYTMgNSAwIDAgMSAzIDBsMiAyIi8+Cgk8L3N2Zz4KPC9zdmc+Cg==');" aria-hidden="true"></div>
+		<div class="erh-why__overlay" aria-hidden="true"></div>
+
+	<div class="erh-container erh-why__inner">
+
+		<div class="erh-why__grid">
+
+			<div class="erh-why__head">
+				<h2 class="erh-heading">Why Choose <span class="erh-heading__accent">Elite Remodel Hub?</span></h2>
+													<p class="erh-why__text">Kitchen remodeling requires decisions about design, materials, contractors, budget, and construction. Elite Remodel Hub brings those decisions into one focused remodeling resource.</p>
+							</div>
+
+																	<div class="erh-why-card">
+						<span class="erh-why-card__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="erh-icon erh-icon--tool" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 10h3v-3l-3.5 -3.5a6 6 0 0 1 8 8l6 6a2 2 0 0 1 -3 3l-6 -6a6 6 0 0 1 -8 -8l3.5 3.5"/></svg></span>
+						<h3 class="erh-why-card__title">Kitchen-Focused Services</h3>
+													<p class="erh-why-card__text">Elite Remodel Hub covers full kitchen remodeling, cabinet refacing, countertop installation, kitchen islands, small kitchen remodeling, and kitchen design.</p>
+											</div>
+														<div class="erh-why-card">
+						<span class="erh-why-card__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="erh-icon erh-icon--ruler" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 4h16v6h-16z"/><path d="M8 4v3"/><path d="M12 4v3"/><path d="M16 4v3"/><path d="M4 15h16v6h-16z"/><path d="M8 15v3"/></svg></span>
+						<h3 class="erh-why-card__title">Planning Based on the Existing Kitchen</h3>
+													<p class="erh-why-card__text">Kitchen condition, dimensions, storage, work areas, appliance placement, and layout guide the project scope before construction begins.</p>
+											</div>
+														<div class="erh-why-card erh-why-card--highlight">
+						<span class="erh-why-card__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="erh-icon erh-icon--target" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/><path d="M12 12m-5 0a5 5 0 1 0 10 0a5 5 0 1 0 -10 0"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/></svg></span>
+						<h3 class="erh-why-card__title">Options for Different Project Scopes</h3>
+													<p class="erh-why-card__text">A homeowner may need a targeted cabinet update, new countertops, additional island space, or a complete kitchen transformation. The remodeling scope can match the actual needs of the property.</p>
+											</div>
+														<div class="erh-why-card">
+						<span class="erh-why-card__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="erh-icon erh-icon--map-pin" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/></svg></span>
+						<h3 class="erh-why-card__title">Four-State Service Coverage</h3>
+													<p class="erh-why-card__text">Elite Remodel Hub serves homeowners across California, Oregon, Florida, and Washington with dedicated state and service-specific resources.</p>
+											</div>
+				
+					</div>
+	</div>
+</section><section class="erh-ideas erh-section" id="design-ideas">
+	<div class="erh-container erh-ideas__grid">
+
+		<div class="erh-ideas__content">
+			<p class="erh-eyebrow">Inspiration</p>			<h2 class="erh-heading">Kitchen Design Ideas and Real <span class="erh-heading__accent">Transformations</span></h2>
+							<p class="erh-ideas__copy">Choosing a remodeling direction becomes easier when homeowners can compare different approaches before construction.</p>
+								<p class="erh-ideas__copy">Cabinet styles, countertop materials, island configurations, storage solutions, lighting, colors, finishes, and layouts can produce very different results within the same space.</p>
+								<p class="erh-ideas__copy">Before-and-after examples can also demonstrate how changing cabinet placement, counter space, lighting, storage, or room configuration affects both appearance and function.</p>
+				
+							<a class="erh-btn erh-btn--gold" href="http://localhost/kitchen-remodel-before-after/">
+					Explore kitchen remodel before and after projects				</a>
+					</div>
+
+					<div class="erh-ideas__gallery">
+														<figure class="erh-ideas__shot">
+						<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNjAwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IiI+Cgk8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iI0YzRjZGQSIvPgoJPHN2ZyB4PSIzNDAiIHk9IjI0MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSIxMjAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjQTlCOEMyIiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj4KCQk8cGF0aCBkPSJNMTUgOGguMDEiLz4KCQk8cGF0aCBkPSJNNCA0bTAgM2EzIDMgMCAwIDEgMyAtM2gxMGEzIDMgMCAwIDEgMyAzdjEwYTMgMyAwIDAgMSAtMyAzaC0xMGEzIDMgMCAwIDEgLTMgLTN6Ii8+CgkJPHBhdGggZD0iTTQgMTVsNCAtNGEzIDUgMCAwIDEgMyAwbDUgNSIvPgoJCTxwYXRoIGQ9Ik0xNCAxNGwxIC0xYTMgNSAwIDAgMSAzIDBsMiAyIi8+Cgk8L3N2Zz4KPC9zdmc+Cg==" alt="" loading="lazy" decoding="async">
+					</figure>
+														<figure class="erh-ideas__shot">
+						<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNjAwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IiI+Cgk8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iI0YzRjZGQSIvPgoJPHN2ZyB4PSIzNDAiIHk9IjI0MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSIxMjAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjQTlCOEMyIiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj4KCQk8cGF0aCBkPSJNMTUgOGguMDEiLz4KCQk8cGF0aCBkPSJNNCA0bTAgM2EzIDMgMCAwIDEgMyAtM2gxMGEzIDMgMCAwIDEgMyAzdjEwYTMgMyAwIDAgMSAtMyAzaC0xMGEzIDMgMCAwIDEgLTMgLTN6Ii8+CgkJPHBhdGggZD0iTTQgMTVsNCAtNGEzIDUgMCAwIDEgMyAwbDUgNSIvPgoJCTxwYXRoIGQ9Ik0xNCAxNGwxIC0xYTMgNSAwIDAgMSAzIDBsMiAyIi8+Cgk8L3N2Zz4KPC9zdmc+Cg==" alt="" loading="lazy" decoding="async">
+					</figure>
+														<figure class="erh-ideas__shot">
+						<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNjAwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IiI+Cgk8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iI0YzRjZGQSIvPgoJPHN2ZyB4PSIzNDAiIHk9IjI0MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSIxMjAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjQTlCOEMyIiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj4KCQk8cGF0aCBkPSJNMTUgOGguMDEiLz4KCQk8cGF0aCBkPSJNNCA0bTAgM2EzIDMgMCAwIDEgMyAtM2gxMGEzIDMgMCAwIDEgMyAzdjEwYTMgMyAwIDAgMSAtMyAzaC0xMGEzIDMgMCAwIDEgLTMgLTN6Ii8+CgkJPHBhdGggZD0iTTQgMTVsNCAtNGEzIDUgMCAwIDEgMyAwbDUgNSIvPgoJCTxwYXRoIGQ9Ik0xNCAxNGwxIC0xYTMgNSAwIDAgMSAzIDBsMiAyIi8+Cgk8L3N2Zz4KPC9zdmc+Cg==" alt="" loading="lazy" decoding="async">
+					</figure>
+														<figure class="erh-ideas__shot">
+						<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNjAwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IiI+Cgk8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iI0YzRjZGQSIvPgoJPHN2ZyB4PSIzNDAiIHk9IjI0MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSIxMjAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjQTlCOEMyIiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj4KCQk8cGF0aCBkPSJNMTUgOGguMDEiLz4KCQk8cGF0aCBkPSJNNCA0bTAgM2EzIDMgMCAwIDEgMyAtM2gxMGEzIDMgMCAwIDEgMyAzdjEwYTMgMyAwIDAgMSAtMyAzaC0xMGEzIDMgMCAwIDEgLTMgLTN6Ii8+CgkJPHBhdGggZD0iTTQgMTVsNCAtNGEzIDUgMCAwIDEgMyAwbDUgNSIvPgoJCTxwYXRoIGQ9Ik0xNCAxNGwxIC0xYTMgNSAwIDAgMSAzIDBsMiAyIi8+Cgk8L3N2Zz4KPC9zdmc+Cg==" alt="" loading="lazy" decoding="async">
+					</figure>
+							</div>
+		
+	</div>
+</section>
+<section class="erh-home-faq erh-section" id="faq">
+	<div class="erh-container erh-home-faq__grid">
+
+		<div class="erh-section-head erh-home-faq__intro">
+			<p class="erh-eyebrow">Good To Know</p>			<h2 class="erh-heading">Frequently Asked <span class="erh-heading__accent">Questions</span></h2>										<p class="erh-section-head__text">Answers to the questions homeowners ask most often before starting a kitchen remodel.</p>
+					</div>
+
+					<div class="erh-faq-list">
+									<details class="erh-faq-item" open>
+						<summary class="erh-faq-item__question">
+							<span>What does a kitchen remodel include?</span>
+							<span class="erh-faq-item__icon" aria-hidden="true">+</span>
+						</summary>
+						<div class="erh-faq-item__answer">
+							<p>A kitchen remodel can include cabinets, countertops, flooring, backsplash, lighting, plumbing fixtures, electrical work, appliances, storage, painting, and layout changes. The final scope depends on the existing kitchen and the homeowner’s remodeling goals.</p>						</div>
+					</details>
+									<details class="erh-faq-item">
+						<summary class="erh-faq-item__question">
+							<span>How much does a kitchen remodel cost?</span>
+							<span class="erh-faq-item__icon" aria-hidden="true">+</span>
+						</summary>
+						<div class="erh-faq-item__answer">
+							<p>Kitchen remodeling costs depend on kitchen size, project scope, cabinets, countertops, appliances, flooring, labor, plumbing, electrical work, layout changes, and finish selections. Projects that retain the existing layout generally involve fewer construction requirements than complete layout transformations.</p>						</div>
+					</details>
+									<details class="erh-faq-item">
+						<summary class="erh-faq-item__question">
+							<span>How long does a kitchen remodel take?</span>
+							<span class="erh-faq-item__icon" aria-hidden="true">+</span>
+						</summary>
+						<div class="erh-faq-item__answer">
+							<p>Kitchen remodeling timelines depend on the amount of work, material availability, permit requirements, inspections, structural changes, and trade coordination. A cabinet and countertop update usually requires fewer construction stages than a full remodel involving plumbing, electrical, or structural work.</p>						</div>
+					</details>
+									<details class="erh-faq-item">
+						<summary class="erh-faq-item__question">
+							<span>How do I choose a kitchen remodeling contractor?</span>
+							<span class="erh-faq-item__icon" aria-hidden="true">+</span>
+						</summary>
+						<div class="erh-faq-item__answer">
+							<p>Check applicable licensing, insurance, relevant kitchen remodeling experience, written estimates, project scope, warranties, permit responsibilities, payment terms, and change-order procedures. Compare contractors using the same project requirements rather than price alone.</p>						</div>
+					</details>
+									<details class="erh-faq-item">
+						<summary class="erh-faq-item__question">
+							<span>Should I reface or replace kitchen cabinets?</span>
+							<span class="erh-faq-item__icon" aria-hidden="true">+</span>
+						</summary>
+						<div class="erh-faq-item__answer">
+							<p>Cabinet refacing can work when cabinet boxes remain structurally suitable and the existing layout meets the homeowner’s needs. Replacement provides more flexibility when cabinets have significant damage or the remodeling plan requires a different cabinet configuration.</p>						</div>
+					</details>
+									<details class="erh-faq-item">
+						<summary class="erh-faq-item__question">
+							<span>Do I need a permit for a kitchen remodel?</span>
+							<span class="erh-faq-item__icon" aria-hidden="true">+</span>
+						</summary>
+						<div class="erh-faq-item__answer">
+							<p>Permit requirements depend on local regulations and the work included in the remodel. Structural changes and certain electrical, plumbing, mechanical, or gas work may require permits, while some cosmetic improvements may not.</p>						</div>
+					</details>
+							</div>
+		
+	</div>
+
+	<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What does a kitchen remodel include?","acceptedAnswer":{"@type":"Answer","text":"A kitchen remodel can include cabinets, countertops, flooring, backsplash, lighting, plumbing fixtures, electrical work, appliances, storage, painting, and layout changes. The final scope depends on the existing kitchen and the homeowner’s remodeling goals."}},{"@type":"Question","name":"How much does a kitchen remodel cost?","acceptedAnswer":{"@type":"Answer","text":"Kitchen remodeling costs depend on kitchen size, project scope, cabinets, countertops, appliances, flooring, labor, plumbing, electrical work, layout changes, and finish selections. Projects that retain the existing layout generally involve fewer construction requirements than complete layout transformations."}},{"@type":"Question","name":"How long does a kitchen remodel take?","acceptedAnswer":{"@type":"Answer","text":"Kitchen remodeling timelines depend on the amount of work, material availability, permit requirements, inspections, structural changes, and trade coordination. A cabinet and countertop update usually requires fewer construction stages than a full remodel involving plumbing, electrical, or structural work."}},{"@type":"Question","name":"How do I choose a kitchen remodeling contractor?","acceptedAnswer":{"@type":"Answer","text":"Check applicable licensing, insurance, relevant kitchen remodeling experience, written estimates, project scope, warranties, permit responsibilities, payment terms, and change-order procedures. Compare contractors using the same project requirements rather than price alone."}},{"@type":"Question","name":"Should I reface or replace kitchen cabinets?","acceptedAnswer":{"@type":"Answer","text":"Cabinet refacing can work when cabinet boxes remain structurally suitable and the existing layout meets the homeowner’s needs. Replacement provides more flexibility when cabinets have significant damage or the remodeling plan requires a different cabinet configuration."}},{"@type":"Question","name":"Do I need a permit for a kitchen remodel?","acceptedAnswer":{"@type":"Answer","text":"Permit requirements depend on local regulations and the work included in the remodel. Structural changes and certain electrical, plumbing, mechanical, or gas work may require permits, while some cosmetic improvements may not."}}]}</script></section>
+<section class="erh-cta" id="get-started">
+
+			<div class="erh-cta__bg" style="background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNjAwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IiI+Cgk8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iI0YzRjZGQSIvPgoJPHN2ZyB4PSIzNDAiIHk9IjI0MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSIxMjAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjQTlCOEMyIiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj4KCQk8cGF0aCBkPSJNMTUgOGguMDEiLz4KCQk8cGF0aCBkPSJNNCA0bTAgM2EzIDMgMCAwIDEgMyAtM2gxMGEzIDMgMCAwIDEgMyAzdjEwYTMgMyAwIDAgMSAtMyAzaC0xMGEzIDMgMCAwIDEgLTMgLTN6Ii8+CgkJPHBhdGggZD0iTTQgMTVsNCAtNGEzIDUgMCAwIDEgMyAwbDUgNSIvPgoJCTxwYXRoIGQ9Ik0xNCAxNGwxIC0xYTMgNSAwIDAgMSAzIDBsMiAyIi8+Cgk8L3N2Zz4KPC9zdmc+Cg==');" aria-hidden="true"></div>
+		<div class="erh-cta__overlay" aria-hidden="true"></div>
+
+	<div class="erh-container erh-cta__inner">
+
+		<div class="erh-cta__content">
+							<h2 class="erh-cta__title">Start Planning Your Kitchen Remodel</h2>
+			
+							<p class="erh-cta__text">Create a kitchen with better storage, practical work areas, updated materials, and a layout designed around everyday use. Elite Remodel Hub helps homeowners explore kitchen remodeling services across California, Oregon, Florida, and Washington.</p>
+					</div>
+
+					<a class="erh-btn erh-btn--gold erh-btn--lg" href="#contact">
+				Get a Free Kitchen Remodeling Estimate			</a>
+		
+	</div>
+</section>
+
+</main>
+</body>
+</html>

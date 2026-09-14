@@ -28,7 +28,6 @@ $erh_services = new WP_Query(
 		'orderby'             => 'menu_order',
 		'order'               => 'ASC',
 		'post_parent'         => 0, // Only parent-level services
-
 		'ignore_sticky_posts' => true,
 	)
 );

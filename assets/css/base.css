@@ -240,6 +240,9 @@ td {
 	line-height: 1.4;
 	text-transform: uppercase;
 }
+.single-service .erh-eyebrow {
+	display: none;
+}
 
 .erh-heading__accent {
 	color: var(--erh-gold);
