@@ -21,6 +21,10 @@ $erh_outro = array(
 );
 
 $erh_checklist = erh_field_rows( 'contractor_checklist' );
+
+// No proposal checklist - center the copy in one column instead of splitting
+// the grid against an empty panel.
+$erh_has_checklist = ! empty( $erh_checklist );
 ?>
 <section class="erh-contractor erh-section" id="choosing-a-contractor">
 	<div class="erh-container">
@@ -36,7 +40,7 @@ $erh_checklist = erh_field_rows( 'contractor_checklist' );
 			?>
 		</div>
 
-		<div class="erh-contractor__grid">
+		<div class="erh-contractor__grid<?php echo $erh_has_checklist ? '' : ' erh-contractor__grid--centered'; ?>">
 
 			<div class="erh-contractor__copy">
 				<?php
@@ -75,7 +79,7 @@ $erh_checklist = erh_field_rows( 'contractor_checklist' );
 		</div>
 
 		<?php if ( array_filter( $erh_outro ) ) : ?>
-			<div class="erh-contractor__outro">
+			<div class="erh-contractor__outro<?php echo $erh_has_checklist ? '' : ' erh-contractor__outro--centered'; ?>">
 				<?php
 				foreach ( $erh_outro as $erh_paragraph ) :
 					if ( ! $erh_paragraph ) {

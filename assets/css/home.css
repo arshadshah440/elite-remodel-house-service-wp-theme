@@ -1133,6 +1133,16 @@ a.erh-kservice-card:focus-visible .erh-kservice-card__more {
 	align-items: start;
 }
 
+.erh-contractor__grid--centered {
+	grid-template-columns: minmax(0, 1fr);
+	justify-items: center;
+	text-align: center;
+}
+
+.erh-contractor__grid--centered .erh-contractor__copy {
+	max-width: 760px;
+}
+
 .erh-contractor__copy {
 	color: var(--erh-grey-500);
 	line-height: var(--erh-lh-loose);
@@ -1193,6 +1203,12 @@ a.erh-kservice-card:focus-visible .erh-kservice-card__more {
 
 .erh-contractor__outro p + p {
 	margin-top: var(--erh-space-4);
+}
+
+.erh-contractor__outro--centered {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
 }
 
 /* --------------------------------------------------------------------------
