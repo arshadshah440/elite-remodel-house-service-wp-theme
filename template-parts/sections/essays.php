@@ -17,6 +17,20 @@ $erh_items = erh_field_rows( 'essays_items' );
 if ( ! $erh_items ) {
 	return;
 }
+
+/**
+ * Render a field's text as HTML when it contains markup, plain escaped text otherwise.
+ *
+ * @param string $erh_text Raw field value.
+ * @return string Safe markup ready to echo.
+ */
+function erh_essay_richtext( $erh_text ) {
+	if ( $erh_text !== wp_strip_all_tags( $erh_text ) ) {
+		return wp_kses_post( $erh_text );
+	}
+
+	return esc_html( $erh_text );
+}
 ?>
 <section class="erh-essays erh-section" id="more-topics">
 	<div class="erh-container erh-container--narrow">
@@ -34,7 +48,7 @@ if ( ! $erh_items ) {
 				?>
 				<?php $erh_text = erh_field( 'essays_text' ); ?>
 				<?php if ( $erh_text ) : ?>
-					<p class="erh-section-head__text"><?php echo esc_html( $erh_text ); ?></p>
+					<p class="erh-section-head__text"><?php echo erh_essay_richtext( $erh_text ); ?></p>
 				<?php endif; ?>
 			</div>
 		<?php endif; ?>
@@ -58,7 +72,7 @@ if ( ! $erh_items ) {
 						<?php if ( 'plain' === $erh_layout ) : ?>
 							<div class="erh-essay__body"><?php echo wp_kses_post( wpautop( $erh_intro ) ); ?></div>
 						<?php else : ?>
-							<p class="erh-essay__intro"><?php echo esc_html( $erh_intro ); ?></p>
+							<p class="erh-essay__intro"><?php echo erh_essay_richtext( $erh_intro ); ?></p>
 						<?php endif; ?>
 					<?php endif; ?>
 
@@ -91,7 +105,7 @@ if ( ! $erh_items ) {
 							</div>
 						<?php endif; ?>
 						<?php if ( $erh_outro ) : ?>
-							<p class="erh-essay__outro"><em><?php echo esc_html( $erh_outro ); ?></em></p>
+							<p class="erh-essay__outro"><em><?php echo erh_essay_richtext( $erh_outro ); ?></em></p>
 						<?php endif; ?>
 
 					<?php elseif ( 'tags' === $erh_layout ) : ?>
@@ -111,7 +125,7 @@ if ( ! $erh_items ) {
 							</div>
 						<?php endif; ?>
 						<?php if ( $erh_body ) : ?>
-							<p class="erh-essay__body-text"><?php echo esc_html( $erh_body ); ?></p>
+							<p class="erh-essay__body-text"><?php echo erh_essay_richtext( $erh_body ); ?></p>
 						<?php endif; ?>
 						<?php if ( $erh_tag_link ) : ?>
 							<a class="erh-essay__link"<?php echo erh_link_attrs( $erh_tag_link ); // phpcs:ignore WordPress.Security.EscapingOutput.OutputNotEscaped -- escaped in erh_link_attrs(). ?>>
@@ -139,14 +153,14 @@ if ( ! $erh_items ) {
 									<div class="erh-essay__check">
 										<h4><?php echo esc_html( $erh_check_title ); ?></h4>
 										<?php if ( $erh_check_text ) : ?>
-											<p><?php echo esc_html( $erh_check_text ); ?></p>
+											<p><?php echo erh_essay_richtext( $erh_check_text ); ?></p>
 										<?php endif; ?>
 									</div>
 								<?php endforeach; ?>
 							</div>
 						<?php endif; ?>
 						<?php if ( $erh_outro ) : ?>
-							<p class="erh-essay__note"><strong><?php esc_html_e( 'Note:', 'elite-remodel-hub' ); ?></strong> <?php echo esc_html( $erh_outro ); ?></p>
+							<p class="erh-essay__note"><strong><?php esc_html_e( 'Note:', 'elite-remodel-hub' ); ?></strong> <?php echo erh_essay_richtext( $erh_outro ); ?></p>
 						<?php endif; ?>
 
 					<?php elseif ( 'steps' === $erh_layout ) : ?>
@@ -171,7 +185,7 @@ if ( ! $erh_items ) {
 										<div>
 											<h4><?php echo esc_html( $erh_step_title ); ?></h4>
 											<?php if ( $erh_step_text ) : ?>
-												<p><?php echo esc_html( $erh_step_text ); ?></p>
+												<p><?php echo erh_essay_richtext( $erh_step_text ); ?></p>
 											<?php endif; ?>
 										</div>
 									</li>
@@ -204,7 +218,7 @@ if ( ! $erh_items ) {
 							</dl>
 						<?php endif; ?>
 						<?php if ( $erh_outro ) : ?>
-							<p class="erh-essay__outro"><?php echo esc_html( $erh_outro ); ?></p>
+							<p class="erh-essay__outro"><?php echo erh_essay_richtext( $erh_outro ); ?></p>
 						<?php endif; ?>
 
 					<?php endif; ?>
