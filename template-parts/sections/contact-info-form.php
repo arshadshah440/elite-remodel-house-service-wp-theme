@@ -156,12 +156,33 @@ $erh_status = isset( $_GET['erh_contact'] ) ? sanitize_key( wp_unslash( $_GET['e
 					<div class="erh-form-row">
 						<div class="erh-form-field">
 							<label for="erh_phone"><?php esc_html_e( 'Phone Number', 'elite-remodel-hub' ); ?></label>
-							<input type="tel" id="erh_phone" name="erh_phone">
+							<input
+								type="tel"
+								id="erh_phone"
+								name="erh_phone"
+								inputmode="numeric"
+								autocomplete="tel"
+								placeholder="<?php esc_attr_e( '(555) 123-4567', 'elite-remodel-hub' ); ?>"
+								pattern="^\(?[0-9]{3}\)?[\s-]?[0-9]{3}-?[0-9]{4}$"
+								maxlength="14"
+								title="<?php esc_attr_e( 'Enter a valid 10-digit US phone number, e.g. (555) 123-4567', 'elite-remodel-hub' ); ?>"
+							>
 						</div>
 						<div class="erh-form-field">
 							<label for="erh_subject"><?php esc_html_e( 'Subject', 'elite-remodel-hub' ); ?></label>
 							<input type="text" id="erh_subject" name="erh_subject">
 						</div>
+					</div>
+
+					<div class="erh-form-field">
+						<label for="erh_state"><?php esc_html_e( 'Select Your State/Location', 'elite-remodel-hub' ); ?></label>
+						<select id="erh_state" name="erh_state">
+							<option value=""><?php esc_html_e( 'Select your state/location', 'elite-remodel-hub' ); ?></option>
+							<option value="oregon"><?php esc_html_e( 'Oregon', 'elite-remodel-hub' ); ?></option>
+							<option value="california"><?php esc_html_e( 'California', 'elite-remodel-hub' ); ?></option>
+							<option value="washington"><?php esc_html_e( 'Washington', 'elite-remodel-hub' ); ?></option>
+							<option value="florida"><?php esc_html_e( 'Florida', 'elite-remodel-hub' ); ?></option>
+						</select>
 					</div>
 
 					<div class="erh-form-field">

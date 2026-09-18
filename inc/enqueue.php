@@ -117,6 +117,14 @@ function erh_enqueue_assets() {
 			array( 'erh-pages' ),
 			erh_asset_version( 'assets/css/contact.css' )
 		);
+
+		wp_enqueue_script(
+			'erh-contact-form',
+			ERH_URI . 'assets/js/contact-form.js',
+			array(),
+			erh_asset_version( 'assets/js/contact-form.js' ),
+			true
+		);
 	}
 
 	// The home page carries an FAQ section of its own, so it needs the same

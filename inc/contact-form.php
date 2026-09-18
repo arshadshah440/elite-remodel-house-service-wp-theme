@@ -41,9 +41,33 @@ function erh_handle_contact_form() {
 	$erh_subject = isset( $_POST['erh_subject'] ) ? sanitize_text_field( wp_unslash( $_POST['erh_subject'] ) ) : '';
 	$erh_message = isset( $_POST['erh_message'] ) ? sanitize_textarea_field( wp_unslash( $_POST['erh_message'] ) ) : '';
 
+	$erh_state_options = array(
+		'oregon'     => __( 'Oregon', 'elite-remodel-hub' ),
+		'california' => __( 'California', 'elite-remodel-hub' ),
+		'washington' => __( 'Washington', 'elite-remodel-hub' ),
+		'florida'    => __( 'Florida', 'elite-remodel-hub' ),
+	);
+
+	$erh_state_key = isset( $_POST['erh_state'] ) ? sanitize_key( wp_unslash( $_POST['erh_state'] ) ) : '';
+	$erh_state     = isset( $erh_state_options[ $erh_state_key ] ) ? $erh_state_options[ $erh_state_key ] : '';
+
 	if ( ! $erh_name || ! is_email( $erh_email ) || ! $erh_message ) {
 		wp_safe_redirect( add_query_arg( 'erh_contact', 'error', $erh_redirect ) );
 		exit;
+	}
+
+	// Phone is optional, but when provided it must be a valid US number (10 digits, optional leading 1).
+	if ( $erh_phone ) {
+		$erh_phone_digits = preg_replace( '/\D/', '', $erh_phone );
+
+		if ( 11 === strlen( $erh_phone_digits ) && '1' === $erh_phone_digits[0] ) {
+			$erh_phone_digits = substr( $erh_phone_digits, 1 );
+		}
+
+		if ( 10 !== strlen( $erh_phone_digits ) ) {
+			wp_safe_redirect( add_query_arg( 'erh_contact', 'error', $erh_redirect ) );
+			exit;
+		}
 	}
 
 	$erh_to = erh_option( 'brand_email' );
@@ -64,6 +88,7 @@ function erh_handle_contact_form() {
 				sprintf( '%s: %s', __( 'Name', 'elite-remodel-hub' ), $erh_name ),
 				sprintf( '%s: %s', __( 'Email', 'elite-remodel-hub' ), $erh_email ),
 				$erh_phone ? sprintf( '%s: %s', __( 'Phone', 'elite-remodel-hub' ), $erh_phone ) : '',
+				$erh_state ? sprintf( '%s: %s', __( 'State/Location', 'elite-remodel-hub' ), $erh_state ) : '',
 				'',
 				$erh_message,
 			)
